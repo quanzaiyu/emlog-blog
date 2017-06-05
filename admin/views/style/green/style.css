@@ -1,0 +1,137 @@
+/*
+Style Name:绿色格调
+Author:quanzaiyu
+Url:http://www.xiaoyulive.top
+*/
+a{color:#2A9DDB;text-decoration:none;}
+a:hover{color:#333;text-decoration:none}
+#header a{color:#FFF;text-decoration:none}
+#header a:hover{color:#CCC;text-decoration:none}
+
+#header{
+	background: rgb(150,180,100);
+	color:#FFFFFF;
+	height:60px;
+	line-height: 60px;
+	position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+#header_left{
+	width:9px;
+	height:40px;
+	float:left;
+}
+#header_right{
+	width:9px;
+	height:40px;
+	float:right;
+}
+#header_logo a{
+	text-indent:-9999px;
+	height:40px;
+	width:168px;
+	background:url(./images/logo.png) no-repeat center center;
+	background-size: 125px 40px;
+	display:block;
+	outline: none;
+	float:left;
+	height: 100%;
+}
+#header_title{
+	float:left;
+	width:486px;
+	font-size: 20px;
+  font-weight: 700;
+}
+#header_menu{
+	padding:9px 10px 0px 0px;
+	float:right;
+}
+#header_menu span{margin: 0px 6px;color:#F1F1F1;}
+#header_menu img{
+	border:1px #FFFFFF solid;
+	vertical-align: middle;
+}
+
+/*侧边栏*/
+#side{
+	width:12%;
+	text-align:center;
+	position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+	background: #00b393;
+}
+#side a{
+	color:#dbfbff;
+	text-decoration:none;
+	display:block;
+}
+#side a:hover{
+	color:#e02c2c;
+	text-decoration:none;
+}
+#side a:active{
+	text-decoration:none;
+	padding:1px 0px 0px 1px;
+}
+#log_mg{
+	/* border: 1px solid #eee; */
+	padding: 4px;    
+}
+#sidebarBottom{
+	font-size:5px;
+	background:url(./images/sidebar_bg_b.gif) no-repeat bottom;
+	width:114px;height:5px}
+#side .notice_number{
+	background: url(./images/coment_numbg.gif) no-repeat 1px 1px;font-size:9px;position: relative;
+	margin-top:-32px;
+	height:30px;
+	width:20px;
+	float:right;
+	margin-right:20px;_margin-right:10px;
+}
+#side .notice_number a ,#sidebar .notice_number a:hover{
+	color:#FFFFFF;
+	height:20px;
+	font-weight:bold;
+}
+.sidebarmenu{
+	background:url(./images/sidebar_bg_a.png) center no-repeat;
+	width:114px;
+	padding-top:4px;
+	letter-spacing:0.2em;
+	height:24px;
+	cursor:pointer;
+}
+.sidebarsubmenu{
+	/* background: #eee; */
+	/* border: 1px solid #fff; */
+	padding:2px 0;
+	height:30px;
+	line-height: 30px;
+	font-size: 16px;
+	margin:auto;
+	/* border-radius: 4px; */
+	font-weight: bold;
+}
+.sidebarsubmenu1{
+	background: #027f80;
+}
+
+.page{text-align:center;margin:10px 0px;}
+.page span{
+	background-color: #CC3300;
+	color:#FFF;
+	padding:3px 6px;
+	border-radius: 4px;
+}
+.page a{
+	background-color: #68aee1;
+	color:#FFF;
+	padding:1px 5px;
+	border-radius: 4px;
+}

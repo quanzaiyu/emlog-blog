@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+					   RewriteEngine on
+					   RewriteCond %{REQUEST_FILENAME} !-f
+					   RewriteCond %{REQUEST_FILENAME} !-d
+					   RewriteBase /xiaoyulive.top/blog/
+					   RewriteRule . /xiaoyulive.top/blog/index.php [L]
+					</IfModule>
