@@ -24,7 +24,7 @@
 .like a{background:#f40;width:140px;display:block;box-shadow:0 1px 1px rgba(0,0,0,.1)}
 .share-s a{background:#ecb842;width:140px;display:block;box-shadow:0 1px 1px rgba(0,0,0,.1)}
 .social-main i{color:#fff;font-style:normal;margin:0 5px 0 0}
-.shang-p a{position:absolute;left:115px;top:-11px;background:#7ab951;width:50px;height:50px;font-size:18px;font-weight:600;line-height:46px;border:4px solid #fff;border-radius:40px}
+.shang-p a{position:absolute;z-index:100;left:115px;top:-11px;background:#7ab951;width:50px;height:50px;font-size:18px;font-weight:600;line-height:46px;border:4px solid #fff;border-radius:40px}
 .shang-main input{height:auto;max-width:100%;vertical-align:middle;display:block}
 .shang-main img{height:auto;max-width:100%;margin:0 auto;vertical-align:middle;display:block}
 .shang-main h4{text-align:center}

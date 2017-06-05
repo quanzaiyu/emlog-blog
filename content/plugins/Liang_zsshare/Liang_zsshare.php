@@ -68,11 +68,23 @@ function liang_zsshare_insert($log) {
 <input type="hidden" value="10" name="payAmount">
 <input id="title" type="hidden" value="赞助本站" name="title">
 <input type="hidden" value="请填写您的联系方式，以便答谢！" name="memo">
-<input type="image" value="赞助本站" src="http://i1.tietuku.com/39d52d451dc7221ds.png" width="280" height="100%" name="pay" title="赞助本站">
-</form>支付宝转账赞助
-<p><img width="280" height="280" src="'.$Liang_zsshare_config["zfbpr"].'" title="支付宝转账赞助" /></p>
-<p><img width="280" height="280" src="'.$Liang_zsshare_config["wxpr"].'" title="微信转账赞助" /></p>
-</p>
+<!--<input type="image" value="赞助本站" src="http://i1.tietuku.com/39d52d451dc7221ds.png" width="280" height="100%" name="pay" title="赞助本站">-->
+</form>
+<style type="text/css" media="screen">
+  .pay_card{
+    float: left;
+    margin: 0 10px;
+  }
+</style>
+<div class="pay_card">
+  支付宝转账赞助
+  <p><img width="280" height="280" src="'.$Liang_zsshare_config["zfbpr"].'" title="支付宝转账赞助" /></p>
+</div>
+<div class="pay_card">
+  微信转账赞助
+  <p><img width="280" height="280" src="'.$Liang_zsshare_config["wxpr"].'" title="微信转账赞助" /></p>
+  </p>
+</div>
 </div>
 </div>
 <div class="popup effect-fade-scale" id="popup-share">
