@@ -4,6 +4,7 @@
  */
 if(!defined('EMLOG_ROOT')) {exit('error!');} 
 ?>
+<?php doAction('down_log',$logid); ?>
 <div id="content">
 <div id="contentleft">
 

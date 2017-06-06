@@ -114,9 +114,6 @@ a:active {
 /* ------响应式 代码------ */
 /* 2560x1440px */
 @media screen and (max-width: 4096px) {
-    #bwgj_logo {
-        display:none;
-    }
 
     #wrap {
         width: 1200px;
@@ -229,6 +226,17 @@ a:active {
 
     #tw .time {
         padding-left: 96px;
+    }
+
+    #bwgj_logo {
+        display:none;
+    }
+    
+    .imgBox{
+        float: left; width: 20%; height: 100px; background: #f00;
+    }
+    #bowen_list{
+        float: left; width: 76%; margin-left: 4%;
     }
 }
 
@@ -690,6 +698,13 @@ a:active {
 @media screen and (max-width: 700px) {
     #wzlj1 {width: 60%; }
     #wzlj2 {width: 60%; }
+
+    .imgBox{
+        display: none;
+    }
+    #bowen_list{
+        width: 100%;
+    }
 }
 
 /*  650px  */
@@ -1371,7 +1386,7 @@ blockquote {
     justify-content: flex-start;
 }
 
-#bowen_list > div.date1>li{margin-right: 20px;}
+.itemBox > div.date1>li{margin-right: 20px;}
 
 #contentleft .date2 {
     color: #8c8c8c;

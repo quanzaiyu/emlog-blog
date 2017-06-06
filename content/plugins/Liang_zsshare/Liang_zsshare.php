@@ -27,7 +27,7 @@ function liang_zsshare_button($log) {
 }
 
 function liang_zsshare_footer() {
-  echo '<script type="text/javascript" src="'. BLOG_URL .'content/plugins/Liang_zsshare/liang_zsshare.js"></script>
+  echo '<script type="text/javascript" src="'. BLOG_URL .'content/plugins/Liang_zsshare/Liang_zsshare.js"></script>
   <script type="text/javascript" src="'. BLOG_URL .'content/plugins/Liang_zsshare/Liang.popup.min.js"></script>';
 }
 
@@ -124,3 +124,5 @@ function liang_zsshare_getNum($logid) {
   $arr[$logid] = intval($row['zsshare']);
   return $arr[$logid];
 }
+?>
+

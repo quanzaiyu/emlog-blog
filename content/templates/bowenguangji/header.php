@@ -62,7 +62,6 @@ a{cursor: url(<?php echo TEMPLATE_URL; ?>images/Click.ani), url(<?php echo TEMPL
 <body>
 <!-- 横幅 -->
 <div id="top_banner" class="animated fadeIn">
-
 <!-- logo -->
 <?php if (_g('bwgj_logo2') == "yes"): ?>
 <div id="bwgj_logo2">
