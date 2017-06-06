@@ -1307,10 +1307,6 @@ img {
     line-height: 2;
 }
 
-#content h1 {
-    display: none;
-}
-
 #content h2 {
     color: #3F4452;
     white-space: nowrap;
@@ -1346,7 +1342,6 @@ img {
 
 #content h2 .widgettitle {
     color: #444444;
-    font-size: 12px;
     font-weight: bold;
     margin: 25px 0px 0px 0px;
     padding: 10px 0px 10px 0px;
@@ -1354,7 +1349,6 @@ img {
 
 #content h3 {
     color: #444444;
-    font-size: 14px;
     font-weight: bold;
     margin: 15px 0px 0px 0px;
     padding: 8px 0px 8px 0px;

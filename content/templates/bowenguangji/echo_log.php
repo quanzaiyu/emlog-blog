@@ -68,8 +68,8 @@ echo gmdate('Y年n月j日 G:i', $date);echo " 星期".$weekarray[gmdate('w', $da
 <script type="text/javascript">function doZoom(size){document.getElementById('zhengwen').style.fontSize=size+'px'}</script>
     <!-- 改变字号代码结束 -->
 	
-	<!-- 日志全文内容 -->
-	<div id="zhengwen">
+	<!-- 日志全文内容 markdown展示 -->
+	<div id="zhengwen" class="markdown-body editormd-preview-container">
 		<?php echo $log_content; ?>
 		<div class="clear"></div>
 	</div>

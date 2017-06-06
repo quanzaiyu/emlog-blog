@@ -29,6 +29,8 @@ if($row != ""){
 </div>
         </div>
         <script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/editormd.min.js"></script>
+        <script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/lib/marked.min.js"></script>
+        <script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/lib/prettify.min.js"></script>
         <script type="text/javascript">
             function themeSelect(id, themes, lsKey, callback)
             {
@@ -60,7 +62,7 @@ if($row != ""){
                 return select;
             }
             
-			var testEditor;
+            var testEditor;
 
             $(function() {
                 
@@ -86,6 +88,12 @@ if($row != ""){
                     saveHTMLToTextarea : true,
                     toolbarAutoFixed : false,
                     htmlDecode : "style,script,iframe,sub,sup,embed|onclick,title,onmouseover,onmouseout,style", // Filter tags, and your custom attributes
+                        emoji : true,
+                        taskList : true,
+                        tocm     : true,
+                        tex : true,
+                        flowChart : true,
+                        sequenceDiagram : true,
                     imageUpload : true,
                     imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
                     imageUploadURL : "<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/upload/upload1.php?action=upload"

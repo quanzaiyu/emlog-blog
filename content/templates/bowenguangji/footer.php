@@ -60,11 +60,6 @@ Copyright © 2015-2017 小昱个人博客 Powered by emlog Theme by 小昱
 </div>
 <!-- 返回顶部代码 结束 -->
 
-
-
-
-
-
 <!-- 底部横幅代码开始 -->
 <?php if (_g('dibuhf') == "yes"): ?>
 	<div id="bottom_banner">
@@ -81,6 +76,11 @@ Copyright © 2015-2017 小昱个人博客 Powered by emlog Theme by 小昱
 <script>window.jQuery || document.write('<script src="<?php echo TEMPLATE_URL; ?>jcss/TweenMax.min.js">\x3C/script>')</script>
 <script src="<?php echo TEMPLATE_URL; ?>jcss/ScrollToPlugin.min.js"></script>
 <script>prettyPrint();</script>
+
+<!-- markdown -->
+<script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/editormd.min.js"></script>
+<script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/lib/marked.min.js"></script>
+<script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/lib/prettify.min.js"></script>
 
 </body>
 </html>

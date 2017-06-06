@@ -30,6 +30,7 @@ require_once View::getView('module');
 
 <?php if (_g('bwgj_cur') == "yes"): ?>
 <!-- 个性化鼠标css样式 -->
+
 <style>
 body {cursor: url(<?php echo TEMPLATE_URL; ?>images/zhizhen.ani), url(<?php echo TEMPLATE_URL; ?>images/zhizhen4.cur), auto;}
 
@@ -38,6 +39,30 @@ a{cursor: url(<?php echo TEMPLATE_URL; ?>images/Click.ani), url(<?php echo TEMPL
 </style>
 <?php endif; ?>
 
+<!-- 代码高亮 -->
+
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushBash.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCss.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPlain.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPython.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushJava.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushScala.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushSql.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushXml.js"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPerl.js"></script>
+    <link type="text/css" rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/styles/shCore.css" />
+    <link type="text/css" rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/styles/shThemeDjango.css" />
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['toolbar'] = false;  //去掉右上角问号图标
+    SyntaxHighlighter.config.tagName = 'pre';       //可以更改解析的默认Tag。
+    SyntaxHighlighter.config.bloggerMode = true; 
+    SyntaxHighlighter.config.stripBrs = true;  
+    SyntaxHighlighter.all();
+</script>
 
 <!-- css3动画库，它能让网页所有元素舞动起来，你将愛上它。 -->
 <link href="<?php echo TEMPLATE_URL; ?>jcss/csshake.min.css" rel="stylesheet">
@@ -56,20 +81,27 @@ a{cursor: url(<?php echo TEMPLATE_URL; ?>images/Click.ani), url(<?php echo TEMPL
     <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>jcss/html5_qpjk.cc.js"></script>
 <![endif]-->
 
+<!-- markdown -->
+<link rel="stylesheet" href="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/styles/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/styles/bootstrap-theme.min.css">
+<link rel="stylesheet" href="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/styles/editormd.css" />
+<link rel="stylesheet" href="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/styles/editormd.preview.css" />
+
 <?php doAction('index_head'); ?>
 </head>
 
 <body>
+
 <!-- 横幅 -->
 <div id="top_banner" class="animated fadeIn">
 <!-- logo -->
 <?php if (_g('bwgj_logo2') == "yes"): ?>
 <div id="bwgj_logo2">
-	<a href="<?php echo BLOG_URL; ?>"><img src="<?php echo TEMPLATE_URL; ?>images/logo.png" alt='小昱个人博客' title='小昱个人博客' /></a><br>
-	<!-- 副标题 -->
-	<span class="subtitle"><?php echo $bloginfo; ?></span><br><br>
-	<!-- 座右铭 -->
-	<span class="motto">勤学如春起之苗，不见其增，日有所长；辍学如磨刀之石，不见其损，日有所亏</span>
+  <a href="<?php echo BLOG_URL; ?>"><img src="<?php echo TEMPLATE_URL; ?>images/logo.png" alt='小昱个人博客' title='小昱个人博客' /></a><br>
+  <!-- 副标题 -->
+  <span class="subtitle"><?php echo $bloginfo; ?></span><br><br>
+  <!-- 座右铭 -->
+  <span class="motto">勤学如春起之苗，不见其增，日有所长；辍学如磨刀之石，不见其损，日有所亏</span>
 </div>
 <?php endif; ?>
 
@@ -82,11 +114,11 @@ a{cursor: url(<?php echo TEMPLATE_URL; ?>images/Click.ani), url(<?php echo TEMPL
 <!-- 手机端logo -->
 <div id="bwgj_logo">
 
-	<img id="nav_sj_kg" src="<?php echo TEMPLATE_URL; ?>images/caidan.png">
+  <img id="nav_sj_kg" src="<?php echo TEMPLATE_URL; ?>images/caidan.png">
 
-	<a href="/">
-		<img id="bwgj_logo_img" src="<?php echo TEMPLATE_URL; ?>images/logo.png" class="animated tada">
-	</a>
+  <a href="/">
+    <img id="bwgj_logo_img" src="<?php echo TEMPLATE_URL; ?>images/logo.png" class="animated tada">
+  </a>
 </div>
 
 
@@ -97,26 +129,26 @@ a{cursor: url(<?php echo TEMPLATE_URL; ?>images/Click.ani), url(<?php echo TEMPL
 
 <!-- 移动端导航 -->
 <div id="nav2" >
-	<div class="nav_gb"></div>
-	<?php echo blog_navi_sj();?>
+  <div class="nav_gb"></div>
+  <?php echo blog_navi_sj();?>
 </div>
 
 
 <!-- 首页公告，调用的微语数据。-->
 <?php if (_g('sygg') == "yes"): ?>
-	<?php if (blog_tool_ishome()) :?>
-		<?php echo index_t(1); ?>
-	<?php endif;?>
+  <?php if (blog_tool_ishome()) :?>
+    <?php echo index_t(1); ?>
+  <?php endif;?>
 <?php endif; ?>
 
 
 <?php if(em_is_mobile()):?>
-	<?php else:?>
-		<?php if (_g('ad_1') == "yes"): ?>
-			<!-- 广告 -->
-			<div id="ad_1" class="animated flipInX">
-			<?php echo _g('ad1_dm');?>
-			<div class="clear"></div>
-			</div>
-		<?php endif; ?>
+  <?php else:?>
+    <?php if (_g('ad_1') == "yes"): ?>
+      <!-- 广告 -->
+      <div id="ad_1" class="animated flipInX">
+      <?php echo _g('ad1_dm');?>
+      <div class="clear"></div>
+      </div>
+    <?php endif; ?>
 <?php endif; ?>
