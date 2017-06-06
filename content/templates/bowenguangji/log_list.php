@@ -50,7 +50,7 @@ foreach($logs as $value):
 	<div class="imgBox">   
 	<?php
 	$thum_src = getThumbnail($value['logid']);
-	$imgFileArray = TEMPLATE_URL.'images/random/'.rand(1,9).'.jpg';
+	$imgFileArray = TEMPLATE_URL.'images/random/'.rand(1,32).'.jpg';
 	if(!empty($thum_src)){ ?>
 	<img width="173" height="116" src="<?php echo $thum_src; ?>" alt="<?php echo $value['log_title']; ?>" title="<?php echo $value['log_title'] ?>" />
 	<?php
