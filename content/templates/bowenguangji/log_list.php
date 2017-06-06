@@ -46,8 +46,21 @@ foreach($logs as $value):
 	</div><!-- end .date1 -->
 
 	<div class="contentBox" style="overflow: hidden;;">
-		<div class="imgBox" style="">
-		</div>
+
+	<div class="imgBox">   
+	<?php
+	$thum_src = getThumbnail($value['logid']);
+	$imgFileArray = TEMPLATE_URL.'images/random/'.rand(1,9).'.jpg';
+	if(!empty($thum_src)){ ?>
+	<img width="173" height="116" src="<?php echo $thum_src; ?>" alt="<?php echo $value['log_title']; ?>" title="<?php echo $value['log_title'] ?>" />
+	<?php
+	}else{
+	?>
+	<img src="<?php echo $imgFileArray; ?>" alt="<?php echo $value['log_title']; ?>" title="<?php echo $value['log_title'] ?>" />
+	<?php
+	}
+	?>
+	</div>
 
 		<div id="bowen_list" style="">
 			<?php echo $value['log_description']; ?>   <!-- 输出日志摘要（没有摘要则输出全文 -->

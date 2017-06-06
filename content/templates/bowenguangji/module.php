@@ -5,6 +5,22 @@
 if(!defined('EMLOG_ROOT')) {exit('error!');} 
 if (!function_exists('_g')) {emMsg('<div style="color: #BA3C2E; height:50px; line-height:40px; text-align: center; font-size:20px; font-family:\5FAE\8F6F\96C5\9ED1,\5b8b\4f53;"><strong>欢迎你使用古风模板<span style="color: #EB4640;">【博闻广记免费版】</span></strong></div><div style="line-height: 2; font-size: 16px; color: #EB4640; font-family:\5FAE\8F6F\96C5\9ED1,\5b8b\4f53;"><strong>你现在无法正常使用本模板的原因：</strong><br><span style="color: #7F6856;">1、你还未安装【模板设置插件】，<a href="http://www.emlog.net/plugin/144" target="_blank">点击此处下载安装↓</a>，或登陆“后台”，進入“<strong>应用</strong>”，点“<strong>插件</strong>”找到“模板设置插件”并在线安装。</span><br><span style="color: #513529;">2、你还<strong>未启用</strong>模板设置插件，请在“<strong>后台</strong>”点“<strong>插件</strong>”，在<strong>“插件管理”</strong>中启用“<strong>模板设置插件</strong>”。</span><br><br><span style="font-size: 14px;color: #2F2114;">注：本主题由清萍剑客负责维护，如有疑问请阅读【<a href="http://www.xunzhenji.com/post-114.html" target="_blank">模板使用说明</a>】视频教程。联系QQ：1921257873</span></div>
 ', BLOG_URL . 'admin/plugin.php');}?>
+
+<?php
+ //Custom: 获取附件第一张图片
+function getThumbnail($blogid){
+ $db = MySql::getInstance();
+ $sql = "SELECT * FROM ".DB_PREFIX."attachment WHERE blogid=".$blogid." AND (`filepath` LIKE '%jpg' OR `filepath` LIKE '%gif' OR `filepath` LIKE '%png') ORDER BY `aid` ASC LIMIT 0,1";
+ //die($sql);
+ $imgs = $db->query($sql);
+ $img_path = "";
+ while($row = $db->fetch_array($imgs)){
+ $img_path .= BLOG_URL.substr($row['filepath'],3,strlen($row['filepath']));
+ }
+ return $img_path;
+ }
+ ?> 
+
 <?php
 //widget：blogger 分类
 function widget_blogger($title){
