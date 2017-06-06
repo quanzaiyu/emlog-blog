@@ -7,21 +7,6 @@ if (!function_exists('_g')) {emMsg('<div style="color: #BA3C2E; height:50px; lin
 ', BLOG_URL . 'admin/plugin.php');}?>
 
 <?php
- //Custom: 获取附件第一张图片
-function getThumbnail($blogid){
- $db = MySql::getInstance();
- $sql = "SELECT * FROM ".DB_PREFIX."attachment WHERE blogid=".$blogid." AND (`filepath` LIKE '%jpg' OR `filepath` LIKE '%gif' OR `filepath` LIKE '%png') ORDER BY `aid` ASC LIMIT 0,1";
- //die($sql);
- $imgs = $db->query($sql);
- $img_path = "";
- while($row = $db->fetch_array($imgs)){
- $img_path .= BLOG_URL.substr($row['filepath'],3,strlen($row['filepath']));
- }
- return $img_path;
- }
- ?> 
-
-<?php
 //widget：blogger 分类
 function widget_blogger($title){
 	global $CACHE;

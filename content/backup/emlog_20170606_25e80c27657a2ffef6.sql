@@ -1,5 +1,5 @@
 #version:emlog 5.3.1
-#date:2017-06-06 15:47
+#date:2017-06-06 16:49
 #tableprefix:xiaoyublog_
 DROP TABLE IF EXISTS xiaoyublog_attachment;
 CREATE TABLE `xiaoyublog_attachment` (
@@ -199,7 +199,7 @@ INSERT INTO xiaoyublog_options VALUES('59','widgets3','');
 INSERT INTO xiaoyublog_options VALUES('60','widgets4','');
 INSERT INTO xiaoyublog_options VALUES('61','yls_reg_enable','n');
 INSERT INTO xiaoyublog_options VALUES('62','kl_album_config','a:0:{}');
-INSERT INTO xiaoyublog_options VALUES('63','kl_album_info','a:1:{i:0;a:4:{s:4:\"name\";s:9:\"新相�\�\";s:11:\"description\";s:10:\"2017-06-05\";s:8:\"restrict\";s:6:\"public\";s:7:\"addtime\";i:1496659195;}}');
+INSERT INTO xiaoyublog_options VALUES('63','kl_album_info','a:1:{i:0;a:6:{s:4:\"name\";s:12:\"古风相册\";s:11:\"description\";s:84:\"谁许你一世芳华，容而未央、君子世无双、韶华倾负、美人如�\�\";s:8:\"restrict\";s:6:\"public\";s:7:\"addtime\";i:1496659195;s:3:\"pwd\";s:0:\"\";s:4:\"head\";i:8;}}');
 
 DROP TABLE IF EXISTS xiaoyublog_navi;
 CREATE TABLE `xiaoyublog_navi` (
@@ -358,7 +358,7 @@ CREATE TABLE `xiaoyublog_tpl_options_data` (
   `data` longtext NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `template` (`template`,`name`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=749 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=774 DEFAULT CHARSET=utf8;
 
 INSERT INTO xiaoyublog_tpl_options_data VALUES('235','heiseyouhuo','index_logo','','s:46:\"content/uploadfile/tpl_options//index_logo.jpg\";');
 INSERT INTO xiaoyublog_tpl_options_data VALUES('236','heiseyouhuo','side_logo','','s:47:\"content/templates/heiseyouhuo/images/photos.jpg\";');
@@ -372,31 +372,31 @@ INSERT INTO xiaoyublog_tpl_options_data VALUES('345','xiaoyu','index_baner','','
 INSERT INTO xiaoyublog_tpl_options_data VALUES('346','xiaoyu','side_zl','','s:209:\"<p>\r\n	网名：世纪的�\�\r\n</p>\r\n<p>\r\n	职业：Web前端工程师、全栈工程师\r\n</p>\r\n<p>\r\n	籍贯：云南昭通巧�\�\r\n</p>\r\n<p>\r\n	电话�\�183****9782\r\n</p>\r\n<p>\r\n	邮箱：quanzaiyu@gmail.com\r\n</p>\";');
 INSERT INTO xiaoyublog_tpl_options_data VALUES('347','xiaoyu','index_so','','s:3:\"yes\";');
 INSERT INTO xiaoyublog_tpl_options_data VALUES('348','xiaoyu','echo_so','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('724','bowenguangji','logo','','s:46:\"content/templates/bowenguangji/images/logo.png\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('725','bowenguangji','bwgj_cur','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('726','bowenguangji','bwgj_logo2','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('727','bowenguangji','nav_shouqi','','s:2:\"no\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('728','bowenguangji','sygg','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('729','bowenguangji','ad_1','','s:2:\"no\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('730','bowenguangji','ad1_dm','','s:95:\"<img src=\"http://www.xiaoyulive.top/content/templates/bowenguangji/images/ad.png\" alt=\"广告\">\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('731','bowenguangji','ad_2','','s:2:\"no\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('732','bowenguangji','ad2_dm','','s:96:\"<img src=\"http://www.xiaoyulive.top/content/templates/bowenguangji/images/ad2.png\" alt=\"广告\">\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('733','bowenguangji','sy_pinglun','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('734','bowenguangji','rz_pinglun','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('735','bowenguangji','dibuhf','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('736','bowenguangji','bowen_book','','s:8:\"/welcome\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('737','bowenguangji','xgrz-kh','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('738','bowenguangji','banquan-kh','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('739','bowenguangji','music-kh','','s:2:\"no\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('740','bowenguangji','music','','s:178:\"<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=296 height=450 src=\"http://music.163.com/outchain/player?type=1&id=3164858&auto=0&height=430\"></iframe>\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('741','bowenguangji','music-bt','','s:12:\"推荐音乐\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('742','bowenguangji','tongji-kh','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('743','bowenguangji','tjrq','','s:10:\"2014-04-24\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('744','bowenguangji','dibu_tj','','s:9:\"2015-2017\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('745','bowenguangji','ad-kh','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('746','bowenguangji','cbl_adgg','','s:733:\"<a href=\"JavaScript:;\" title=\"图片广告招租�\�50�\�1月�\�\" target=\"_blank\"><img src=\"http://localhost/xiaoyulive.top/blog/content/templates/bowenguangji/images/guanggao.gif\"></a><br>\r\n<li class=\"wzgg1\"><a href=\"JavaScript:;\" class=\"shake shake-little\" title=\"文字招租�\�1�\�10元起\" target=\"_blank\">\r\n文字招租1�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg2\"><a href=\"JavaScript:;\" title=\"文字招租�\�1�\�10元起\" target=\"_blank\">\r\n文字招租2�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg3\"><a href=\"JavaScript:;\" title=\"本广告文字招�\�\" target=\"_blank\">\r\n文字招租3�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg4\"><a href=\"JavaScript:;\" title=\"文字招租�\�1�\�10元起\">文字招租4�\�1�\�10元起</a></li>\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('747','bowenguangji','dibu-zdy','','s:368:\"<!--\r\n<a href=\"http://www.qpjk.cc/19\" title=\"喜欢本站，捐赠支持！\">捐赠支持</a>|\r\n<a href=\"http://#\" title=\"自定义链�\�\">自定义链�\�</a>|\r\n<a href=\"http://#\" title=\"自定义链接！\">自定义链�\�</a>|\r\n<a href=\"http://#\" title=\"站长到底是何方人物！�\�\">自定义链�\�</a>|\r\n-->\r\n<a href=\"m/\" title=\"手机版本\">手机版本</a>|\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('748','bowenguangji','cbl_link','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('749','bowenguangji','logo','','s:46:\"content/templates/bowenguangji/images/logo.png\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('750','bowenguangji','bwgj_cur','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('751','bowenguangji','bwgj_logo2','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('752','bowenguangji','nav_shouqi','','s:2:\"no\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('753','bowenguangji','sygg','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('754','bowenguangji','ad_1','','s:2:\"no\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('755','bowenguangji','ad1_dm','','s:95:\"<img src=\"http://www.xiaoyulive.top/content/templates/bowenguangji/images/ad.png\" alt=\"广告\">\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('756','bowenguangji','ad_2','','s:2:\"no\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('757','bowenguangji','ad2_dm','','s:96:\"<img src=\"http://www.xiaoyulive.top/content/templates/bowenguangji/images/ad2.png\" alt=\"广告\">\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('758','bowenguangji','sy_pinglun','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('759','bowenguangji','rz_pinglun','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('760','bowenguangji','dibuhf','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('761','bowenguangji','bowen_book','','s:8:\"/welcome\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('762','bowenguangji','xgrz-kh','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('763','bowenguangji','banquan-kh','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('764','bowenguangji','music-kh','','s:2:\"no\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('765','bowenguangji','music','','s:178:\"<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=296 height=450 src=\"http://music.163.com/outchain/player?type=1&id=3164858&auto=0&height=430\"></iframe>\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('766','bowenguangji','music-bt','','s:12:\"推荐音乐\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('767','bowenguangji','tongji-kh','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('768','bowenguangji','tjrq','','s:10:\"2014-04-24\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('769','bowenguangji','dibu_tj','','s:9:\"2015-2017\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('770','bowenguangji','ad-kh','','s:2:\"no\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('771','bowenguangji','cbl_adgg','','s:733:\"<a href=\"JavaScript:;\" title=\"图片广告招租�\�50�\�1月�\�\" target=\"_blank\"><img src=\"http://localhost/xiaoyulive.top/blog/content/templates/bowenguangji/images/guanggao.gif\"></a><br>\r\n<li class=\"wzgg1\"><a href=\"JavaScript:;\" class=\"shake shake-little\" title=\"文字招租�\�1�\�10元起\" target=\"_blank\">\r\n文字招租1�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg2\"><a href=\"JavaScript:;\" title=\"文字招租�\�1�\�10元起\" target=\"_blank\">\r\n文字招租2�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg3\"><a href=\"JavaScript:;\" title=\"本广告文字招�\�\" target=\"_blank\">\r\n文字招租3�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg4\"><a href=\"JavaScript:;\" title=\"文字招租�\�1�\�10元起\">文字招租4�\�1�\�10元起</a></li>\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('772','bowenguangji','dibu-zdy','','s:368:\"<!--\r\n<a href=\"http://www.qpjk.cc/19\" title=\"喜欢本站，捐赠支持！\">捐赠支持</a>|\r\n<a href=\"http://#\" title=\"自定义链�\�\">自定义链�\�</a>|\r\n<a href=\"http://#\" title=\"自定义链接！\">自定义链�\�</a>|\r\n<a href=\"http://#\" title=\"站长到底是何方人物！�\�\">自定义链�\�</a>|\r\n-->\r\n<a href=\"m/\" title=\"手机版本\">手机版本</a>|\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('773','bowenguangji','cbl_link','','s:3:\"yes\";');
 
 DROP TABLE IF EXISTS xiaoyublog_kl_album;
 CREATE TABLE `xiaoyublog_kl_album` (
@@ -409,10 +409,32 @@ CREATE TABLE `xiaoyublog_kl_album` (
   `w` smallint(5) NOT NULL DEFAULT '0',
   `h` smallint(5) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
-INSERT INTO xiaoyublog_kl_album VALUES('1','03.png','../content/plugins/kl_album/upload/201706/thum-9a11768d2c2eea7c331011b06a7d4eb2201706051915451292292854.png','2017-06-05','1496659195','1496661345','100','75');
-INSERT INTO xiaoyublog_kl_album VALUES('2','012.png','../content/plugins/kl_album/upload/201706/thum-b87e47157502b85496141a4fd2b38b7020170605192040673074689.png','2017-06-05','1496659195','1496661640','100','88');
+INSERT INTO xiaoyublog_kl_album VALUES('4','3f78b88cb79a8024!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-866684fbd18d47f5263eeff698eef1a5201706061646391472347859.jpg','2017-06-06','1496659195','1496738799','77','100');
+INSERT INTO xiaoyublog_kl_album VALUES('3','2fb4e1eacb20b765!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-5ddf0b0027827485d492b859f4ba29bb201706061646391241446161.jpg','2017-06-06','1496659195','1496738799','71','100');
+INSERT INTO xiaoyublog_kl_album VALUES('5','4e5ec23ac748614d!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-c878b0815f165d0ecc73fdbf804c36b7201706061646401101307636.jpg','2017-06-06','1496659195','1496738800','71','100');
+INSERT INTO xiaoyublog_kl_album VALUES('6','7e7faca777fd708a!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-f2f7a2bd6fb4fe4227e924794e781ae3201706061646401989900453.jpg','2017-06-06','1496659195','1496738800','100','80');
+INSERT INTO xiaoyublog_kl_album VALUES('7','8e7e08d0acf15c31!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-3b9c99840ab94447ef2a397146817c72201706061646401755529237.jpg','2017-06-06','1496659195','1496738800','77','100');
+INSERT INTO xiaoyublog_kl_album VALUES('8','17ffbe3012aa411d!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-4193a72ebd6883a42dad0d76bd47b05e201706061646411678241810.jpg','2017-06-06','1496659195','1496738801','77','100');
+INSERT INTO xiaoyublog_kl_album VALUES('9','52e4fbef1a335597!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-8f63afdf962c287291e2b03e4985f60f20170606164641181126668.jpg','2017-06-06','1496659195','1496738801','77','100');
+INSERT INTO xiaoyublog_kl_album VALUES('10','90e5d6b07044e4db!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-5f76fd5371ea82055bb71441966f8fe220170606164641281028022.jpg','2017-06-06','1496659195','1496738802','47','100');
+INSERT INTO xiaoyublog_kl_album VALUES('11','303d6423bd95c9a7!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-142985338445ae65c17f2c31edd332ba201706061646421579970830.jpg','2017-06-06','1496659195','1496738802','71','100');
+INSERT INTO xiaoyublog_kl_album VALUES('12','546c5399872f256a!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-c202f4cf6a593951ece2a4c66648aa3620170606164642319644453.jpg','2017-06-06','1496659195','1496738802','77','100');
+INSERT INTO xiaoyublog_kl_album VALUES('13','891aa99efe3a74ed!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-484ebcd710eb8cf387eeae275367222e201706061646421713410288.jpg','2017-06-06','1496659195','1496738802','100','100');
+INSERT INTO xiaoyublog_kl_album VALUES('14','9407f3da3421f2aa!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-82a7b5eccb3957943215a03e5d98c3c5201706061646431007260129.jpg','2017-06-06','1496659195','1496738803','71','100');
+INSERT INTO xiaoyublog_kl_album VALUES('15','9700ac39d24ad45e!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-2f200907f564be78dc08f31bea495f81201706061646431294082307.jpg','2017-06-06','1496659195','1496738803','71','100');
+INSERT INTO xiaoyublog_kl_album VALUES('16','1460273f339747e8!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-82de59e0ad186491eb7faef84f0f677f201706061646431450083424.jpg','2017-06-06','1496659195','1496738803','100','100');
+INSERT INTO xiaoyublog_kl_album VALUES('17','a406c2584b688214!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-3f24f65cfcd311c4151c7b50af750951201706061646432008086378.jpg','2017-06-06','1496659195','1496738803','81','100');
+INSERT INTO xiaoyublog_kl_album VALUES('18','aa7f6508787bf4bb!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-3b48f96162519de6c15d1a4d9951bc27201706061646431276859353.jpg','2017-06-06','1496659195','1496738804','77','100');
+INSERT INTO xiaoyublog_kl_album VALUES('19','b0b92f25391c648e!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-a98403a38b366be6fa1de0101a48d3fa201706061646441641906809.jpg','2017-06-06','1496659195','1496738804','90','100');
+INSERT INTO xiaoyublog_kl_album VALUES('20','bc2b701773e1eed4!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-2c7ee31b96bfb8fc3b04fa13adf6af9d20170606164644219008741.jpg','2017-06-06','1496659195','1496738804','56','100');
+INSERT INTO xiaoyublog_kl_album VALUES('21','ce218f9923d1b07f!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-6138865269eeb3150cfaaa6387b0cbae201706061646451808676681.jpg','2017-06-06','1496659195','1496738805','100','100');
+INSERT INTO xiaoyublog_kl_album VALUES('22','cf9906ef1e802287!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-c88bdc5e9e23e92ce00f9ed8b3df0b5a20170606164645703079715.jpg','2017-06-06','1496659195','1496738805','79','100');
+INSERT INTO xiaoyublog_kl_album VALUES('23','d7d88abc210093a8!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-914560d5e33af18f2b26fd46810dc275201706061646451342605471.jpg','2017-06-06','1496659195','1496738805','71','100');
+INSERT INTO xiaoyublog_kl_album VALUES('24','d95f2c6635578eea!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-be0786d0c3b0867e71553a1196e6d23120170606164645457482295.jpg','2017-06-06','1496659195','1496738805','69','100');
+INSERT INTO xiaoyublog_kl_album VALUES('25','f4c28f6162a3fbee!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-061a0ccf50d1c7be4ad90bec33bbcae9201706061646461704717505.jpg','2017-06-06','1496659195','1496738806','77','100');
+INSERT INTO xiaoyublog_kl_album VALUES('26','f759e57b8c2ace92!600x600.jpg','../content/plugins/kl_album/upload/201706/thum-c42fda712d7004b16df66ddd07dcd4ad201706061646461927460327.jpg','2017-06-06','1496659195','1496738806','61','100');
 
 
 #the end of backup
