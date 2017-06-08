@@ -233,7 +233,7 @@ a:active {
     }
     
     .imgBox{
-        float: left; width: 20%; height: 100px; background: #f00;
+        float: left; width: 20%; height: 100px; 
     }
     #bowen_list{
         float: left; width: 76%; margin-left: 4%;

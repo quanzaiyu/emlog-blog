@@ -2,6 +2,6 @@
 					   RewriteEngine on
 					   RewriteCond %{REQUEST_FILENAME} !-f
 					   RewriteCond %{REQUEST_FILENAME} !-d
-					   RewriteBase /xiaoyulive.top/blog/
-					   RewriteRule . /xiaoyulive.top/blog/index.php [L]
+					   RewriteBase /www.xiaoyulive.top/
+					   RewriteRule . /www.xiaoyulive.top/index.php [L]
 					</IfModule>
