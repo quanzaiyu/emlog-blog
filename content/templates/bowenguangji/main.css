@@ -3069,6 +3069,7 @@ textarea#comment:focus {
     width: 276px;
     margin: 0 auto;
     text-align: center;
+    opacity: 1!important;
 }
 
 #fenlei_biaoti {
