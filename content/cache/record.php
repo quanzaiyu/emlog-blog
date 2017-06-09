@@ -1,1 +1,1 @@
-<?php exit;//a:1:{i:0;a:3:{s:6:"record";s:11:"2016年6月";s:4:"date";s:6:"201606";s:6:"lognum";i:1;}}
+<?php exit;//a:2:{i:0;a:3:{s:6:"record";s:11:"2017年5月";s:4:"date";s:6:"201705";s:6:"lognum";i:5;}i:1;a:3:{s:6:"record";s:11:"2016年6月";s:4:"date";s:6:"201606";s:6:"lognum";i:4;}}

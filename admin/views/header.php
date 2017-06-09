@@ -90,10 +90,6 @@
             <li class="sidebarsubmenu" id="menu_page"><a href="page.php" >页面</a></li>
             <li class="sidebarsubmenu" id="menu_link"><a href="link.php">链接</a></li>
             <li class="sidebarsubmenu" id="menu_user"><a href="user.php" >用户</a></li>
-        </ul>
-
-        <ul class="list_box">
-            <span class="title_box" data-show="false">功能扩展</span>
             <li class="sidebarsubmenu" id="menu_data"><a href="data.php">数据</a></li>
             <li class="sidebarsubmenu" id="menu_tpl"><a href="template.php">模板</a></li>
             <?php if (!empty($emHooks['adm_sidebar_ext'])): ?>
