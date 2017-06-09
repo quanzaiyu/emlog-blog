@@ -24,7 +24,7 @@ require_once View::getView('module');
 <meta name="generator" content="小昱之家 xiaoyulive.top">
 
 <!-- 引用百度cdn公共库网站托管的Jquery，不成功则使用本地Jquery。 -->
-<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script>!window.jQuery && document.write('<script src="<?php echo TEMPLATE_URL; ?>jcss/jquery-1.11.1.min.js"><\/script >');</script>
 <link href="<?php echo TEMPLATE_URL; ?>main.css" rel="stylesheet">
 
@@ -39,30 +39,9 @@ a{cursor: url(<?php echo TEMPLATE_URL; ?>images/Click.ani), url(<?php echo TEMPL
 </style>
 <?php endif; ?>
 
-<!-- 代码高亮 -->
-
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shCore.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushBash.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCss.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCSharp.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushJScript.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPlain.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPython.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushJava.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushScala.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushSql.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushXml.js"></script>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPerl.js"></script>
-    <link type="text/css" rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/styles/shCore.css" />
-    <link type="text/css" rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/styles/shThemeDjango.css" />
-<script type="text/javascript">
-    SyntaxHighlighter.defaults['toolbar'] = false;  //去掉右上角问号图标
-    SyntaxHighlighter.config.tagName = 'pre';       //可以更改解析的默认Tag。
-    SyntaxHighlighter.config.bloggerMode = true; 
-    SyntaxHighlighter.config.stripBrs = true;  
-    SyntaxHighlighter.all();
-</script>
+<!-- markdown -->
+<script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/editormd.min.js"></script>
+<link rel="stylesheet" href="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/styles/editormd.css" />
 
 <!-- css3动画库，它能让网页所有元素舞动起来，你将愛上它。 -->
 <link href="<?php echo TEMPLATE_URL; ?>jcss/csshake.min.css" rel="stylesheet">
@@ -78,14 +57,40 @@ a{cursor: url(<?php echo TEMPLATE_URL; ?>images/Click.ani), url(<?php echo TEMPL
 <script src="<?php echo BLOG_URL; ?>include/lib/js/common_tpl.js"></script>
 
 <!--[if lt IE 9]>
-    <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>jcss/html5_qpjk.cc.js"></script>
+    <script src="<?php echo TEMPLATE_URL; ?>jcss/html5_qpjk.cc.js"></script>
 <![endif]-->
 
-<!-- markdown -->
-<link rel="stylesheet" href="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/styles/bootstrap.min.css">
-<link rel="stylesheet" href="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/styles/bootstrap-theme.min.css">
-<link rel="stylesheet" href="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/styles/editormd.css" />
-<link rel="stylesheet" href="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/styles/editormd.preview.css" />
+
+<!-- 代码高亮 -->
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shCore.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPlain.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushScala.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushSql.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPerl.js"></script>
+<link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/styles/shCore.css" />
+<link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/styles/shThemeEclipse.css" />
+
+<script>
+  $(function(){
+    var str = document.getElementById("zhengwen").innerHTML; 
+    var txt = str.replace(/lang-/g,"brush: ");
+    document.getElementById("zhengwen").innerHTML = txt;
+  })
+
+  SyntaxHighlighter.defaults['toolbar'] = false;  //去掉右上角问号图标
+  SyntaxHighlighter.config.tagName = 'code';       //可以更改解析的默认Tag。
+  SyntaxHighlighter.config.bloggerMode = true; 
+  SyntaxHighlighter.config.stripBrs = true;  
+  SyntaxHighlighter.all();
+</script>
 
 <?php doAction('index_head'); ?>
 </head>

@@ -29,8 +29,6 @@ if($row != ""){
 </div>
         </div>
         <script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/editormd.min.js"></script>
-        <script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/lib/marked.min.js"></script>
-        <script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/lib/prettify.min.js"></script>
         <script type="text/javascript">
             function themeSelect(id, themes, lsKey, callback)
             {

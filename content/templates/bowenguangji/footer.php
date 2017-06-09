@@ -9,9 +9,9 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 
 <div id="footerbar" data-kui-anim="fadeInUp">
 <div id="dibu">
-	<a id="gotop" href="javascript:void(0);">返回顶部</a>|
-	<a href="<?php echo BLOG_URL; ?>">首页</a>|
-	<a href="<?php echo rand_log(); ?>">碰碰手气</a>|
+  <a id="gotop" href="javascript:void(0);">返回顶部</a>|
+  <a href="<?php echo BLOG_URL; ?>">首页</a>|
+  <a href="<?php echo rand_log(); ?>">碰碰手气</a>|
 <?php echo _g('dibu-zdy');?>
 <a href="<?php echo BLOG_URL; ?>admin/" class="hint--left hint--error" data-hint="站长的后花园，闲人止步！ ^_^" target='_blank'>后花园</a>
 
@@ -33,7 +33,7 @@ Copyright © 2015-2017 小昱个人博客 Powered by emlog Theme by 小昱
 
 <!-- 底部友情链接 -->
 <?php if (_g('cbl_link') == "yes"): ?>
-	<div id="link2"><?php index_link();?></div>
+  <div id="link2"><?php index_link();?></div>
 <?php endif; ?>
 
 
@@ -44,27 +44,27 @@ Copyright © 2015-2017 小昱个人博客 Powered by emlog Theme by 小昱
 
 <!-- 返回顶部代码开始 -->
 <div id="shangxia" class="animated bounceInUp">
-	<div id="shang"></div>
+  <div id="shang"></div>
 
-	<?php if (blog_tool_ishome() || $tws || $tag || $record || $sortName) :?>
-	<div id="comt">
-	<a class="hint--left hint--bounce" data-hint="去留言" href="<?php echo _g('bowen_book');?>"><img src="<?php echo TEMPLATE_URL; ?>images/kongbai.png"></a>
-	</div>
-	<?php endif; ?>
+  <?php if (blog_tool_ishome() || $tws || $tag || $record || $sortName) :?>
+  <div id="comt">
+  <a class="hint--left hint--bounce" data-hint="去留言" href="<?php echo _g('bowen_book');?>"><img src="<?php echo TEMPLATE_URL; ?>images/kongbai.png"></a>
+  </div>
+  <?php endif; ?>
 
-	<?php if ($logid) :?>
-	<div id="comt"></div>
-	<?php endif; ?>
+  <?php if ($logid) :?>
+  <div id="comt"></div>
+  <?php endif; ?>
 
-	<div id="xia"></div>
+  <div id="xia"></div>
 </div>
 <!-- 返回顶部代码 结束 -->
 
 <!-- 底部横幅代码开始 -->
 <?php if (_g('dibuhf') == "yes"): ?>
-	<div id="bottom_banner">
-		<img src="<?php echo TEMPLATE_URL; ?>images/dibuhengfu.png">
-	</div>
+  <div id="bottom_banner">
+    <img src="<?php echo TEMPLATE_URL; ?>images/dibuhengfu.png">
+  </div>
 <?php endif; ?> 
 <!-- 底部横幅代码结束 -->
 
@@ -76,11 +76,5 @@ Copyright © 2015-2017 小昱个人博客 Powered by emlog Theme by 小昱
 <script>window.jQuery || document.write('<script src="<?php echo TEMPLATE_URL; ?>jcss/TweenMax.min.js">\x3C/script>')</script>
 <script src="<?php echo TEMPLATE_URL; ?>jcss/ScrollToPlugin.min.js"></script>
 <script>prettyPrint();</script>
-
-<!-- markdown -->
-<script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/editormd.min.js"></script>
-<script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/lib/marked.min.js"></script>
-<script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/lib/prettify.min.js"></script>
-
 </body>
 </html>

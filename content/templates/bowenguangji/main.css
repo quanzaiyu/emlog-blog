@@ -1045,10 +1045,11 @@ img {
 
 #nav .bar .item {
     height: 38px;
+    width: 120px;
+    text-align: center;
     line-height: 38px;
     display: block;
     float: left;
-    padding: 0 22px;
     position: relative;
     background-image: url(images/shuxian.gif);
     background-repeat: repeat-y;
@@ -3511,6 +3512,8 @@ left: 10px;
 
 #zhengwen {
     transition: all 0.5s;
+    width: 95%;
+    border-radius: 20px;
 }
 
 /* 评论 */
