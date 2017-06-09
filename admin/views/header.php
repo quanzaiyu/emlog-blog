@@ -36,7 +36,7 @@
         <img src="<?php echo empty($user_cache[UID]['avatar']) ? './views/images/avatar.jpg' : '../' . $user_cache[UID]['avatar'] ?>" align="top" width="20" height="20" />
     </a><span>|</span>
     <?php if (ROLE == ROLE_ADMIN):?>
-    <a href="./blogger.php"> 设置</a><span>|</span>
+    <a href="./configure.php"> 设置</a><span>|</span>
     <?php endif;?>
     <a href="./?action=logout">退出</a>
     </div>
