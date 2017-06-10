@@ -9,21 +9,21 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 <!-- 随机音乐 -->
 <?php if (_g('music-kh') == "yes"): ?>
 <div id="music" data-kui-anim="fadeInUp">
-	<div id="music_biaoti">
-		<span><?php echo _g('music-bt');?></span>
-	</div>
-	<div id="music_bfq"><?php echo _g('music');?></div>
+  <div id="music_biaoti">
+    <span><?php echo _g('music-bt');?></span>
+  </div>
+  <div id="music_bfq"><?php echo _g('music');?></div>
 </div>
 <?php endif; ?> 
 
 <!-- 头像 -->
 <div class="avatar">
-	<a href="<?php echo BLOG_URL.'welcome'; ?>" target="_blank" >
-		<img src="<?php echo TEMPLATE_URL.'images/avatar.png'; ?>" alt="关于我" title='关于我'>
-	</a>
-	<div class="cover">
-		关于我
-	</div>
+  <a href="<?php echo BLOG_URL.'welcome'; ?>" target="_blank" >
+    <img src="<?php echo TEMPLATE_URL.'images/avatar1.jpg'; ?>" alt="关于我" title='关于我'>
+  </a>
+  <div class="cover">
+    关于我
+  </div>
 </div>
 
 <!-- 加载插件 -->
@@ -32,24 +32,24 @@ $widgets = !empty($options_cache['widgets1']) ? unserialize($options_cache['widg
 doAction('diff_side');
 foreach ($widgets as $val)
 {
-	$widget_title = @unserialize($options_cache['widget_title']);
-	$custom_widget = @unserialize($options_cache['custom_widget']);
-	if(strpos($val, 'custom_wg_') === 0)
-	{
-		$callback = 'widget_custom_text';
-		if(function_exists($callback))
-		{
-			call_user_func($callback, htmlspecialchars($custom_widget[$val]['title']), $custom_widget[$val]['content']);
-		}
-	}else{
-		$callback = 'widget_'.$val;
-		if(function_exists($callback))
-		{
-			preg_match("/^.*\s\((.*)\)/", $widget_title[$val], $matchs);
-			$wgTitle = isset($matchs[1]) ? $matchs[1] : $widget_title[$val];
-			call_user_func($callback, htmlspecialchars($wgTitle));
-		}
-	}
+  $widget_title = @unserialize($options_cache['widget_title']);
+  $custom_widget = @unserialize($options_cache['custom_widget']);
+  if(strpos($val, 'custom_wg_') === 0)
+  {
+    $callback = 'widget_custom_text';
+    if(function_exists($callback))
+    {
+      call_user_func($callback, htmlspecialchars($custom_widget[$val]['title']), $custom_widget[$val]['content']);
+    }
+  }else{
+    $callback = 'widget_'.$val;
+    if(function_exists($callback))
+    {
+      preg_match("/^.*\s\((.*)\)/", $widget_title[$val], $matchs);
+      $wgTitle = isset($matchs[1]) ? $matchs[1] : $widget_title[$val];
+      call_user_func($callback, htmlspecialchars($wgTitle));
+    }
+  }
 }
 ?>
 
@@ -88,9 +88,9 @@ else{echo '<li>站长今日很勤快，更新了<span id="hongsezi" class="shake
 <?php if (_g('ad-kh') == "yes"): ?>
 <!-- 广告 -->
 <div id="cbl_gg" data-kui-anim="fadeInUp">
-	<div class="gg_nr">
-		<?php echo _g('cbl_adgg');?>
-	</div>
+  <div class="gg_nr">
+    <?php echo _g('cbl_adgg');?>
+  </div>
 </div>
 <?php endif; ?>
 

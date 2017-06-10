@@ -1,0 +1,531 @@
+
+
+<style>
+  #daodream-launcher{
+    top: 20px!important;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ThinkPHP - 小昱个人博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit"> <!-- 默认用极速核 -->
+<meta http-equiv="Cache-Control" content="no-siteapp"> <!-- 禁止百度转码 -->
+<meta name="keywords" content="全在昱,小昱,小昱个人网站,小昱个人博客,小昱之家">
+<meta name="description" content="小昱的个人博客，欢迎大家访问！">
+<meta name="generator" content="小昱之家 xiaoyulive.top">
+
+<!-- 引用百度cdn公共库网站托管的Jquery，不成功则使用本地Jquery。 -->
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/jquery-1.11.1.min.js"><\/script >');</script>
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/main.css" rel="stylesheet">
+
+<!-- 个性化鼠标css样式 -->
+
+<style>
+body {cursor: url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen.ani), url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen4.cur), auto;}
+
+a{cursor: url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/Click.ani), url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen3.cur), auto;} 
+#shang, #comt, #xia {cursor: url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/Click.ani), url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen3.cur), auto;}
+</style>
+
+<!-- markdown -->
+<script src="http://localhost/www.xiaoyulive.top/content/plugins/emlog_markdown/scripts/editormd.min.js"></script>
+<link rel="stylesheet" href="http://localhost/www.xiaoyulive.top/content/plugins/emlog_markdown/styles/editormd.css" />
+
+<!-- css3动画库，它能让网页所有元素舞动起来，你将愛上它。 -->
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/csshake.min.css" rel="stylesheet">
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/animate.min.css" rel="stylesheet">
+
+<!-- 工具提示css -->
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/hint.min.css" rel="stylesheet">
+
+<script src="http://localhost/www.xiaoyulive.top/include/lib/js/common_tpl.js"></script>
+
+<!--[if lt IE 9]>
+    <script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/html5_qpjk.cc.js"></script>
+<![endif]-->
+
+
+
+
+<link href="http://localhost/www.xiaoyulive.top/content/plugins/Liang_zsshare/Liang.popup.min.css" rel="stylesheet" type="text/css"><link type="text/css" href="http://localhost/www.xiaoyulive.top/content/plugins/gbook/style/gbook_front.css" rel="stylesheet" /><script type="text/javascript" src="http://localhost/www.xiaoyulive.top/content/plugins/gbook/style/gbook_front.js"></script></head>
+
+<body>
+<!-- 横幅 -->
+<div id="top_banner" class="animated fadeIn">
+<!-- logo -->
+<div id="bwgj_logo2">
+  <a href="http://localhost/www.xiaoyulive.top/"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/logo.png" alt='小昱个人博客' title='小昱个人博客' /></a><br>
+  <!-- 副标题 -->
+  <span class="subtitle">欢迎来到小昱的世界</span><br><br>
+  <!-- 座右铭 -->
+  <span class="motto">勤学如春起之苗，不见其增，日有所长；辍学如磨刀之石，不见其损，日有所亏</span>
+</div>
+
+<img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/bg/top_banner29.jpg">
+
+</div>
+
+
+<!-- 手机端logo -->
+<div id="bwgj_logo">
+
+  <img id="nav_sj_kg" src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/caidan.png">
+
+  <a href="/">
+    <img id="bwgj_logo_img" src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/logo.png" class="animated tada">
+  </a>
+</div>
+
+
+<div id="wrap">
+
+<!-- PC端导航菜单 -->
+<div id="nav">  <ul class="bar">
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/"  class="chaffle_none" data-lang="zh">首页</a>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/t"  class="chaffle_none" data-lang="zh">微语</a>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/index.php?plugin=kl_album"  class="chaffle_none" data-lang="zh">相册</a>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1/index.html"  class="chaffle_none" data-lang="zh">前端</a>
+            <ul class="sub-nav animated flipInY">
+        <li><a href="http://localhost/www.xiaoyulive.top/sort/category1-1/index.html" class="chaffle_none" data-lang="zh">HTML+CSS</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-2/index.html" class="chaffle_none" data-lang="zh">HTML5</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-3/index.html" class="chaffle_none" data-lang="zh">CSS3</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-12/index.html" class="chaffle_none" data-lang="zh">JavaScript</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-4/index.html" class="chaffle_none" data-lang="zh">jQuery</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-5/index.html" class="chaffle_none" data-lang="zh">Bootstrap</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-6/index.html" class="chaffle_none" data-lang="zh">移动端</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-7/index.html" class="chaffle_none" data-lang="zh">自动构建</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-8/index.html" class="chaffle_none" data-lang="zh">Vue</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-9/index.html" class="chaffle_none" data-lang="zh">Angular</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-10/index.html" class="chaffle_none" data-lang="zh">React</a></li>      </ul>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html"  class="chaffle_none" data-lang="zh">运维</a>
+            <ul class="sub-nav animated flipInY">
+        <li><a href="http://localhost/www.xiaoyulive.top/sort/category5-1/index.html" class="chaffle_none" data-lang="zh">阿里云</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html" class="chaffle_none" data-lang="zh">Linux</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-3/index.html" class="chaffle_none" data-lang="zh">Windows</a></li>      </ul>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9/index.html"  class="chaffle_none" data-lang="zh">博文</a>
+            <ul class="sub-nav animated flipInY">
+        <li><a href="http://localhost/www.xiaoyulive.top/sort/category9-1/index.html" class="chaffle_none" data-lang="zh">心语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-2/index.html" class="chaffle_none" data-lang="zh">美文</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-3/index.html" class="chaffle_none" data-lang="zh">禅语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-4/index.html" class="chaffle_none" data-lang="zh">摘录</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-5/index.html" class="chaffle_none" data-lang="zh">日志</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-6/index.html" class="chaffle_none" data-lang="zh">动态</a></li>      </ul>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="?plugin=gbook" target="_blank" class="chaffle_none" data-lang="zh">留言</a>
+      
+      
+    </li>
+        </ul>
+</div>
+
+<!-- 移动端导航 -->
+<div id="nav2" >
+  <div class="nav_gb"></div>
+    <ul class="bar">
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/" >首页</a>
+      
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/t" >微语</a>
+      
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/index.php?plugin=kl_album" >相册</a>
+      
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1/index.html" >前端</a>
+                  <ul class="sub-nav">
+                <li><a href="http://localhost/www.xiaoyulive.top/sort/category1-1/index.html">HTML+CSS</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-2/index.html">HTML5</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-3/index.html">CSS3</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-12/index.html">JavaScript</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-4/index.html">jQuery</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-5/index.html">Bootstrap</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-6/index.html">移动端</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-7/index.html">自动构建</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-8/index.html">Vue</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-9/index.html">Angular</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-10/index.html">React</a></li>      </ul>
+            
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html" >运维</a>
+                  <ul class="sub-nav">
+                <li><a href="http://localhost/www.xiaoyulive.top/sort/category5-1/index.html">阿里云</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html">Linux</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-3/index.html">Windows</a></li>      </ul>
+            
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9/index.html" >博文</a>
+                  <ul class="sub-nav">
+                <li><a href="http://localhost/www.xiaoyulive.top/sort/category9-1/index.html">心语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-2/index.html">美文</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-3/index.html">禅语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-4/index.html">摘录</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-5/index.html">日志</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-6/index.html">动态</a></li>      </ul>
+            
+            
+    </li>
+      
+    <li class="item common">
+      <a href="?plugin=gbook" target="_blank">留言</a>
+      
+            
+    </li>
+          <li id="nav_ss" class="item common">
+  <form name="keyform" method="get" action="http://localhost/www.xiaoyulive.top/index.php">
+  <input name="keyword" class="search" type="text" placeholder="请输入搜索关键字">
+    <input type="submit" name="submit" value="搜索" class="submit button">
+  </form>
+    </li>
+  </ul>
+</div>
+
+
+<!-- 首页公告，调用的微语数据。-->
+  
+
+    <div id="content">
+<div id="contentleft">
+
+<style>
+#contentleft {width: 95%; float: none; }
+#sidebar{display:none;}
+</style>
+<div class="weizhaodao">
+	<h2>未找到</h2>
+	<p>抱歉，没有符合您查询条件的结果。</p>
+</div>
+
+<div id="pagenavi" data-kui-anim="fadeInUp">
+	</div>
+
+</div><!-- end #contentleft-->
+<div id="sidebar">
+
+<!-- 随机音乐 -->
+ 
+
+<!-- 头像 -->
+<div class="avatar">
+  <a href="http://localhost/www.xiaoyulive.top/welcome" target="_blank" >
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/avatar1.jpg" alt="关于我" title='关于我'>
+  </a>
+  <div class="cover">
+    关于我
+  </div>
+</div>
+
+<!-- 加载插件 -->
+  <div id="zhanzhang" data-kui-anim="fadeInUp">
+  <div id="zhanzhang_biaoti"><span>个人资料</span></div>
+  <div id="zhanzhang_biankuang">
+  <div id="zhanzhang_img">
+    <img src="http://localhost/www.xiaoyulive.top/content/uploadfile/201706/thum-81fe1497074878.jpg" width="140" height="172" alt="blogger" />
+    </div>
+  <div id="zhanzhang_wenzi"><b>站长：</b><a href="mailto:731734107@qq.com">小昱</a><br>
+    <b style="float: left;">签名：</b>
+      <div style="float: left;">小昱小昱难相遇，<br />
+至今孤身还一人。<br />
+不知前世何造化，<br />
+今生没落在凡尘。</div>
+    </div>
+  <div id="gaodu1"></div></div></div>
+  <div id="sousuo" data-kui-anim="fadeInUp">
+  <ul id="logsearch">
+  <form name="keyform" method="get" action="http://localhost/www.xiaoyulive.top/index.php">
+  <input name="keyword" class="search" type="text"  placeholder="请输入搜索关键字">
+    <input type="submit" name="submit" value="搜索" class="submit button">
+  </form>
+  </ul>
+  </div>
+  <div id="biaoqian" data-kui-anim="fadeInUp">
+  <div id="biaoqian_biaoti"><span>标签</span></div>
+  <div id="biaoqian_biankuang">
+  <div class="tagcloud">
+      <span class="hint--top shake shake-little" data-hint="“HTML” 有3篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/html/index.html"  class="tag-link-48">HTML 3篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“LESS” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/less/index.html"  class="tag-link-44">LESS 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“ftp” 有2篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/ftp/index.html"  class="tag-link-21">ftp 2篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“linux” 有12篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/linux/index.html"  class="tag-link-38">linux 12篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“前端” 有4篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/qianduan/index.html"  class="tag-link-48">前端 4篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“SEO” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/seo/index.html"  class="tag-link-45">SEO 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“兼容性” 有2篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/jianrongxing/index.html"  class="tag-link-44">兼容性 2篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“数据库” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/shujuku/index.html"  class="tag-link-27">数据库 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“mongoDB” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/mongodb/index.html"  class="tag-link-45">mongoDB 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“CSS” 有4篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/css/index.html"  class="tag-link-17">CSS 4篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“服务器” 有3篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/fuwuqi/index.html"  class="tag-link-13">服务器 3篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“运维” 有11篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/yunwei/index.html"  class="tag-link-34">运维 11篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“nodejs” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/nodejs/index.html"  class="tag-link-48">nodejs 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“nginx” 有2篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/nginx/index.html"  class="tag-link-32">nginx 2篇</a></span>
+    </div></div></div>
+  <div id="fenlei" data-kui-anim="fadeInUp">
+  <div id="fenlei_biaoti"><span>分类</span></div>
+  <div id="fenlei_biankuang">
+  <ul id="blogsort">
+    <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category1/index.html">前端 (2)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-1/index.html">HTML+CSS (2)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-2/index.html">HTML5 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-3/index.html">CSS3 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-12/index.html">JavaScript (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-4/index.html">jQuery (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-5/index.html">Bootstrap (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-6/index.html">移动端 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-7/index.html">自动构建 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-8/index.html">Vue (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-9/index.html">Angular (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-10/index.html">React (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category2/index.html">PHP (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category2-1/index.html">smarty (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category2-2/index.html">ThinkPHP (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category3/index.html">JAVA (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category3-1/index.html">JavaSE (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category3-2/index.html">JavaEE (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category3-3/index.html">SSH (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category4/index.html">Node.js (0)</a>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html">运维 (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5-1/index.html">阿里云 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html">Linux (8)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5-3/index.html">Windows (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category6/index.html">数据库 (0)</a>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category7/index.html">开发工具 (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-1/index.html">sublime (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-2/index.html">WebStrom (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-3/index.html">HBuilder (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-4/index.html">Eclipse (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category9/index.html">博文 (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-1/index.html">心语 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-2/index.html">美文 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-3/index.html">禅语 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-4/index.html">摘录 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-5/index.html">日志 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-6/index.html">动态 (0)</a>
+    </li>
+        </ul>
+    </li>
+      </ul></div></div>
+  <div id="cundang" data-kui-anim="fadeInUp">
+  <div id="cundang_biaoti"><span>存档</span></div>
+  <div id="cundang_biankuang">
+  <ul id="record">
+    <li><a href="http://localhost/www.xiaoyulive.top/record/201706/index.html">2017年6月(2)</a></li>
+    <li><a href="http://localhost/www.xiaoyulive.top/record/201705/index.html">2017年5月(6)</a></li>
+    <li><a href="http://localhost/www.xiaoyulive.top/record/201606/index.html">2016年6月(4)</a></li>
+    </ul><div id="gaodu1"></div></div></div>
+
+
+
+
+
+</div>
+<!--end #siderbar--></div><!--end #content-->
+<div class="clear"></div>
+
+<div id="footerbar" data-kui-anim="fadeInUp">
+<div id="dibu">
+  <a id="gotop" href="javascript:void(0);">返回顶部</a>|
+  <a href="http://localhost/www.xiaoyulive.top/">首页</a>|
+  <a href="http://localhost/www.xiaoyulive.top/post/72.html">碰碰手气</a>|
+<a href="#" title="喜欢本站，捐赠支持！">捐赠支持</a>|
+<!--
+<a href="http://#" title="自定义链接">自定义链接</a>|
+<a href="http://#" title="自定义链接！">自定义链接</a>|
+<a href="http://#" title="站长到底是何方人物！？">自定义链接</a>|
+-->
+<a href="m/" title="手机版本">手机版本</a>|<a href="http://localhost/www.xiaoyulive.top/admin/" class="hint--left hint--error" data-hint="站长的后花园，闲人止步！ ^_^" target='_blank'>后花园</a>
+
+
+<p id="db_bqwz">
+<!-- <span>
+Copyright © 2016-2017 <a href="http://localhost/www.xiaoyulive.top/" class="db_emlog">小昱个人博客</a>
+</span>
+<a href="http://www.miibeian.gov.cn" target="_blank">&nbsp;&nbsp;滇ICP备16006294号-1</a>
+Copyright © 2016-2017 小昱个人博客 -->
+<p>Copyright © 2016-2017 小昱个人博客 <a href="http://www.miibeian.gov.cn" target="_blank">滇ICP备16006294号-1</a></p>
+</p>
+
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",
+"https://widget.daovoice.io/widget/APP_ID.js","daovoice");</script>
+<script>
+  daovoice('init', {
+    app_id: "5a267572",
+  });
+  daovoice('update');
+</script>
+<script type="text/javascript" src="http://localhost/www.xiaoyulive.top/content/plugins/Liang_zsshare/Liang_zsshare.js"></script>
+  <script type="text/javascript" src="http://localhost/www.xiaoyulive.top/content/plugins/Liang_zsshare/Liang.popup.min.js"></script>
+<!-- 底部友情链接 -->
+  <div id="link2">    <a href="http://blog.xiaoyulive.top" title="小昱GitHub博客" target="_blank">小昱GitHub博客</a>
+    <a href="http://www.xiaoyulive.top/welcome" title="小昱个人简历" target="_blank">小昱个人简历</a>
+    <a href="http://github.com/quanzaiyu" title="小昱的GitHub" target="_blank">小昱的GitHub</a>
+    <a href="http://www.jianshu.com/u/2e74d0659da1" title="小昱的简书" target="_blank">小昱的简书</a>
+  </div>
+
+
+</div><!--end #dibu-->
+</div><!--end #footerbar-->
+</div><!--end #wrap-->
+
+
+<!-- 返回顶部代码开始 -->
+<div id="shangxia" class="animated bounceInUp">
+  <div id="shang"></div>
+
+    <div id="comt">
+  <a class="hint--left hint--bounce" data-hint="去留言" href="/?plugin=gbook"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/kongbai.png"></a>
+  </div>
+  
+  
+  <div id="xia"></div>
+</div>
+<!-- 返回顶部代码 结束 -->
+
+<!-- 底部横幅代码开始 -->
+  <div id="bottom_banner">
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/dibuhengfu.png">
+  </div>
+ 
+<!-- 底部横幅代码结束 -->
+
+
+<!-- js 请不要删除以下js，或者模板很多功能将失效。 -->
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/bowen_qpjk.cc.min.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/sidebar_qpjk.cc.js"></script>
+<script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/TweenMax.min.js">\x3C/script>')</script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/ScrollToPlugin.min.js"></script>
+
+</body>
+</html>

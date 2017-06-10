@@ -1,0 +1,1329 @@
+
+
+<style>
+  #daodream-launcher{
+    top: 20px!important;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>linux下安装vsftpd - 小昱个人博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit"> <!-- 默认用极速核 -->
+<meta http-equiv="Cache-Control" content="no-siteapp"> <!-- 禁止百度转码 -->
+<meta name="keywords" content="全在昱,小昱,小昱个人网站,小昱个人博客,小昱之家,运维,linux,ftp">
+<meta name="description" content="一、概述">
+<meta name="generator" content="小昱之家 xiaoyulive.top">
+
+<!-- 引用百度cdn公共库网站托管的Jquery，不成功则使用本地Jquery。 -->
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/jquery-1.11.1.min.js"><\/script >');</script>
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/main.css" rel="stylesheet">
+
+<!-- 个性化鼠标css样式 -->
+
+<style>
+body {cursor: url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen.ani), url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen4.cur), auto;}
+
+a{cursor: url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/Click.ani), url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen3.cur), auto;} 
+#shang, #comt, #xia {cursor: url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/Click.ani), url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen3.cur), auto;}
+</style>
+
+<!-- markdown -->
+<script src="http://localhost/www.xiaoyulive.top/content/plugins/emlog_markdown/scripts/editormd.min.js"></script>
+<link rel="stylesheet" href="http://localhost/www.xiaoyulive.top/content/plugins/emlog_markdown/styles/editormd.css" />
+
+<!-- css3动画库，它能让网页所有元素舞动起来，你将愛上它。 -->
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/csshake.min.css" rel="stylesheet">
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/animate.min.css" rel="stylesheet">
+
+<!-- 工具提示css -->
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/hint.min.css" rel="stylesheet">
+
+<script src="http://localhost/www.xiaoyulive.top/include/lib/js/common_tpl.js"></script>
+
+<!--[if lt IE 9]>
+    <script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/html5_qpjk.cc.js"></script>
+<![endif]-->
+
+
+
+
+<link href="http://localhost/www.xiaoyulive.top/content/plugins/Liang_zsshare/Liang.popup.min.css" rel="stylesheet" type="text/css"><link type="text/css" href="http://localhost/www.xiaoyulive.top/content/plugins/gbook/style/gbook_front.css" rel="stylesheet" /><script type="text/javascript" src="http://localhost/www.xiaoyulive.top/content/plugins/gbook/style/gbook_front.js"></script></head>
+
+<body>
+<!-- 横幅 -->
+<div id="top_banner" class="animated fadeIn">
+<!-- logo -->
+<div id="bwgj_logo2">
+  <a href="http://localhost/www.xiaoyulive.top/"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/logo.png" alt='小昱个人博客' title='小昱个人博客' /></a><br>
+  <!-- 副标题 -->
+  <span class="subtitle">欢迎来到小昱的世界</span><br><br>
+  <!-- 座右铭 -->
+  <span class="motto">勤学如春起之苗，不见其增，日有所长；辍学如磨刀之石，不见其损，日有所亏</span>
+</div>
+
+<img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/bg/top_banner20.jpg">
+
+</div>
+
+
+<!-- 手机端logo -->
+<div id="bwgj_logo">
+
+  <img id="nav_sj_kg" src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/caidan.png">
+
+  <a href="/">
+    <img id="bwgj_logo_img" src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/logo.png" class="animated tada">
+  </a>
+</div>
+
+
+<div id="wrap">
+
+<!-- PC端导航菜单 -->
+<div id="nav">  <ul class="bar">
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/"  class="chaffle_none" data-lang="zh">首页</a>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/t"  class="chaffle_none" data-lang="zh">微语</a>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/index.php?plugin=kl_album"  class="chaffle_none" data-lang="zh">相册</a>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1/index.html"  class="chaffle_none" data-lang="zh">前端</a>
+            <ul class="sub-nav animated flipInY">
+        <li><a href="http://localhost/www.xiaoyulive.top/sort/category1-1/index.html" class="chaffle_none" data-lang="zh">HTML+CSS</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-2/index.html" class="chaffle_none" data-lang="zh">HTML5</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-3/index.html" class="chaffle_none" data-lang="zh">CSS3</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-12/index.html" class="chaffle_none" data-lang="zh">JavaScript</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-4/index.html" class="chaffle_none" data-lang="zh">jQuery</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-5/index.html" class="chaffle_none" data-lang="zh">Bootstrap</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-6/index.html" class="chaffle_none" data-lang="zh">移动端</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-7/index.html" class="chaffle_none" data-lang="zh">自动构建</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-8/index.html" class="chaffle_none" data-lang="zh">Vue</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-9/index.html" class="chaffle_none" data-lang="zh">Angular</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-10/index.html" class="chaffle_none" data-lang="zh">React</a></li>      </ul>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html"  class="chaffle_none" data-lang="zh">运维</a>
+            <ul class="sub-nav animated flipInY">
+        <li><a href="http://localhost/www.xiaoyulive.top/sort/category5-1/index.html" class="chaffle_none" data-lang="zh">阿里云</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html" class="chaffle_none" data-lang="zh">Linux</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-3/index.html" class="chaffle_none" data-lang="zh">Windows</a></li>      </ul>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9/index.html"  class="chaffle_none" data-lang="zh">博文</a>
+            <ul class="sub-nav animated flipInY">
+        <li><a href="http://localhost/www.xiaoyulive.top/sort/category9-1/index.html" class="chaffle_none" data-lang="zh">心语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-2/index.html" class="chaffle_none" data-lang="zh">美文</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-3/index.html" class="chaffle_none" data-lang="zh">禅语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-4/index.html" class="chaffle_none" data-lang="zh">摘录</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-5/index.html" class="chaffle_none" data-lang="zh">日志</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-6/index.html" class="chaffle_none" data-lang="zh">动态</a></li>      </ul>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="?plugin=gbook" target="_blank" class="chaffle_none" data-lang="zh">留言</a>
+      
+      
+    </li>
+        </ul>
+</div>
+
+<!-- 移动端导航 -->
+<div id="nav2" >
+  <div class="nav_gb"></div>
+    <ul class="bar">
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/" >首页</a>
+      
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/t" >微语</a>
+      
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/index.php?plugin=kl_album" >相册</a>
+      
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1/index.html" >前端</a>
+                  <ul class="sub-nav">
+                <li><a href="http://localhost/www.xiaoyulive.top/sort/category1-1/index.html">HTML+CSS</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-2/index.html">HTML5</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-3/index.html">CSS3</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-12/index.html">JavaScript</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-4/index.html">jQuery</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-5/index.html">Bootstrap</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-6/index.html">移动端</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-7/index.html">自动构建</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-8/index.html">Vue</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-9/index.html">Angular</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-10/index.html">React</a></li>      </ul>
+            
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html" >运维</a>
+                  <ul class="sub-nav">
+                <li><a href="http://localhost/www.xiaoyulive.top/sort/category5-1/index.html">阿里云</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html">Linux</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-3/index.html">Windows</a></li>      </ul>
+            
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9/index.html" >博文</a>
+                  <ul class="sub-nav">
+                <li><a href="http://localhost/www.xiaoyulive.top/sort/category9-1/index.html">心语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-2/index.html">美文</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-3/index.html">禅语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-4/index.html">摘录</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-5/index.html">日志</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-6/index.html">动态</a></li>      </ul>
+            
+            
+    </li>
+      
+    <li class="item common">
+      <a href="?plugin=gbook" target="_blank">留言</a>
+      
+            
+    </li>
+          <li id="nav_ss" class="item common">
+  <form name="keyform" method="get" action="http://localhost/www.xiaoyulive.top/index.php">
+  <input name="keyword" class="search" type="text" placeholder="请输入搜索关键字">
+    <input type="submit" name="submit" value="搜索" class="submit button">
+  </form>
+    </li>
+  </ul>
+</div>
+
+
+<!-- 首页公告，调用的微语数据。-->
+  
+
+    <div id="content">
+<div id="contentleft">
+
+<!-- 显示置顶标记,日志标题 -->
+<div class="biaoti" id="masked">linux下安装vsftpd</div>
+<!-- 标题下文章信息 -->
+
+
+  <div class="date2">
+
+  <li class="date2_home"><span class="home"></span><a href="/" title="返回网站首页">首页</a> <b>></b>
+    <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html">运维</a> <b>></b> <a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html">Linux</a>  </li>
+
+  <li class="date2_zz"><span class="pauthor"></span>作者：<a href="http://localhost/www.xiaoyulive.top/author/1/index.html" title="小昱小昱难相遇，<br />
+至今孤身还一人。<br />
+不知前世何造化，<br />
+今生没落在凡尘。 731734107@qq.com">小昱</a></li>
+
+  <li><span class="ptime"></span> 2017年6月10日 12:33 星期六</li>
+
+  <li><span class="pview"></span>浏览：2</li>
+
+  <li class="date2_ziti"><span class="zihao"></span>字号：
+  <a href="javascript:doZoom(16)" class="hint--top  hint--success" data-hint="16号字体">小</a>
+    <a href="javascript:doZoom(18)" class="hint--top  hint--info" data-hint="18号字体">中</a>
+    <a href="javascript:doZoom(20)" class="hint--top  hint--error" data-hint="20号字体">大</a>
+    </li>
+
+
+<li>
+  <span class="plun"></span><a id="rz_pl" href="javascript:void(0);" class="hint--top  hint--error" data-hint="去评论">评论：0</a>
+</li>
+
+  
+  </div>
+  
+
+  <div class="xiantiao">
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xiantiao1.png">
+  </div>
+  
+  
+  <!--  改变正文字号代码  -->
+<script type="text/javascript">function doZoom(size){document.getElementById('zhengwen').style.fontSize=size+'px'}</script>
+    <!-- 改变字号代码结束 -->
+  
+  <!-- 日志全文内容 markdown展示 -->
+  <div id="zhengwen" class="markdown-body editormd-preview-container">
+    <h3 id="h3--"><a name="一、概述" class="reference-link"></a><span class="header-link octicon octicon-link"></span>一、概述</h3><p>vsftpd是一款在Linux发行版中最受推崇的FTP服务器程序。特点是小巧轻快，安全易用。</p>
+<p>如果你想在你的Linux/Unix服务器上搭建一个安全、高性能、稳定性好的FTP 服务器，那么vsftpd可能是你的首选应用。vsftpd意思为“very secure FTP daemon(非常安全的FTP进程)”，是一个基于GPL发布的类UNIX类操作系统上运行的服务器的名字（是一种守护进程），可以运行在诸如 Linux、BSD、Solaris、HP-UX以及Irix等系统上面。vsftpd支持很多其他传统的FTP服务器不支持的良好特性。</p>
+<h3 id="h3--"><a name="二、下载安装" class="reference-link"></a><span class="header-link octicon octicon-link"></span>二、下载安装</h3><p>如果您用的是centOS、Fedora 或Redhat 系统，可以用下面的命令在线安装；</p>
+<pre><code class="lang-bash">yum install vsftpd
+</code></pre>
+<p>如果是debian Ubuntu类系统，可以用apt 来在线安装；</p>
+<pre><code class="lang-bash">apt-get install vsftpd
+</code></pre>
+<p>如果您是RPM的系统，也可以找到vsftpd-xxxx.rpm 的包来通过rpm命令来安装；</p>
+<pre><code class="lang-bash">rpm -ivh vsftpd*.rpm
+</code></pre>
+<p>也可以下载源码包来安装</p>
+<p>比如我们下载的是 vsftpd-2.0.3.tar.gz ；</p>
+<pre><code class="lang-bash">tar zxvf vsftpd-2.0.3.tar.gz
+cd vsftpd-2.0.3
+make ;make install
+cp vsftpd.conf /etc
+</code></pre>
+<p>然后修改/etc/vsftpd.conf ，在配置文件的最后一行加入下面一行；</p>
+<pre><code class="lang-bash">listen=yes
+</code></pre>
+<p>源码包安装的方法，如果您的系统是RPM包管理的系统，可以删除/etc/xinetd.d/vsftpd 这个文件；然后启动xinetd 服务器；</p>
+<pre><code class="lang-bash">/etc/init.d/xinetd restart
+停止 xinetd：                                              [  确定  ]
+启动 xinetd：                                              [  确定  ]
+</code></pre>
+<p>vsFTPd运行有两种模式，在RPM包管理的系重审统，大多是由Fedora/Redhat 开发而来，对于这样的系统有xinted服务器一说；对于非RPM包管理的系统，一般没有xinted这一说。为了保证本文的统一，我们都不要用xinetd模式，而用initd运行模式来启动和管理服务器，也就是独立运行模式。</p>
+<h3 id="h3--"><a name="三 、启动和关闭" class="reference-link"></a><span class="header-link octicon octicon-link"></span>三 、启动和关闭</h3><h4 id="h4--vsftpd-"><a name="启动Vsftpd服务" class="reference-link"></a><span class="header-link octicon octicon-link"></span>启动Vsftpd服务</h4><p>其命令为：</p>
+<pre><code class="lang-bash">service vsftpd start
+</code></pre>
+<h4 id="h4--vsftpd-"><a name="停止Vsftpd服务" class="reference-link"></a><span class="header-link octicon octicon-link"></span>停止Vsftpd服务</h4><p>停止Vsftpd服务的命令为：</p>
+<pre><code class="lang-bash">service vsftpd stop
+</code></pre>
+<h4 id="h4--vsftpd-"><a name="重新启动Vsftpd服务" class="reference-link"></a><span class="header-link octicon octicon-link"></span>重新启动Vsftpd服务</h4><p>重新启动Vsftpd服务的命令为：</p>
+<pre><code class="lang-bash">service vsftpd restart
+</code></pre>
+<h4 id="h4--vsftpd-"><a name="检查Vsftpd服务状态" class="reference-link"></a><span class="header-link octicon octicon-link"></span>检查Vsftpd服务状态</h4><p>可以采用以下命令检查Vsftpd服务的运行状态：</p>
+<pre><code class="lang-bash">service vsftpd status  
+# vsftpd (pid 3571) 正在运行...
+</code></pre>
+<p>也可以使用以下命令，实现相同的结果：</p>
+<pre><code class="lang-bash">/etc/init.d/vsftpd start  
+/etc/init.d/vsftpd stop  
+/etc/init.d/vsftpd restart
+</code></pre>
+<h4 id="h4-u542Fu7528u8D85u7EA7u670Du52A1u542Fu52A8"><a name="启用超级服务启动" class="reference-link"></a><span class="header-link octicon octicon-link"></span>启用超级服务启动</h4><pre><code class="lang-bash">[root@localhost ~]# vi /etc/xinetd.d/vsftpd
+service ftp
+{
+    disable           = no
+    socket_type       = stream
+    wait              = no
+    user              = root server            = /usr/sbin/vsftpd
+    server_args       = /etc/vsftpd/vsftpd.conf
+# 上面这个 server 的设定请依照您的主机环境来设定！
+# 至于 server_args 则请写入您的 vsftpd 的配置文件完整名称即可！
+    per_source        = 5     &lt;==与同一 IP 的联机数目有关
+    instances         = 200   &lt;==同一时间最多的联机数目
+    no_access         = 192.168.1.3
+    banner_fail       = /etc/vsftpd/vsftpd.busy_banner
+# 上面这个文件就是当主机忙碌中，则在 Client 端显示的内容！
+    log_on_success    += PID HOST DURATION
+    log_on_failure    += HOST
+}
+
+[root@localhost ~]# vi /etc/vsftpd/vsftpd.conf
+listen=NO
+</code></pre>
+<h3 id="h3--"><a name="四、配置文件" class="reference-link"></a><span class="header-link octicon octicon-link"></span>四、配置文件</h3><h4 id="h4-vsftpd-"><a name="vsftpd的配置文件" class="reference-link"></a><span class="header-link octicon octicon-link"></span>vsftpd的配置文件</h4><table>
+<thead>
+<tr>
+<th>文件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/etc/vsftpd/vsftpd.conf</td>
+<td>主配置文件</td>
+</tr>
+<tr>
+<td>/usr/sbin/vsftpd</td>
+<td>Vsftpd的主程序</td>
+</tr>
+<tr>
+<td>/etc/rc.d/init.d/vsftpd</td>
+<td>启动脚本</td>
+</tr>
+<tr>
+<td>/etc/pam.d/vsftpd</td>
+<td>PAM认证文件（此文件中file=/etc/vsftpd/ftpusers字段，指明阻止访问的用户来自/etc/vsftpd/ftpusers文件中的用户）</td>
+</tr>
+<tr>
+<td>/etc/vsftpd/ftpusers</td>
+<td>禁止使用vsftpd的用户列表文件。记录不允许访问FTP服务器的用户名单，管理员可以把一些对系统安全有威胁的用户账号记录在此文件中，以免用户从FTP登录后获得大于上传下载操作的权利，而对系统造成损坏。（注意：linux-4中此文件在/etc/目录下）</td>
+</tr>
+<tr>
+<td>/etc/vsftpd/user_list</td>
+<td>禁止或允许使用vsftpd的用户列表文件。这个文件中指定的用户缺省情况（即在/etc/vsftpd/vsftpd.conf中设置userlist_deny=YES）下也不能访问FTP服务器，在设置了userlist_deny=NO时,仅允许user_list中指定的用户访问FTP服务器。（注意：linux-4中此文件在/etc/目录下）</td>
+</tr>
+<tr>
+<td>/var/ftp</td>
+<td>匿名用户主目录；本地用户主目录为：/home/用户主目录，即登录后进入自己家目录</td>
+</tr>
+<tr>
+<td>/var/ftp/pub</td>
+<td>匿名用户的下载目录，此目录需赋权根chmod 1777 pub（1为特殊权限，使上载后无法删除）</td>
+</tr>
+<tr>
+<td>/etc/logrotate.d/vsftpd.log</td>
+<td>Vsftpd的日志文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="h4--vsftpd-conf"><a name="主配置文件vsftpd.conf" class="reference-link"></a><span class="header-link octicon octicon-link"></span>主配置文件vsftpd.conf</h4><p>和Linux系统中的大多数配置文件一样，vsftpd的配置文件中以#开始注释。</p>
+<pre><code class="lang-bash"># 是否允许匿名登录FTP服务器，默认设置为YES允许
+# 用户可使用用户名ftp或anonymous进行ftp登录，口令为用户的E-mail地址。
+# 如不允许匿名访问则设置为NO
+anonymous_enable=YES
+# 是否允许本地用户(即linux系统中的用户帐号)登录FTP服务器，默认设置为YES允许
+# 本地用户登录后会进入用户主目录，而匿名用户登录后进入匿名用户的下载目录/var/ftp/pub
+# 若只允许匿名用户访问，前面加上#注释掉即可阻止本地用户访问FTP服务器
+local_enable=YES
+# 是否允许本地用户对FTP服务器文件具有写权限，默认设置为YES允许
+write_enable=YES 
+# 掩码，本地用户默认掩码为077
+# 你可以设置本地用户的文件掩码为缺省022，也可根据个人喜好将其设置为其他值
+#local_umask=022
+# 是否允许匿名用户上传文件，须将全局的write_enable=YES。默认为YES
+#anon_upload_enable=YES
+# 是否允许匿名用户创建新文件夹
+#anon_mkdir_write_enable=YES 
+# 是否激活目录欢迎信息功能
+# 当用户用CMD模式首次访问服务器上某个目录时，FTP服务器将显示欢迎信息
+# 默认情况下，欢迎信息是通过该目录下的.message文件获得的
+# 此文件保存自定义的欢迎信息，由用户自己建立
+#dirmessage_enable=YES
+# 是否让系统自动维护上传和下载的日志文件
+# 默认情况该日志文件为/var/log/vsftpd.log,也可以通过下面的xferlog_file选项对其进行设定
+# 默认值为NO
+xferlog_enable=YES
+# Make sure PORT transfer connections originate from port 20 (ftp-data).
+# 是否设定FTP服务器将启用FTP数据端口的连接请求
+# ftp-data数据传输，21为连接控制端口
+connect_from_port_20=YES
+# 设定是否允许改变上传文件的属主，与下面一个设定项配合使用
+# 注意，不推荐使用root用户上传文件
+#chown_uploads=YES
+# 设置想要改变的上传文件的属主，如果需要，则输入一个系统用户名
+# 可以把上传的文件都改成root属主。whoever：任何人
+#chown_username=whoever
+# 设定系统维护记录FTP服务器上传和下载情况的日志文件
+# /var/log/vsftpd.log是默认的，也可以另设其它
+#xferlog_file=/var/log/vsftpd.log
+# 是否以标准xferlog的格式书写传输日志文件
+# 默认为/var/log/xferlog，也可以通过xferlog_file选项对其进行设定
+# 默认值为NO
+#xferlog_std_format=YES
+# 以下是附加配置，添加相应的选项将启用相应的设置
+# 是否生成两个相似的日志文件
+# 默认在/var/log/xferlog和/var/log/vsftpd.log目录下
+# 前者是wu_ftpd类型的传输日志，可以利用标准日志工具对其进行分析；后者是vsftpd类型的日志
+#dual_log_enable
+# 是否将原本输出到/var/log/vsftpd.log中的日志，输出到系统日志
+#syslog_enable
+# 设置数据传输中断间隔时间，此语句表示空闲的用户会话中断时间为600秒
+# 即当数据传输结束后，用户连接FTP服务器的时间不应超过600秒。可以根据实际情况对该值进行修改
+#idle_session_timeout=600
+# 设置数据连接超时时间，该语句表示数据连接超时时间为120秒，可根据实际情况对其个修改
+#data_connection_timeout=120
+# 运行vsftpd需要的非特权系统用户，缺省是nobody
+#nopriv_user=ftpsecure
+# 是否识别异步ABOR请求。
+# 如果FTP client会下达“async ABOR”这个指令时，这个设定才需要启用
+# 而一般此设定并不安全，所以通常将其取消
+#async_abor_enable=YES
+# 是否以ASCII方式传输数据。默认情况下，服务器会忽略ASCII方式的请求。
+# 启用此选项将允许服务器以ASCII方式传输数据
+# 不过，这样可能会导致由"SIZE /big/file"方式引起的DoS攻击
+#ascii_upload_enable=YES
+#ascii_download_enable=YES
+# 登录FTP服务器时显示的欢迎信息
+# 如有需要，可在更改目录欢迎信息的目录下创建名为.message的文件，并写入欢迎信息保存后
+#ftpd_banner=Welcome to blah FTP service.
+# 黑名单设置。如果很讨厌某些email address，就可以使用此设定来取消他的登录权限
+# 可以将某些特殊的email address抵挡住。
+#deny_email_enable=YES
+# 当上面的deny_email_enable=YES时，可以利用这个设定项来规定哪些邮件地址不可登录vsftpd服务器
+# 此文件需用户自己创建，一行一个email address即可
+#banned_email_file=/etc/vsftpd/banned_emails
+# 用户登录FTP服务器后是否具有访问自己目录以外的其他文件的权限
+# 设置为YES时，用户被锁定在自己的home目录中，vsftpd将在下面chroot_list_file选项值的位置寻找chroot_list文件
+# 必须与下面的设置项配合
+#chroot_list_enable=YES
+# 被列入此文件的用户，在登录后将不能切换到自己目录以外的其他目录
+# 从而有利于FTP服务器的安全管理和隐私保护。此文件需自己建立
+#chroot_list_file=/etc/vsftpd/chroot_list
+# 是否允许递归查询。默认为关闭，以防止远程用户造成过量的I/O
+#ls_recurse_enable=YES
+# 是否允许监听。
+# 如果设置为YES，则vsftpd将以独立模式运行，由vsftpd自己监听和处理IPv4端口的连接请求
+listen=YES
+# 设定是否支持IPV6。如要同时监听IPv4和IPv6端口，
+# 则必须运行两套vsftpd，采用两套配置文件
+# 同时确保其中有一个监听选项是被注释掉的
+#listen_ipv6=YES
+# 设置PAM外挂模块提供的认证服务所使用的配置文件名，即/etc/pam.d/vsftpd文件
+# 此文件中file=/etc/vsftpd/ftpusers字段，说明了PAM模块能抵挡的帐号内容来自文件/etc/vsftpd/ftpusers中
+#pam_service_name=vsftpd
+# 是否允许ftpusers文件中的用户登录FTP服务器，默认为NO
+# 若此项设为YES，则user_list文件中的用户允许登录FTP服务器
+# 而如果同时设置了userlist_deny=YES，则user_list文件中的用户将不允许登录FTP服务器，甚至连输入密码提示信息都没有
+#userlist_enable=YES/NO
+# 设置是否阻扯user_list文件中的用户登录FTP服务器，默认为YES
+#userlist_deny=YES/NO
+# 是否使用tcp_wrappers作为主机访问控制方式。
+# tcp_wrappers可以实现linux系统中网络服务的基于主机地址的访问控制
+# 在/etc目录中的hosts.allow和hosts.deny两个文件用于设置tcp_wrappers的访问控制
+# 前者设置允许访问记录，后者设置拒绝访问记录。
+# 如想限制某些主机对FTP服务器192.168.57.2的匿名访问，编缉/etc/hosts.allow文件，如在下面增加两行命令：
+# vsftpd:192.168.57.1:DENY 和vsftpd:192.168.57.9:DENY
+# 表明限制IP为192.168.57.1/192.168.57.9主机访问IP为192.168.57.2的FTP服务器
+# 此时FTP服务器虽可以PING通，但无法连接
+tcp_wrappers=YES
+</code></pre>
+<h3 id="h3--"><a name="五、修改上传路径" class="reference-link"></a><span class="header-link octicon octicon-link"></span>五、修改上传路径</h3><p>修改ftp的根目录只要修改/etc/vsftpd/vsftpd.conf文件即可：</p>
+<p>加入如下几行：</p>
+<pre><code class="lang-bash">chroot_local_user=YES
+local_root=/var/www/html
+anon_root=/var/www/html
+</code></pre>
+<p>注：local_root 针对系统用户；anon_root 针对匿名用户。</p>
+<p>重新启动服务：</p>
+<pre><code class="lang-bash">service vsftpd restart
+</code></pre>
+<p>任何一个用户ftp登录到这个服务器上都会chroot到/var/www/html目录下。</p>
+<h3 id="h3--"><a name="六、用户登录" class="reference-link"></a><span class="header-link octicon octicon-link"></span>六、用户登录</h3><h4 id="h4-u4F7Fu7528u533Fu540Du7528u6237u767Bu5165"><a name="使用匿名用户登入" class="reference-link"></a><span class="header-link octicon octicon-link"></span>使用匿名用户登入</h4><pre><code class="lang-bash">[root@localhost ~]# vi /etc/vsftpd/vsftpd.conf
+anonymous_enable=YES
+</code></pre>
+<h4 id="h4-u4F7Fu7528u672Cu5730u7528u6237u767Bu5165"><a name="使用本地用户登入" class="reference-link"></a><span class="header-link octicon octicon-link"></span>使用本地用户登入</h4><pre><code class="lang-bash">[root@localhost ~]# vi /etc/vsftpd/vsftpd.conf
+#下面是允许某些用户登入的项目  存在user_list文件中的用户不允许登入
+userlist_enable=YES
+userlist_deny=YES #如果这里改为NO  反过来只能存在user_list文件中的用户允许登入
+userlist_file=/etc/vsftpd/user_list
+anonymous_enable=NO #不允许匿名登录
+
+#下面是限制用户只能访问自己的主目录  存在chroot_list文件中的用户只能访问自己的主目录
+chroot_local_user=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list
+</code></pre>
+<p>新建个用户 这样重启服务 可以在客户端使用新建的本地用户登入了。</p>
+<p>也可以如此设置:</p>
+<pre><code class="lang-bash">vim /etc/vsftd/vsftpd.conf 
+#增加
+pam_service_name=vsftpd
+userlist_enable=YES
+userlist_deny=NO
+userlist_file=/etc/vsftpd/user_list
+
+vim /etc/vsftpd/user_list
+#增加访问的用户
+
+vim /etc/vsftpd/ftpusers
+#添加拒绝访问的用户
+</code></pre>
+<h4 id="h4-u4F7Fu7528u865Au62DFu7528u6237u767Bu5165"><a name="使用虚拟用户登入" class="reference-link"></a><span class="header-link octicon octicon-link"></span>使用虚拟用户登入</h4><pre><code class="lang-bash">#创建两个目录
+[root@localhost ~]#mkdir /home/vsftpd/ftp1
+[root@localhost ~]# mkdir /home/vsftpd/ftp3
+
+[root@localhost ~]# vi /etc/vsftpd/loginuser.txt
+#加入两个用户  奇数行代表用户名 偶数行代表密码
+xftpadmin
+123456
+xftpuser
+123456
+
+#执行命令 生成虚拟数据库
+[root@localhost ~]# db_load -T -t hash -f /etc/vsftpd/loginuser.txt /etc/vsftpd/login.db
+#设置数据库文件的访问权限
+[root@localhost ~]# chmod 600 /etc/vsftpd/login.db
+[root@localhost ~]# vi /etc/pam.d/vsftpd
+#将以下内容增加的原文件前面两行：
+auth required pam_userdb.so db=/etc/vsftpd/login
+account required pam_userdb.so db=/etc/vsftpd/login
+       #我们建立的虚拟用户将采用PAM进行验证，这是通过/etc/vsftpd.conf文件中的 语句pam_service_name=vsftpd.vu来启用的。
+
+vsftpd使用的pam文件
+auth    sufficient      pam_userdb.so db=/etc/vsftpd/login
+account sufficient      pam_userdb.so db=/etc/vsftpd/login
+
+#auth       required     pam_listfile.so item=user sense=deny file=/etc/vsftpd.ftpusers onerr=succeed
+#auth       required     pam_stack.so service=system-auth
+#auth       required     pam_shells.so
+#account    required     pam_stack.so service=system-auth
+#session    required     pam_stack.so service=system-auth
+
+可以看出前面两行是对虚拟用户的验证，后面是对系统用户的验证。 为了安全我一般把系统用户的登入关闭  使用虚拟账号登入ftp
+对虚拟用户的验证使用了sufficient这个控制标志。
+这个标志的含义是如果这个模块验证通过，就不必使用后面的层叠模块进行验证了；但如果失败了，
+就继续后面的认证，也就是使用系统真实用户的验证。
+虚拟用户创建本地系统用户
+
+#新建一个系统用户vsftpd, 用户登录终端设为/bin/false(即使之不能登录系统)
+[root@localhost ~]# useradd vsftpd -d /home/vsftpd -s /bin/false 
+[root@localhost ~]# chown vsftpd:vsftpd /home/vsftpd #改变目录所属用户组
+
+根据需要创建/etc/vsftpd/vsftpd.conf，以下设置： 
+listen=YES                       #监听为专用模式
+anonymous_enable=NO              #禁用匿名登入
+dirmessage_enable=YES
+xferlog_enable=YES
+xferlog_file=/var/log/vsftpd.log   #记录ftp操作日志
+xferlog_std_format=YES
+chroot_local_user=YES          #对用户访问只限制在主目录 不能访问其他目录
+guest_enable=YES               #启用guest
+guest_username=vsftpd           #使用虚拟账号形式
+user_config_dir=/etc/vsftpd_user_conf  #虚拟账号配置目录
+pam_service_name=vsftpd              #对vsftpd的用户使用pam认证
+local_enable=YES
+
+#执行以下命令
+[root@localhost ~]# mkdir /etc/vsftpd/user_conf
+[root@localhost ~]# cd /etc/vsftpd/user_conf
+[root@localhost ~]# touch xftpuser xftpadmin #创建两个文件
+
+[root@localhost ~]# vi /etc/vsftpd/user_config/xftpadmin
+#加入以下内容 拥有所有权限
+write_enable=YES
+anon_world_readable_only=NO
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES
+anon_other_write_enable=YES
+local_root=/home/vsftpd/ftp3
+
+[root@localhost ~]# vi /etc/vsftpd/user_config/xftpuser
+#加入以下内容 只读权限
+local_root=/home/vsftpd/ftp1
+
+#登入 使用ftp1用户登入看看 
+如果不能读写操作 可能是目录权限不够需要设置权限 试试看
+[root@localhost ~]# chmod 777 /home/vsftpd/ftp3
+</code></pre>
+<p>这样就可以用虚拟账号登入了  ftpadmin、ftpuser分别登入之后访问的是ftp3、ftp1目录。</p>
+<h4 id="h4--ssl-"><a name="使用ssl登入" class="reference-link"></a><span class="header-link octicon octicon-link"></span>使用ssl登入</h4><pre><code class="lang-bash">[root@localhost ~]# cd /etc/pki/tls/certs/
+[root@localhost ~]# openssl req -new -x509 -nodes -out vsftpd.pem -keyout vsftpd.pem
+
+# 修改vsftpd.conf文件
+[root@localhost ~]#vi /usr/local/etc/vsftpd.conf .
+ssl_enable=YES(开启vsftpd对ssl协议的支持)
+ssl_sslv2=YES（支持SSL v2 protocol）
+ssl_sslv3=YES（支持SSL v3 protocol）
+ssl_tlsv1=YES（支持TSL v1）
+rsa_cert_file=/etc/pki/tls/certs/vsftpd.pem（证书的路径）
+
+ssl_enable=YES
+ssl_sslv2=YES
+ssl_sslv3=YES
+ssl_tlsv1=YES
+</code></pre>
+<p>这样重启vsftpd 就可以用客户端来尝试进行SSL加密连接了。</p>
+<h3 id="h3--vsftpd-conf-"><a name="七、vsftpd.conf 设定详细说明" class="reference-link"></a><span class="header-link octicon octicon-link"></span>七、vsftpd.conf 设定详细说明</h3><h4 id="h4-u4E0Eu4E3Bu673Au8F83u76F8u5173u7684u8BBEu5B9Au503C"><a name="与主机较相关的设定值" class="reference-link"></a><span class="header-link octicon octicon-link"></span>与主机较相关的设定值</h4><pre><code class="lang-bash">connect_from_port_20=YES (NO)
+ftp-data 的端口；
+
+listen_port=21
+vsftpd 使用的命令通道之端口号，如果您想要使用非正规的端口，在这个设定项目修改吧！ 不过你必须要知道，这个设定值仅适合以 stand alone 的方式来启动(对于 super daemon 无效)
+
+dirmessage_enable=YES (NO)
+当用户进入某个目录时，会显示该目录需要注意的内容，显示的文件默认是 .message ，你可以使用底下的设定项目来修改！
+
+message_file=.message
+当 dirmessage_enable=YES 时，可以设定这个项目来让 vsftpd 寻找该文件来显示信息！
+
+listen=YES (NO)
+若设定为 YES 表示 vsftpd 是以 standalone 的方式来启动的
+
+pasv_enable=YES (NO)
+启动被动式联机模式(passive mode)，一定要设定为 YES 的
+
+use_localtime=YES (NO)
+是否使用本地时间？vsftpd 预设使用 GMT 时间(格林威治)
+
+write_enable=YES (NO)
+如果你允许用户上传数据时，就要启动这个设定值；
+
+connect_timeout=60
+单位是秒，在数据连接的主动式联机模式下，我们发出的连接讯号在 60 秒内得不到客户端的响应，则不等待并强制断线。
+
+accept_timeout=60
+当用户以被动式 PASV 来进行数据传输时，如果主机启用 passive port 并等待 client 超过 60 秒而无回应， 那么就给他强制断线！这个设定值与 connect_timeout 类似，不过一个是管理主动联机，一个管理被动联机。
+
+data_connection_timeout=300
+如果服务器与客户端的数据联机已经成功建立 (不论主动还是被动联机)，但是可能由于线路问题导致 300 秒内还是无法顺利的完成数据的传送，那客户端的联机就会被我们的 vsftpd 强制剔除！
+
+idle_session_timeout=300
+如果使用者在 300 秒内都没有命令动作，强制脱机
+
+max_clients=0
+如果 vsftpd 是以 stand alone 方式启动的，那么这个设定项目可以设定同一时间，最多有多少 client 可以同时连上 vsftpd
+
+max_per_ip=0
+与上面 max_clients 类似，这里是同一个 IP 同一时间可允许多少联机？
+
+pasv_min_port=0, pasv_max_port=0
+上面两个是与 passive mode 使用的 port number 有关，如果您想要使用 65400 到 65410 这 11 个 port 来进行被动式联机模式的连接，可以这样设定 pasv_max_port=65410 以及 pasv_min_port=65400。 如果是 0 的话，表示随机取用而不限制。
+
+ftpd_banner=一些文字说明
+当使用者联机进入到 vsftpd 时，在 FTP 客户端软件上头会显示的说明文字。不过，这个设定值数据比较少啦！ 建议你可以使用底下的设定值来取代这个项目；
+
+banner_file=/path/file
+这个项目可以指定某个纯文本档作为使用者登入 vsftpd 服务器时所显示的欢迎字眼。
+</code></pre>
+<h4 id="h4-u4E0Eu5B9Eu4F53u7528u6237u8F83u76F8u5173u7684u8BBEu5B9Au503C"><a name="与实体用户较相关的设定值" class="reference-link"></a><span class="header-link octicon octicon-link"></span>与实体用户较相关的设定值</h4><pre><code class="lang-bash">guest_enable=YES (NO)
+若这个值设定为 YES 时，那么任何非 anonymous 登入的账号，均会被假设成为 guest (访客)   至于访客在 vsftpd 当中，预设会取得 ftp 这个使用者的相关权限。但可以透过 guest_username 来修改。
+
+guest_username=ftp
+在 guest_enable=YES 时才会生效，指定访客的身份而已。
+
+local_enable=YES (NO)
+这个设定值必须要为 YES 时，在 /etc/passwd 内的账号才能以实体用户的方式登入我们的 vsftpd 主机
+
+local_max_rate=0
+实体用户的传输速度限制，单位为 bytes/second， 0 为不限制。
+
+chroot_local_user=YES (NO)
+将用户限制在自己的家目录之内(chroot)！这个设定在 vsftpd 当中预设是 NO，因为有底下两个设定项目的辅助喔！ 所以不需要启动他！
+chroot_list_enable=YES (NO)
+是否启用将某些实体用户限制在他们的家目录内？预设是 NO ，不过，如果您想要让某些使用者无法离开他们的家目录时， 可以考虑将这个设定为 YES ，并且规划下个设定值
+
+chroot_list_file=/etc/vsftpd.chroot_list
+如果 chroot_list_enable=YES 那么就可以设定这个项目了！ 他里面可以规定那一个实体用户会被限制在自己的家目录内而无法离开！(chroot) 一行一个账号即可！
+
+userlist_enable=YES (NO)
+是否藉助 vsftpd 的抵挡机制来处理某些不受欢迎的账号，与底下的设定有关；
+
+userlist_deny=YES (NO)
+当 userlist_enable=YES 时才会生效的设定，若此设定值为 YES 时，则当使用者账号被列入到某个文件时， 在该文件内的使用者将无法登入 vsftpd 服务器！该文件名与下列设定项目有关。
+userlist_file=/etc/vsftpd.user_list
+若上面 userlist_deny=YES 时，则这个文件就有用处了！在这个文件内的账号都无法使用 vsftpd
+</code></pre>
+<h4 id="h4-u533Fu540Du8005u767Bu5165u7684u8BBEu5B9Au503C"><a name="匿名者登入的设定值" class="reference-link"></a><span class="header-link octicon octicon-link"></span>匿名者登入的设定值</h4><pre><code class="lang-bash">anonymous_enable=YES (NO)
+设定为允许 anonymous 登入我们的 vsftpd 主机！预设是 YES ，底下的所有相关设定都需要将这个设定为 anonymous_enable=YES 之后才会生效！
+
+anon_world_readable_only=YES (NO)
+仅允许 anonymous 具有下载可读文件的权限，预设是 YES。
+
+anon_other_write_enable=YES (NO)
+是否允许 anonymous 具有写入的权限？预设是 NO！如果要设定为 YES， 那么开放给 anonymous 写入的目录亦需要调整权限，让 vsftpd 的 PID 拥有者可以写入才行！
+
+anon_mkdir_write_enable=YES (NO)
+是否让 anonymous 具有建立目录的权限？默认值是 NO！如果要设定为 YES， 那么 anony_other_write_enable 必须设定为 YES ！
+
+anon_upload_enable=YES (NO)
+是否让 anonymous 具有上传数据的功能，默认是 NO，如果要设定为 YES ， 则 anon_other_write_enable=YES 必须设定。
+
+deny_email_enable=YES (NO)
+将某些特殊的 email address 抵挡住，不让那些 anonymous 登入！ 如果以 anonymous 登入主机时，不是会要求输入密码吗？密码不是要您 输入您的 email address 吗？如果你很讨厌某些 email address ， 就可以使用这个设定来将他取消登入的权限！需与下个设定项目配合：
+
+banned_email_file=/etc/vsftpd.banned_emails
+如果 deny_email_enable=YES 时，可以利用这个设定项目来规定哪个 email address 不可登入我们的 vsftpd 喔！在上面设定的文件内，一行输入一个 email address 即可！
+
+no_anon_password=YES (NO)
+当设定为 YES 时，表示 anonymous 将会略过密码检验步骤，而直接进入 vsftpd 服务器内喔！所以一般预设都是 NO
+
+anon_max_rate=0
+这个设定值后面接的数值单位为 bytes/秒 ，限制 anonymous 的传输速度，如果是 0 则不限制(由最大带宽所限制)，如果您想让 anonymous 仅有 30 KB/s 的速度，可以设定『anon_max_rate=30000』
+
+anon_umask=077
+限制 anonymous 的权限！如果是 077 则 anonymous 传送过来的文件 权限会是 -rw-------
+</code></pre>
+<h4 id="h4-u5173u4E8Eu7CFBu7EDFu5B89u5168u65B9u9762u7684u4E00u4E9Bu8BBEu5B9Au503C"><a name="关于系统安全方面的一些设定值" class="reference-link"></a><span class="header-link octicon octicon-link"></span>关于系统安全方面的一些设定值</h4><pre><code class="lang-bash">ascii_download_enable=YES (NO)
+如果设定为 YES ，那么 client 就可以使用 ASCII 格式下载文件。
+
+ascii_upload_enable=YES (NO)
+与上一个设定类似的，只是这个设定针对上传而言！预设是 NO
+
+one_process_model=YES (NO)
+这个设定项目比较危险一点～当设定为 YES 时，表示每个建立的联机 都会拥有一支 process 在负责，可以增加 vsftpd 的效能。不过， 除非您的系统比较安全，而且硬件配备比较高，否则容易耗尽系统资源  一般建议设定为 NO
+
+tcp_wrappers=YES (NO)
+当然我们都习惯支持 TCP Wrappers 的  所以设定为 YES
+
+xferlog_enable=YES (NO)
+当设定为 YES 时，使用者上传与下载文件都会被纪录起来。记录的文件与下一个设定项目有关：
+
+xferlog_file=/var/log/vsftpd.log
+如果上一个 xferlog_enable=YES 的话，这里就可以设定了！这个是登文件的名称
+
+xferlog_std_format=YES (NO)
+是否设定为 wu ftp 相同的登录档格式？！预设为 NO ，因为登录档会比较容易读！ 不过，如果您有使用 wu ftp 登录文件的分析软件，这里才需要设定为 YES
+
+nopriv_user=nobody
+我们的 vsftpd 预设以 nobody 作为此一服务执行者的权限。因为 nobody 的权限 相当的低，因此即使被入侵，入侵者仅能取得 nobody 的权限
+
+pam_service_name=vsftpd
+这个是 pam 模块的名称，我们放置在 /etc/pam.d/vsftpd 即是这个
+</code></pre>
+<h4 id="h4--linux-ftp-"><a name="在linux中添加ftp用户，并设置相应的权限，操作步骤如下：" class="reference-link"></a><span class="header-link octicon octicon-link"></span>在linux中添加ftp用户，并设置相应的权限，操作步骤如下：</h4><p>环境：ftp为vsftp。被限制用户名为test。被限制路径为/home/test</p>
+<pre><code class="lang-bash">## 增加用户test，并制定test用户的主目录为/home/test
+useradd -d /home/test test
+## 为test设置密码
+passwd test
+## 更改用户相应的权限设置,限定用户test不能telnet，只能ftp
+usermod -s /sbin/nologin test
+## 恢复登录权限
+usermod -s /bin/bash
+## 更改用户test的主目录为/test
+usermod -d /test test
+</code></pre>
+<p>限制用户只能访问/home/test，不能访问其他路径</p>
+<p>修改/etc/vsftpd/vsftpd.conf如下：</p>
+<pre><code class="lang-bash">## 限制访问自身目录
+chroot_local_user=YES
+chroot_list_enable=YES
+## 只有在chroot_list中的用户才能跳出自己的主目录
+chroot_list_file=/etc/vsftpd/chroot_list
+创建chroot_list文件并将ftp用户名写进去
+</code></pre>
+<p>改完配置文件，不要忘记重启vsFTPd服务器</p>
+<pre><code class="lang-bash">/etc/init.d/vsftpd restart
+</code></pre>
+<p>如果需要允许用户修改密码，但是又没有telnet登录系统的权限：</p>
+<pre><code class="lang-bash">##  用户telnet后将直接进入改密界面
+usermod -s /usr/bin/passwd test
+</code></pre>
+<h3 id="h3--"><a name="八、其他" class="reference-link"></a><span class="header-link octicon octicon-link"></span>八、其他</h3><pre><code class="lang-bash">netstat -ntlp #检查21端口是否开启
+iptables -nvL #检查防火墙是否开启21端口
+</code></pre>
+<hr>
+<p>参考资料:</p>
+<p><a href="http://os.51cto.com/art/201008/222036.htm">http://os.51cto.com/art/201008/222036.htm</a></p>
+<p><a href="http://blog.csdn.net/ft1512975/article/details/6620227">http://blog.csdn.net/ft1512975/article/details/6620227</a></p>
+<p><a href="http://blog.sina.com.cn/s/blog_3edc5e2e0102vzv8.html">http://blog.sina.com.cn/s/blog_3edc5e2e0102vzv8.html</a></p>    <div class="clear"></div>
+  </div>
+  
+  <!-- 统计访客停留时间 -->
+  <div id="tingliu">
+    <span class="tingliu2 hint--top hint--bounce" data-hint="发表评论">
+      <a href="javascript:void(0);"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/tishi.gif" class="tingliu5"></a>
+    </span> &nbsp;
+    <span class="tingliu2">您阅读这篇文章共花了：</span>
+    &nbsp;<span class="tingliu3" id="stime"></span>
+  </div>
+
+<script>
+var ss=0,mm=0,hh=0;function TimeGo(){ss++;if(ss>=60){mm+=1;ss=0}if(mm>=60){hh+=1;mm=0}ss_str=(ss<10?"0"+ss:ss);mm_str=(mm<10?"0"+mm:mm);tMsg=""+hh+"小时"+mm_str+"分"+ss_str+"秒";document.getElementById("stime").innerHTML=tMsg;setTimeout("TimeGo()",1000)}TimeGo();
+</script>
+  
+<!-- 分享 -->
+
+<div class="jiathis_style_24x24 fenxiang"><a class="jiathis_button_weixin"></a><a class="jiathis_button_cqq"></a><a class="jiathis_button_qzone"></a><a class="jiathis_button_tsina"></a><a class="jiathis_button_tqq"></a><a class="jiathis_button_renren"></a><a class="jiathis_button_hi"></a><a class="jiathis_button_tieba"></a><a class="jiathis_button_tsohu"></a><a class="jiathis_button_t163"></a><a class="jiathis_button_douban"></a><a class="jiathis_button_tianya"></a><a class="jiathis_button_xiaoyou"></a><a class="jiathis_button_qq"></a><a class="jiathis_button_i139"></a><a class="jiathis_button_copy"></a><a class="jiathis_button_email"></a><a class="jiathis_button_ishare"></a><a href="http://www.jiathis.com/share?uid=1792395"class="jiathis jiathis_txt jtico jtico_jiathis"target="_blank"></a><a class="jiathis_counter_style"></a></div>
+<script>var jiathis_config = {data_track_clickback:'true'};</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1367996005907460" charset="utf-8"></script>
+
+
+  <!-- 结束分割线 -->
+  <div class="jieshu"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/jieshu.png"></div>
+  <div class="jieshu2"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/jieshu3.gif"></div>
+  
+  <!-- 上一篇及下一篇 -->
+  <div id="shangxiapian_2">    <div id="shangxiapian3">
+  <a href="http://localhost/www.xiaoyulive.top/post/76.html">
+  <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shang2.png" onmouseover="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shang1.png'" onmouseout="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shang2.png'"></a></div>
+      <div id="shangxiapian4"><a href="http://localhost/www.xiaoyulive.top/post/74.html"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xia2.png" onmouseover="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xia1.png'" onmouseout="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xia2.png'"></a></div>
+  <div id="gaodu1"></div></div>
+  <div id="shangxiapian">    <div id="sxpbk1"><div id="anniu1">
+  <a href="http://localhost/www.xiaoyulive.top/post/76.html" class="hint--right hint--bounce" data-hint="linux防火墙设置">
+  <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shangpian1.png" onmouseover="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shangpian2.png'" onmouseout="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shangpian1.png'"></a></div>
+<div id="wzlj1"><a href="http://localhost/www.xiaoyulive.top/post/76.html">linux防火墙设置</a></div></div>
+        <div id="sxpbk2"><div id="wzlj2"><a href="http://localhost/www.xiaoyulive.top/post/74.html">linux下环境变量的设置方法</a></div>
+    <div id="anniu2"><a href="http://localhost/www.xiaoyulive.top/post/74.html" class="hint--left hint--bounce" data-hint="linux下环境变量的设置方法">
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xiapian1.png" onmouseover="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xiapian2.png'" onmouseout="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xiapian1.png'"></a></div></div>
+  <div id="gaodu1"></div></div> 
+  
+
+  <!-- 日志标签 -->
+  <div id="tag"><li id="tag-2"><a href="http://localhost/www.xiaoyulive.top/tag/yunwei/index.html" rel="tag">运维</a></li><li id="tag-3"><a href="http://localhost/www.xiaoyulive.top/tag/linux/index.html" rel="tag">linux</a></li><li id="tag-5"><a href="http://localhost/www.xiaoyulive.top/tag/ftp/index.html" rel="tag">ftp</a></li></div>
+
+  <!-- 感兴趣文章 -->
+     <div class="gxq"><div class="bti"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xiangguan.png">&nbsp;<span class="chaffle" data-lang="zh">相关文章</span></div>
+            <ul>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/73.html" title="查看文章:利用 nginx 进行反向代理和负载均衡" class="shake shake-little">利用 nginx 进行反向代理和负载均衡</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/74.html" title="查看文章:linux下环境变量的设置方法" class="shake shake-little">linux下环境变量的设置方法</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/72.html" title="查看文章:linux下安装配置nodejs" class="shake shake-little">linux下安装配置nodejs</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/75.html" title="查看文章:linux下安装vsftpd" class="shake shake-little">linux下安装vsftpd</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/71.html" title="查看文章:linux下安装配置nginx" class="shake shake-little">linux下安装配置nginx</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/76.html" title="查看文章:linux防火墙设置" class="shake shake-little">linux防火墙设置</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/69.html" title="查看文章:linux系统安装rz和sz实现本地和服务器文件上传下载" class="shake shake-little">linux系统安装rz和sz实现本地和服务器文件上传下载</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/70.html" title="查看文章:linux下安装配置mongoDB" class="shake shake-little">linux下安装配置mongoDB</a>
+            </li>
+                </ul>
+    <div id="gaodu1"></div></div>
+          <!-- 感兴趣文章代码结束 -->
+
+
+
+
+
+
+  <div id="banquan">
+  <!-- 二维码地址生成 -->
+  <div class="tupian hint--right hint--rounded" data-hint="这篇文章太棒了，我要分享给我的小伙伴们！
+  1、用手机扫二维码。2、点右上角分享到朋友圈。">
+  <img src="http://qr.liantu.com/api.php?&bg=ffffff&w=100&m=6&fg=000000&text=http://localhost/www.xiaoyulive.top/index.php?post=75" alt="二维码加载中..."></div>
+
+<div class="xinxi">
+<span class="zuozhe">本文作者：</span><a href="http://localhost/www.xiaoyulive.top/author/1/index.html" title="小昱小昱难相遇，<br />
+至今孤身还一人。<br />
+不知前世何造化，<br />
+今生没落在凡尘。 731734107@qq.com">小昱</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<span class="biaoti2">文章标题：</span> <a href="http://localhost/www.xiaoyulive.top/post/75.html">linux下安装vsftpd</a><br>
+<span class="blog_url">本文地址：</span><a href="http://localhost/www.xiaoyulive.top/post/75.html">http://localhost/www.xiaoyulive.top/post/75.html</a><br>
+<b>版权声明：</b>若无注明，本文皆为“<span class="blog_name">小昱个人博客</span>”原创，转载请保留文章出处。
+  </div>
+    <div class="clear"></div>
+  </div>
+
+  <div id="social">
+<div class="social-main">
+<span class="like">
+<a class="liang_zsshare" data-liang_zsshare="75" title="我赞"><i class="fa fa-thumbs-o-up"></i>&nbsp;赞 (<span>0</span>)</a>
+</a>
+<span class="shang-p">
+<a data-dialog="#popup-shang" data-effect="effect-slide-top" title="赞助本站">赏</a>
+</span>
+<span class="share-s">
+<a data-dialog="#popup-share" data-effect="effect-newspaper" title="分享"><i class="fa fa-share-alt"></i>&nbsp;分享</a>
+</span>
+<div class="clear"></div>
+</div>
+</div>
+<div class="popup effect-fade-scale" id="popup-shang">
+<div class="popup-content">
+<p class="zanzhu">您可以选择一种方式赞助本站
+<form target="_blank" method="POST" action="https://shenghuo.alipay.com/send/payment/fill.htm" accept-charset="GBK">
+<input type="hidden" value="731734107@qq.com" name="optEmail">
+<input type="hidden" value="10" name="payAmount">
+<input id="title" type="hidden" value="赞助本站" name="title">
+<input type="hidden" value="请填写您的联系方式，以便答谢！" name="memo">
+<!--<input type="image" value="赞助本站" src="http://i1.tietuku.com/39d52d451dc7221ds.png" width="280" height="100%" name="pay" title="赞助本站">-->
+</form>
+<style type="text/css" media="screen">
+  .pay_card{
+    float: left;
+    margin: 0 10px;
+  }
+</style>
+<div class="pay_card">
+  支付宝转账赞助
+  <p><img width="280" height="280" src="http://www.xiaoyulive.top/content/plugins/Liang_zsshare/card.png" title="支付宝转账赞助" /></p>
+</div>
+<div class="pay_card">
+  微信转账赞助
+  <p><img width="280" height="280" src="http://www.xiaoyulive.top/content/plugins/Liang_zsshare/weixinpay.png" title="微信转账赞助" /></p>
+  </p>
+</div>
+</div>
+</div>
+<div class="popup effect-fade-scale" id="popup-share">
+<div class="popup-content">
+<h3><i class="fa fa-share-alt"></i>分享到各大网站</h3>
+<div class="bdsharebuttonbox"><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a><a title="分享到开心网" href="#" class="bds_kaixin001" data-cmd="kaixin001"></a><a title="分享到腾讯朋友" href="#" class="bds_tqf" data-cmd="tqf"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
+</div>
+</div>
+		<script>
+		(function() {
+		     var s = document.createElement('script');
+		     s.type = 'text/javascript';
+		     s.async = true;
+		     s.src = 'http://localhost/www.xiaoyulive.top/content/plugins/em_static/em_static_trace.php?logid=75&t='+ new Date().getTime();
+		     var x = document.getElementsByTagName('script')[0];
+		     x.parentNode.insertBefore(s, x);
+		 })();
+		 </script>		
+	 <!-- 相关日志的挂载点 -->
+
+    <div id="comment-place">
+  <div class="comment-post" id="comment-post">
+    <div class="cancel-reply" id="cancel-reply" style="display:none"><a href="javascript:void(0);" onclick="cancelReply()">取消回复</a></div>
+    <div id="bw_rz_pl" class="comment-header">
+
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/bi.png"> 
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/fbpl1.png">
+            <a name="respond"></a></div>
+    <form method="post" name="commentform" action="http://localhost/www.xiaoyulive.top/index.php?action=addcom" id="commentform">
+      <input type="hidden" name="gid" value="75">
+
+
+  <p><textarea name="comment" id="comment" rows="12" tabindex="1" placeholder="评论一下……"></textarea></p>
+
+      
+      <div id="rz_plkxx"> 
+      <p>
+        <input type="text" name="comname" maxlength="49" value="" size="22" tabindex="2" placeholder="昵称">
+      </p>
+      <p>
+        <input type="text" name="commail"  maxlength="128"  value="" size="22" tabindex="3" placeholder="邮箱(选填)">
+      </p>
+      <p>
+        <input type="text" name="comurl" maxlength="128"  value="" size="22" tabindex="4" placeholder="主页(选填)">
+      </p>
+      </div>
+
+      
+  <div class="fbpl">
+     <input type="submit" id="comment_submit" value="发表评论" tabindex="6">
+  </div>
+
+  <input type="hidden" name="pid" id="comment-pid" value="0" size="22" tabindex="1">
+
+    </form>
+  </div>
+  </div>
+    <!-- 输出发表评论框 -->
+        <div id="pagenavi">
+          </div>
+<!-- 输出该日志评论列表 -->
+  <div class="clear"></div>
+</div><!--end #contentleft-->
+
+<!-- 代码高亮 -->
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shCore.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushPlain.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushScala.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushSql.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushPerl.js"></script>
+<link rel="stylesheet" href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/styles/shCore.css" />
+<link rel="stylesheet" href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/styles/shThemeEclipse.css" />
+
+<script>
+  $(function(){
+    if (document.getElementById("zhengwen").innerHTML != null) { 
+      var str = document.getElementById("zhengwen").innerHTML; 
+      var txt = str.replace(/lang-/g,"brush: ");
+      document.getElementById("zhengwen").innerHTML = txt;
+    }
+  })
+
+  SyntaxHighlighter.defaults['toolbar'] = false;  //去掉右上角问号图标
+  SyntaxHighlighter.config.tagName = 'code';       //可以更改解析的默认Tag。
+  SyntaxHighlighter.config.bloggerMode = true; 
+  SyntaxHighlighter.config.stripBrs = true;  
+  SyntaxHighlighter.all();
+</script>
+
+<div id="sidebar">
+
+<!-- 随机音乐 -->
+ 
+
+<!-- 头像 -->
+<div class="avatar">
+  <a href="http://localhost/www.xiaoyulive.top/welcome" target="_blank" >
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/avatar1.jpg" alt="关于我" title='关于我'>
+  </a>
+  <div class="cover">
+    关于我
+  </div>
+</div>
+
+<!-- 加载插件 -->
+  <div id="zhanzhang" data-kui-anim="fadeInUp">
+  <div id="zhanzhang_biaoti"><span>个人资料</span></div>
+  <div id="zhanzhang_biankuang">
+  <div id="zhanzhang_img">
+    <img src="http://localhost/www.xiaoyulive.top/content/uploadfile/201706/thum-81fe1497074878.jpg" width="140" height="172" alt="blogger" />
+    </div>
+  <div id="zhanzhang_wenzi"><b>站长：</b><a href="mailto:731734107@qq.com">小昱</a><br>
+    <b style="float: left;">签名：</b>
+      <div style="float: left;">小昱小昱难相遇，<br />
+至今孤身还一人。<br />
+不知前世何造化，<br />
+今生没落在凡尘。</div>
+    </div>
+  <div id="gaodu1"></div></div></div>
+  <div id="sousuo" data-kui-anim="fadeInUp">
+  <ul id="logsearch">
+  <form name="keyform" method="get" action="http://localhost/www.xiaoyulive.top/index.php">
+  <input name="keyword" class="search" type="text"  placeholder="请输入搜索关键字">
+    <input type="submit" name="submit" value="搜索" class="submit button">
+  </form>
+  </ul>
+  </div>
+  <div id="biaoqian" data-kui-anim="fadeInUp">
+  <div id="biaoqian_biaoti"><span>标签</span></div>
+  <div id="biaoqian_biankuang">
+  <div class="tagcloud">
+      <span class="hint--top shake shake-little" data-hint="“SEO” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/seo/index.html"  class="tag-link-34">SEO 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“兼容性” 有2篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/jianrongxing/index.html"  class="tag-link-22">兼容性 2篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“服务器” 有3篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/fuwuqi/index.html"  class="tag-link-47">服务器 3篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“linux” 有12篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/linux/index.html"  class="tag-link-29">linux 12篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“CSS” 有4篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/css/index.html"  class="tag-link-41">CSS 4篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“运维” 有11篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/yunwei/index.html"  class="tag-link-29">运维 11篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“HTML” 有3篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/html/index.html"  class="tag-link-49">HTML 3篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“LESS” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/less/index.html"  class="tag-link-48">LESS 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“数据库” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/shujuku/index.html"  class="tag-link-37">数据库 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“nginx” 有2篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/nginx/index.html"  class="tag-link-29">nginx 2篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“前端” 有4篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/qianduan/index.html"  class="tag-link-47">前端 4篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“ftp” 有2篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/ftp/index.html"  class="tag-link-13">ftp 2篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“nodejs” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/nodejs/index.html"  class="tag-link-32">nodejs 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“mongoDB” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/mongodb/index.html"  class="tag-link-17">mongoDB 1篇</a></span>
+    </div></div></div>
+  <div id="fenlei" data-kui-anim="fadeInUp">
+  <div id="fenlei_biaoti"><span>分类</span></div>
+  <div id="fenlei_biankuang">
+  <ul id="blogsort">
+    <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category1/index.html">前端 (2)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-1/index.html">HTML+CSS (2)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-2/index.html">HTML5 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-3/index.html">CSS3 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-12/index.html">JavaScript (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-4/index.html">jQuery (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-5/index.html">Bootstrap (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-6/index.html">移动端 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-7/index.html">自动构建 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-8/index.html">Vue (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-9/index.html">Angular (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-10/index.html">React (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category2/index.html">PHP (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category2-1/index.html">smarty (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category2-2/index.html">ThinkPHP (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category3/index.html">JAVA (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category3-1/index.html">JavaSE (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category3-2/index.html">JavaEE (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category3-3/index.html">SSH (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category4/index.html">Node.js (0)</a>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html">运维 (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5-1/index.html">阿里云 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html">Linux (8)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5-3/index.html">Windows (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category6/index.html">数据库 (0)</a>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category7/index.html">开发工具 (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-1/index.html">sublime (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-2/index.html">WebStrom (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-3/index.html">HBuilder (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-4/index.html">Eclipse (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category9/index.html">博文 (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-1/index.html">心语 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-2/index.html">美文 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-3/index.html">禅语 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-4/index.html">摘录 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-5/index.html">日志 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-6/index.html">动态 (0)</a>
+    </li>
+        </ul>
+    </li>
+      </ul></div></div>
+  <div id="cundang" data-kui-anim="fadeInUp">
+  <div id="cundang_biaoti"><span>存档</span></div>
+  <div id="cundang_biankuang">
+  <ul id="record">
+    <li><a href="http://localhost/www.xiaoyulive.top/record/201706/index.html">2017年6月(2)</a></li>
+    <li><a href="http://localhost/www.xiaoyulive.top/record/201705/index.html">2017年5月(6)</a></li>
+    <li><a href="http://localhost/www.xiaoyulive.top/record/201606/index.html">2016年6月(4)</a></li>
+    </ul><div id="gaodu1"></div></div></div>
+
+
+
+
+
+</div>
+<!--end #siderbar--></div><!--end #content-->
+<div class="clear"></div>
+
+<div id="footerbar" data-kui-anim="fadeInUp">
+<div id="dibu">
+  <a id="gotop" href="javascript:void(0);">返回顶部</a>|
+  <a href="http://localhost/www.xiaoyulive.top/">首页</a>|
+  <a href="http://localhost/www.xiaoyulive.top/post/22.html">碰碰手气</a>|
+<a href="#" title="喜欢本站，捐赠支持！">捐赠支持</a>|
+<!--
+<a href="http://#" title="自定义链接">自定义链接</a>|
+<a href="http://#" title="自定义链接！">自定义链接</a>|
+<a href="http://#" title="站长到底是何方人物！？">自定义链接</a>|
+-->
+<a href="m/" title="手机版本">手机版本</a>|<a href="http://localhost/www.xiaoyulive.top/admin/" class="hint--left hint--error" data-hint="站长的后花园，闲人止步！ ^_^" target='_blank'>后花园</a>
+
+
+<p id="db_bqwz">
+<!-- <span>
+Copyright © 2016-2017 <a href="http://localhost/www.xiaoyulive.top/" class="db_emlog">小昱个人博客</a>
+</span>
+<a href="http://www.miibeian.gov.cn" target="_blank">&nbsp;&nbsp;滇ICP备16006294号-1</a>
+Copyright © 2016-2017 小昱个人博客 -->
+<p>Copyright © 2016-2017 小昱个人博客 <a href="http://www.miibeian.gov.cn" target="_blank">滇ICP备16006294号-1</a></p>
+</p>
+
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",
+"https://widget.daovoice.io/widget/APP_ID.js","daovoice");</script>
+<script>
+  daovoice('init', {
+    app_id: "5a267572",
+  });
+  daovoice('update');
+</script>
+<script type="text/javascript" src="http://localhost/www.xiaoyulive.top/content/plugins/Liang_zsshare/Liang_zsshare.js"></script>
+  <script type="text/javascript" src="http://localhost/www.xiaoyulive.top/content/plugins/Liang_zsshare/Liang.popup.min.js"></script>
+<!-- 底部友情链接 -->
+  <div id="link2">    <a href="http://blog.xiaoyulive.top" title="小昱GitHub博客" target="_blank">小昱GitHub博客</a>
+    <a href="http://www.xiaoyulive.top/welcome" title="小昱个人简历" target="_blank">小昱个人简历</a>
+    <a href="http://github.com/quanzaiyu" title="小昱的GitHub" target="_blank">小昱的GitHub</a>
+    <a href="http://www.jianshu.com/u/2e74d0659da1" title="小昱的简书" target="_blank">小昱的简书</a>
+  </div>
+
+
+</div><!--end #dibu-->
+</div><!--end #footerbar-->
+</div><!--end #wrap-->
+
+
+<!-- 返回顶部代码开始 -->
+<div id="shangxia" class="animated bounceInUp">
+  <div id="shang"></div>
+
+  
+    <div id="comt"></div>
+  
+  <div id="xia"></div>
+</div>
+<!-- 返回顶部代码 结束 -->
+
+<!-- 底部横幅代码开始 -->
+  <div id="bottom_banner">
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/dibuhengfu.png">
+  </div>
+ 
+<!-- 底部横幅代码结束 -->
+
+
+<!-- js 请不要删除以下js，或者模板很多功能将失效。 -->
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/bowen_qpjk.cc.min.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/sidebar_qpjk.cc.js"></script>
+<script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/TweenMax.min.js">\x3C/script>')</script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/ScrollToPlugin.min.js"></script>
+
+</body>
+</html>

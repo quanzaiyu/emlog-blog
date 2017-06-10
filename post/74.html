@@ -1,0 +1,975 @@
+
+
+<style>
+  #daodream-launcher{
+    top: 20px!important;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>linux下环境变量的设置方法 - 小昱个人博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit"> <!-- 默认用极速核 -->
+<meta http-equiv="Cache-Control" content="no-siteapp"> <!-- 禁止百度转码 -->
+<meta name="keywords" content="全在昱,小昱,小昱个人网站,小昱个人博客,小昱之家,linux">
+<meta name="description" content="一、动态...">
+<meta name="generator" content="小昱之家 xiaoyulive.top">
+
+<!-- 引用百度cdn公共库网站托管的Jquery，不成功则使用本地Jquery。 -->
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/jquery-1.11.1.min.js"><\/script >');</script>
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/main.css" rel="stylesheet">
+
+<!-- 个性化鼠标css样式 -->
+
+<style>
+body {cursor: url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen.ani), url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen4.cur), auto;}
+
+a{cursor: url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/Click.ani), url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen3.cur), auto;} 
+#shang, #comt, #xia {cursor: url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/Click.ani), url(http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/zhizhen3.cur), auto;}
+</style>
+
+<!-- markdown -->
+<script src="http://localhost/www.xiaoyulive.top/content/plugins/emlog_markdown/scripts/editormd.min.js"></script>
+<link rel="stylesheet" href="http://localhost/www.xiaoyulive.top/content/plugins/emlog_markdown/styles/editormd.css" />
+
+<!-- css3动画库，它能让网页所有元素舞动起来，你将愛上它。 -->
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/csshake.min.css" rel="stylesheet">
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/animate.min.css" rel="stylesheet">
+
+<!-- 工具提示css -->
+<link href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/hint.min.css" rel="stylesheet">
+
+<script src="http://localhost/www.xiaoyulive.top/include/lib/js/common_tpl.js"></script>
+
+<!--[if lt IE 9]>
+    <script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/html5_qpjk.cc.js"></script>
+<![endif]-->
+
+
+
+
+<link href="http://localhost/www.xiaoyulive.top/content/plugins/Liang_zsshare/Liang.popup.min.css" rel="stylesheet" type="text/css"><link type="text/css" href="http://localhost/www.xiaoyulive.top/content/plugins/gbook/style/gbook_front.css" rel="stylesheet" /><script type="text/javascript" src="http://localhost/www.xiaoyulive.top/content/plugins/gbook/style/gbook_front.js"></script></head>
+
+<body>
+<!-- 横幅 -->
+<div id="top_banner" class="animated fadeIn">
+<!-- logo -->
+<div id="bwgj_logo2">
+  <a href="http://localhost/www.xiaoyulive.top/"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/logo.png" alt='小昱个人博客' title='小昱个人博客' /></a><br>
+  <!-- 副标题 -->
+  <span class="subtitle">欢迎来到小昱的世界</span><br><br>
+  <!-- 座右铭 -->
+  <span class="motto">勤学如春起之苗，不见其增，日有所长；辍学如磨刀之石，不见其损，日有所亏</span>
+</div>
+
+<img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/bg/top_banner22.jpg">
+
+</div>
+
+
+<!-- 手机端logo -->
+<div id="bwgj_logo">
+
+  <img id="nav_sj_kg" src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/caidan.png">
+
+  <a href="/">
+    <img id="bwgj_logo_img" src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/logo.png" class="animated tada">
+  </a>
+</div>
+
+
+<div id="wrap">
+
+<!-- PC端导航菜单 -->
+<div id="nav">  <ul class="bar">
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/"  class="chaffle_none" data-lang="zh">首页</a>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/t"  class="chaffle_none" data-lang="zh">微语</a>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/index.php?plugin=kl_album"  class="chaffle_none" data-lang="zh">相册</a>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1/index.html"  class="chaffle_none" data-lang="zh">前端</a>
+            <ul class="sub-nav animated flipInY">
+        <li><a href="http://localhost/www.xiaoyulive.top/sort/category1-1/index.html" class="chaffle_none" data-lang="zh">HTML+CSS</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-2/index.html" class="chaffle_none" data-lang="zh">HTML5</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-3/index.html" class="chaffle_none" data-lang="zh">CSS3</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-12/index.html" class="chaffle_none" data-lang="zh">JavaScript</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-4/index.html" class="chaffle_none" data-lang="zh">jQuery</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-5/index.html" class="chaffle_none" data-lang="zh">Bootstrap</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-6/index.html" class="chaffle_none" data-lang="zh">移动端</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-7/index.html" class="chaffle_none" data-lang="zh">自动构建</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-8/index.html" class="chaffle_none" data-lang="zh">Vue</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-9/index.html" class="chaffle_none" data-lang="zh">Angular</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-10/index.html" class="chaffle_none" data-lang="zh">React</a></li>      </ul>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html"  class="chaffle_none" data-lang="zh">运维</a>
+            <ul class="sub-nav animated flipInY">
+        <li><a href="http://localhost/www.xiaoyulive.top/sort/category5-1/index.html" class="chaffle_none" data-lang="zh">阿里云</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html" class="chaffle_none" data-lang="zh">Linux</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-3/index.html" class="chaffle_none" data-lang="zh">Windows</a></li>      </ul>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9/index.html"  class="chaffle_none" data-lang="zh">博文</a>
+            <ul class="sub-nav animated flipInY">
+        <li><a href="http://localhost/www.xiaoyulive.top/sort/category9-1/index.html" class="chaffle_none" data-lang="zh">心语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-2/index.html" class="chaffle_none" data-lang="zh">美文</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-3/index.html" class="chaffle_none" data-lang="zh">禅语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-4/index.html" class="chaffle_none" data-lang="zh">摘录</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-5/index.html" class="chaffle_none" data-lang="zh">日志</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-6/index.html" class="chaffle_none" data-lang="zh">动态</a></li>      </ul>
+      
+      
+    </li>
+      
+    <li class="item common">
+      <a href="?plugin=gbook" target="_blank" class="chaffle_none" data-lang="zh">留言</a>
+      
+      
+    </li>
+        </ul>
+</div>
+
+<!-- 移动端导航 -->
+<div id="nav2" >
+  <div class="nav_gb"></div>
+    <ul class="bar">
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/" >首页</a>
+      
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/t" >微语</a>
+      
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/index.php?plugin=kl_album" >相册</a>
+      
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1/index.html" >前端</a>
+                  <ul class="sub-nav">
+                <li><a href="http://localhost/www.xiaoyulive.top/sort/category1-1/index.html">HTML+CSS</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-2/index.html">HTML5</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-3/index.html">CSS3</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-12/index.html">JavaScript</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-4/index.html">jQuery</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-5/index.html">Bootstrap</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-6/index.html">移动端</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-7/index.html">自动构建</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-8/index.html">Vue</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-9/index.html">Angular</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category1-10/index.html">React</a></li>      </ul>
+            
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html" >运维</a>
+                  <ul class="sub-nav">
+                <li><a href="http://localhost/www.xiaoyulive.top/sort/category5-1/index.html">阿里云</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html">Linux</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category5-3/index.html">Windows</a></li>      </ul>
+            
+            
+    </li>
+      
+    <li class="item common">
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9/index.html" >博文</a>
+                  <ul class="sub-nav">
+                <li><a href="http://localhost/www.xiaoyulive.top/sort/category9-1/index.html">心语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-2/index.html">美文</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-3/index.html">禅语</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-4/index.html">摘录</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-5/index.html">日志</a></li><li><a href="http://localhost/www.xiaoyulive.top/sort/category9-6/index.html">动态</a></li>      </ul>
+            
+            
+    </li>
+      
+    <li class="item common">
+      <a href="?plugin=gbook" target="_blank">留言</a>
+      
+            
+    </li>
+          <li id="nav_ss" class="item common">
+  <form name="keyform" method="get" action="http://localhost/www.xiaoyulive.top/index.php">
+  <input name="keyword" class="search" type="text" placeholder="请输入搜索关键字">
+    <input type="submit" name="submit" value="搜索" class="submit button">
+  </form>
+    </li>
+  </ul>
+</div>
+
+
+<!-- 首页公告，调用的微语数据。-->
+  
+
+    <div id="content">
+<div id="contentleft">
+
+<!-- 显示置顶标记,日志标题 -->
+<div class="biaoti" id="masked">linux下环境变量的设置方法</div>
+<!-- 标题下文章信息 -->
+
+
+  <div class="date2">
+
+  <li class="date2_home"><span class="home"></span><a href="/" title="返回网站首页">首页</a> <b>></b>
+    <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html">运维</a> <b>></b> <a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html">Linux</a>  </li>
+
+  <li class="date2_zz"><span class="pauthor"></span>作者：<a href="http://localhost/www.xiaoyulive.top/author/1/index.html" title="小昱小昱难相遇，<br />
+至今孤身还一人。<br />
+不知前世何造化，<br />
+今生没落在凡尘。 731734107@qq.com">小昱</a></li>
+
+  <li><span class="ptime"></span> 2017年5月8日 23:52 星期一</li>
+
+  <li><span class="pview"></span>浏览：5</li>
+
+  <li class="date2_ziti"><span class="zihao"></span>字号：
+  <a href="javascript:doZoom(16)" class="hint--top  hint--success" data-hint="16号字体">小</a>
+    <a href="javascript:doZoom(18)" class="hint--top  hint--info" data-hint="18号字体">中</a>
+    <a href="javascript:doZoom(20)" class="hint--top  hint--error" data-hint="20号字体">大</a>
+    </li>
+
+
+<li>
+  <span class="plun"></span><a id="rz_pl" href="javascript:void(0);" class="hint--top  hint--error" data-hint="去评论">评论：0</a>
+</li>
+
+  
+  </div>
+  
+
+  <div class="xiantiao">
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xiantiao1.png">
+  </div>
+  
+  
+  <!--  改变正文字号代码  -->
+<script type="text/javascript">function doZoom(size){document.getElementById('zhengwen').style.fontSize=size+'px'}</script>
+    <!-- 改变字号代码结束 -->
+  
+  <!-- 日志全文内容 markdown展示 -->
+  <div id="zhengwen" class="markdown-body editormd-preview-container">
+    <h3 id="h3--"><a name="一、动态库路径的设置" class="reference-link"></a><span class="header-link octicon octicon-link"></span>一、动态库路径的设置</h3><p><a href="http://lib.csdn.net/base/linux">Linux</a>下调用动态库和windows不一样。linux 可执行程序是靠配置文件去读取路径的，因此有些时候需要设置路径<br>
+<pre><code class="lang-bash">export LD_LIBRARY_PATH=/home/.....(动态库的目录)
+</code></pre>
+<p>不过这种设置方法<strong>只是在当前的session中有效</strong></p>
+<p>你可以<strong>修改配置文件实现任何session都有效</strong></p>
+<h3 id="h3--"><a name="二、环境变量的设置" class="reference-link"></a><span class="header-link octicon octicon-link"></span>二、环境变量的设置</h3><p>一般来说，配置交叉编译工具链的时候需要指定编译工具的路径，此时就需要设置环境变量。例如我的mips-linux-gcc编译器在<code>/opt/au1200_rm/build_tools/bin</code>目录下，build_tools就是我的编译工具，则有如下三种方法来设置环境变量：</p>
+<h4 id="h4-1-export-"><a name="1、直接用export命令" class="reference-link"></a><span class="header-link octicon octicon-link"></span>1、直接用export命令</h4><pre><code class="lang-bash">export PATH=$PATH:/opt/au1200_rm/build_tools/bin
+</code></pre>
+<p>查看是否已经设好，可用命令export查看：</p>
+<pre><code class="lang-bash">[root@localhost bin]# export
+declare -x BASH_ENV="/root/.bashrc"
+declare -x G_BROKEN_FILENAMES="1"
+declare -x HISTSIZE="1000"
+declare -x HOME="/root"
+declare -x HOSTNAME="localhost.localdomain"
+declare -x INPUTRC="/etc/inputrc"
+declare -x LANG="zh_CN.GB18030"
+declare -x LANGUAGE="zh_CN.GB18030:zh_CN.GB2312:zh_CN"
+declare -x LESSOPEN="|/usr/bin/lesspipe.sh %s"
+declare -x LOGNAME="root"
+declare -x LS_COLORS="no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:.cmd=01;32:.exe=01;32:.com=01;32:.btm=01;32:.bat=01;32:.sh=01;32:.csh=01;32:.tar=01;31:.tgz=01;31:.arj=01;31:.taz=01;31:.lzh=01;31:.zip=01;31:.z=01;31:.Z=01;31:.gz=01;31:.bz2=01;31:.bz=01;31:.tz=01;31:.rpm=01;31:.cpio=01;31:.jpg=01;35:.gif=01;35:.bmp=01;35:.xbm=01;35:.xpm=01;35:.png=01;35:.tif=01;35:"
+declare -x MAIL="/var/spool/mail/root"
+declare -x OLDPWD="/opt/au1200_rm/build_tools"
+declare -x PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin:/root/bin:/opt/au1200_rm/build_tools/bin"
+declare -x PWD="/opt/au1200_rm/build_tools/bin"
+declare -x SHELL="/bin/bash"
+declare -x SHLVL="1"
+declare -x SSH_ASKPASS="/usr/libexec/openssh/gnome-ssh-askpass"
+declare -x SSH_AUTH_SOCK="/tmp/ssh-XX3LKWhz/agent.4242"
+declare -x SSH_CLIENT="10.3.37.152 2236 22"
+declare -x SSH_CONNECTION="10.3.37.152 2236 10.3.37.186 22"
+declare -x SSH_TTY="/dev/pts/2"
+declare -x TERM="linux"
+declare -x USER="root"
+declare -x USERNAME="root"
+</code></pre>
+<p>可以看到，环境变量已经设好，PATH里面已经有了我要加的编译器的路径。</p>
+<h4 id="h4-2-profile-"><a name="2、修改profile文件" class="reference-link"></a><span class="header-link octicon octicon-link"></span>2、修改profile文件</h4><pre><code class="lang-bash">vim /etc/profile
+</code></pre>
+<p>比如:</p>
+<pre><code class="lang-bash">#lrz and lsz setting
+export FILEMANAGE_HOME=/usr/local
+export PATH=$FILEMANAGE_HOME/bin:/root/node-v4.4.4-linux-x64/bin:$PATH
+</code></pre>
+<p>让环境变量立即生效需要执行如下命令：</p>
+<pre><code class="lang-bash">source /etc/profile
+</code></pre>
+<h4 id="h4-3-bashrc-"><a name="3、修改.bashrc文件" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3、修改.bashrc文件</h4><pre><code class="lang-bash">vi /root/.bashrc
+</code></pre>
+<p>在里面加入：</p>
+<pre><code class="lang-bash">export PATH="$PATH:/opt/au1200_rm/build_tools/bin"
+</code></pre>
+<p>后两种方法一般需要重新注销系统才能生效，最后可以通过echo命令测试一下：</p>
+<pre><code class="lang-bash">echo $PATH
+</code></pre>
+<p>看看输出里面是不是已经有了<code>my_new_path</code>这个路径了。</p>
+<h3 id="h3--"><a name="三、注意事项" class="reference-link"></a><span class="header-link octicon octicon-link"></span>三、注意事项</h3><ol>
+<li>“/bin”、“/sbin”、“/usr/bin”、“/usr/sbin”、“/usr/local/bin”等路径已经在系统环境变量中了，如果可执行文件在这几个标准位置，在终端命令行输入该软件可执行文件的文件名和参数(如果需要参数)，回车即可。</li><li>如果不在标准位置，文件名前面需要加上完整的路径。不过每次都这样跑就太麻烦了，一个“一劳永逸”的办法是把这个路径加入环境变量。命令 <code>PATH=$PATH:路径</code>可以把这个路径加入环境变量，但是退出这个命令行就失效了。要想永久生效，需要把这行添加到环境变量文件里。有两个文件可选：<code>/etc/profile</code>和用户主目录下的<code>.bash_profile</code>，<code>/etc/profile</code>对系统里所有用户都有效，用户主目录下的<code>.bash_profile</code>只对这个用户有效。</li><li>格式: <code>PATH=$PATH:路径1:路径2:...:路径n</code></li></ol>
+<p>　　意思是可执行文件的路径包括原先设定的路径，也包括从“路径1”到“路径n”的所有路径。当用户输入一个一串字符并按回车后，shell会依次在这些路径里找对应的可执行文件并交给系统核心执行。那个“$PATH”表示原先设定的路径仍然有效，</p>
+<ol>
+<li>注意不要漏掉。某些软件可能还有“PATH”以外类型的环境变量需要添加，但方法与此相同，并且也需要注意“$”。</li><li>注意，与DOS/Window不同，UNIX类系统环境变量中<strong>路径名用冒号分隔</strong>，不是分号。另外，软件越装越多，环境变量越添越多，为了避免造成混乱，建议所有语句都添加在文件结尾，按软件的安装顺序添加。</li><li>设置完毕，注销并重新登录，设置就生效了。如果不注销，直接在shell里执行这些语句，也能生效，但是作用范围只限于执行了这些语句的shell。</li></ol>
+<p>　　相关的环境变量生效后，就不必老跑到软件的可执行文件目录里去操作了。</p>
+<p>　　(from:)</p>
+<h3 id="h3--java-"><a name="四、实例：配置Java环境变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>四、实例：配置Java环境变量</h3><h5 id="h5-1-etc-profile-"><a name="1.修改/etc/profile文件" class="reference-link"></a><span class="header-link octicon octicon-link"></span>1.修改/etc/profile文件</h5><p>如果你的计算机仅仅作为开发使用时推荐使用这种方法，因为所有用户的shell都有权使用这些环境变量，可能会给系统带来安全性问题。</p>
+<p>(1)用文本编辑器打开/etc/profile</p>
+<p>(2)在profile文件末尾加入：</p>
+<pre><code class="lang-bash">JAVA_HOME=/usr/share/jdk1.5.0_05
+PATH=/$JAVA_HOME/bin:/$PATH
+CLASSPATH=.:/$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export JAVA_HOME
+export PATH
+export CLASSPATH
+</code></pre>
+<p>注解：</p>
+<pre><code>a. 你要将 /usr/share/jdk1.5.0_05jdk 改为你的jdk安装目录
+b. linux下用冒号“:”来分隔路径
+c. $PATH、$CLASSPATH、$JAVA_HOME 是用来引用原来的环境变量的值,在设置环境变量时特别要注意不能把原来的值给覆盖掉了，这是一种常见的错误。
+d. CLASSPATH中当前目录“.”不能丢,把当前目录丢掉也是常见的错误。
+e. export是把这三个变量导出为全局变量。
+f. 大小写必须严格区分。
+</code></pre><p>(3)重新登录</p>
+<h5 id="h5-2-bashrc-"><a name="2.修改.bashrc文件" class="reference-link"></a><span class="header-link octicon octicon-link"></span>2.修改.bashrc文件</h5><p>这种方法更为安全，它可以把使用这些环境变量的权限控制到用户级别，如果你需要给某个用户权限使用这些环境变量，你只需要修改其个人用户主目录下的.bashrc文件就可以了。</p>
+<p>(1)用文本编辑器打开用户目录下的.bashrc文件</p>
+<p>(2)在.bashrc文件末尾加入：　　</p>
+<pre><code class="lang-bash">set JAVA_HOME=/usr/share/jdk1.5.0_05
+export JAVA_HOME
+set PATH=/$JAVA_HOME/bin:/$PATH
+export PATH
+set CLASSPATH=.:/$JAVA_HOME/lib/dt.jar:/$JAVA_HOME/lib/tools.jar
+export CLASSPATH
+</code></pre>
+<p>(3)重新登录</p>
+<h5 id="h5-3-shell-"><a name="3.直接在shell下设置变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3.直接在shell下设置变量</h5><p>不赞成使用这种方法，因为换个shell，你的设置就无效了，因此这种方法仅仅是临时使用，以后要使用的时候又要重新设置，比较麻烦。</p>
+<p>只需在shell终端执行下列命令：</p>
+<pre><code class="lang-bash">export JAVA_HOME=/usr/share/jdk1.5.0_05
+export PATH=/$JAVA_HOME/bin:/$PATH
+export CLASSPATH=.:/$JAVA_HOME/lib/dt.jar:/$JAVA_HOME/lib/tools.jar
+</code></pre>
+<h3 id="h3--"><a name="五、变量简介" class="reference-link"></a><span class="header-link octicon octicon-link"></span>五、变量简介</h3><p>　　Linux 是一个多用户的<a href="http://lib.csdn.net/base/operatingsystem">操作系统</a>。每个用户登录系统后，都会有一个专用的运行环境。通常每个用户默认的环境都是相同的，这个默认环境实际上就是一组环境变量的定义。用户可以对自己的运行环境进行定制，其方法就是修改相应的系统环境变量。</p>
+<h4 id="h4-1-"><a name="1. 常见的环境变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>1. 常见的环境变量</h4><pre><code class="lang-bash">$PATH：决定了shell将到哪些目录中寻找命令或程序
+$HOME：当前用户主目录
+$MAIL：是指当前用户的邮件存放目录。
+$SHELL：是指当前用户用的是哪种Shell。
+$HISTSIZE：是指保存历史命令记录的条数
+$LOGNAME：是指当前用户的登录名。
+$HOSTNAME：是指主机的名称，许多应用程序如果要用到主机名的话，通常是从这个环境变量中来取得的。
+$LANG/$LANGUGE：是和语言相关的环境变量，使用多种语言的用户可以修改此环境变量。
+$PS1：是基本提示符，对于root用户是#，对于普通用户是$，也可以使用一些更复杂的值。
+$PS2：是附属提示符，默认是“&gt;”。可以通过修改此环境变量来修改当前的命令符，比如下列命令会将提示符修改成字符串“Hello,My NewPrompt :) ”。
+</code></pre>
+<h4 id="h4-2-export-"><a name="2. export命令" class="reference-link"></a><span class="header-link octicon octicon-link"></span>2. export命令</h4><p>　　export命令将作为他参数的变量导入到子shell中，并使之在子shell中有效。export命令把自己的参数创建为一个环境变量，而这个环境变量可以被其他脚本和当前程序调用的程序看见。</p>
+<h4 id="h4-3-"><a name="3. 定制环境变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3. 定制环境变量</h4><p>　　环境变量是和 Shell 紧密相关的，用户登录系统后就启动了一个 Shell 。对于 Linux 来说一般是 bash ，但也可以重新设定或切换到其它的 Shell 。根据发行版本的情况， bash 有两个基本的系统级配置文件： /etc/bashrc 和 /etc/profile 。这些配置文件包含两组不同的变量： shell 变量和环境变量。前者只是在特定的 shell 中固定（如 bash ），后者在不同 shell 中固定。很明显， shell 变量是局部的，而环境变量是全局的。环境变量是通过 Shell 命令来设置的，设置好的环境变量又可以被所有当前用户所运行的程序所使用。对于 bash 这个 Shell 程序来说，可以通过变量名来访问相应的环境变量，通过 export 来设置环境变量。下面通过几个实例来说明。</p>
+<h5 id="h5-3-1-echo-"><a name="3.1 使用命令echo 显示环境变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3.1 使用命令echo 显示环境变量</h5><p>本例使用echo显示常见的变量HOME</p>
+<pre><code class="lang-bash">$ echo $HOME
+/home/lqm
+</code></pre>
+<h5 id="h5-3-2-"><a name="3.2 设置一个新的环境变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3.2 设置一个新的环境变量</h5><pre><code class="lang-bash">$ export HELLO=“Hello!”
+$ echo $HELLO
+Hello!
+</code></pre>
+<h5 id="h5-3-3-env-"><a name="3.3 使用 env 命令显示所有的环境变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3.3 使用 env 命令显示所有的环境变量</h5><pre><code class="lang-bash">$ env
+SSH_AGENT_PID=1875
+HOSTNAME=lqm
+SHELL=/bin/bash
+TERM=xterm
+HISTSIZE=1000
+……
+</code></pre>
+<h5 id="h5-3-4-set-shell-"><a name="3.4  使用set 命令显示所有本地定义的Shell 变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3.4  使用set 命令显示所有本地定义的Shell 变量</h5><pre><code class="lang-bash">$ set
+BASH=/bin/bash
+……
+</code></pre>
+<h5 id="h5-3-5-unset-"><a name="3.5  使用 unset 命令来清除环境变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3.5  使用 unset 命令来清除环境变量</h5><pre><code class="lang-bash">$ export TEST=“test”       # 增加一个环境变量 TEST
+$ env | grep TEST               # 此命令有输出，证明环境变量 TEST 已经存在了
+TEST=test
+$ unset $TEST                   #删除环境变量TEST
+$ env | grep TEST              # 此命令无输出，证明环境变量 TEST 已经存在了
+</code></pre>
+<h5 id="h5-3-6-readonly-"><a name="3.6  使用 readonly 命令设置只读变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3.6  使用 readonly 命令设置只读变量</h5><p>如果使用了 readonly 命令的话，变量就不可以被修改或清除了。示例如下：</p>
+<pre><code class="lang-bash">$ export TEST="Test"        # 增加一个环境变量 TEST
+$ readonly TEST                  #将环境变量TEST设为只读
+$ unset TEST                      #会发现此变量不能被删除
+-bash: unset: TEST: cannot unset: readonly variable
+$ TEST="New" #会发现此变量不能被修改
+-bash: TEST: readonly variable
+</code></pre>
+<h5 id="h5-3-7-c-"><a name="3.7 用C 程序来访问和设置环境变量" class="reference-link"></a><span class="header-link octicon octicon-link"></span>3.7 用C 程序来访问和设置环境变量</h5><p>　　对于 C 程序的用户来说，可以使用下列三个函数来设置或访问一个环境变量。</p>
+<p>　　<code>getenv()</code>访问一个环境变量。输入参数是需要访问的变量名字，返回值是一个字符串。如果所访问的环境变量不存在，则会返回 NULL 。</p>
+<p>　　<code>setenv()</code> 在程序里面设置某个环境变量的函数。</p>
+<p>　　<code>unsetenv()</code> 清除某个特定的环境变量的函数。</p>
+<p>　　另外，还有一个指针变量 environ ，它指向的是包含所有的环境变量的一个列表。下面的程序可以打印出当前运行环境里面的所有环境变量：</p>
+<pre><code class="lang-cpp">#include &lt;stdio.h&gt;
+extern char**environ;
+int main ()
+{
+　　char**var;
+　　for (var =environ;*var !=NULL;++var)
+　　    printf ("%s 
+ ",*var);
+　　return 0;
+}
+</code></pre>
+<h5 id="h5-5-8-"><a name="5.8 通过修改环境变量定义文件来修改环境变量。" class="reference-link"></a><span class="header-link octicon octicon-link"></span>5.8 通过修改环境变量定义文件来修改环境变量。</h5><p>　　需要注意的是，一般情况下，这仅仅对于普通用户适用，避免修改根用户的环境定义文件，因为那样可能会造成潜在的危险。</p>
+<pre><code class="lang-bash">$vi /etc/bashrc      #修改shell变量　
+$vi /etc/profile       #修改环境变量定义文件
+</code></pre>
+<p>　　然后编辑你的 PATH 声明，其格式为：</p>
+<p>　　<code>PATH=$PATH:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;<img src="http://www.emoji-cheat-sheet.com/graphics/emojis/------.png" class="emoji" alt=":------:"></p>
+<p>　　你可以自己加上指定的路径，中间用冒号隔开。环境变量更改后，在用户下次登陆时生效，如果想立刻生效，则可执行下面的语句：<code>$ source .bash_profile</code></p>
+<p>　　需要注意的是，最好不要把当前路径 “./” 放到 PATH 里，这样可能会受到意想不到的攻击。完成后，可以通过 <code>echo $PATH</code>查看当前的搜索路径。这样定制后，就可以避免频繁的启动位于 shell 搜索的路径之外的程序了。</p>
+<h3 id="h3--"><a name="六、总结" class="reference-link"></a><span class="header-link octicon octicon-link"></span>六、总结</h3><p>查看PATH：<code>echo $PATH</code><br>
+<h4 id="h4--"><a name="修改方法一：" class="reference-link"></a><span class="header-link octicon octicon-link"></span>修改方法一：</h4><p><code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>配置完后可以通过<code>echo $PATH</code>查看配置结果。<br>生效方法：立即生效<br>有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的path配置<br>
+<h4 id="h4--"><a name="修改方法二：" class="reference-link"></a><span class="header-link octicon octicon-link"></span>修改方法二：</h4><p>通过修改.bashrc文件:<br><code>vim ~/.bashrc</code><br>在最后一行添上：<br><code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>生效方法：（有以下两种）<br>1、关闭当前终端窗口，重新打开一个新终端窗口就能生效<br>2、输入<code>source ~/.bashrc</code>命令，立即生效<br>有效期限：永久有效<br>
+<h4 id="h4--"><a name="修改方法三:" class="reference-link"></a><span class="header-link octicon octicon-link"></span>修改方法三:</h4><p>通过修改profile文件:<br><code>vim /etc/profile</code><br>找到设置PATH的行，添加<br><code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>生效方法：系统重启 若要立即生效，使用命令 <code>source /etc/profile</code><br>有效期限：永久有效<br>
+<h4 id="h4--"><a name="修改方法四:" class="reference-link"></a><span class="header-link octicon octicon-link"></span>修改方法四:</h4><p>通过修改environment文件:<br><code>vim /etc/environment</code><br>在<code>PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"</code>中加入<code>:/usr/local/mongodb/bin</code><br>生效方法：系统重启<br>有效期限：永久有效<br>
+<hr>
+<p><strong>参考资料</strong></p>
+<p><a href="http://blog.csdn.net/ttwwok/article/details/21403991">http://blog.csdn.net/ttwwok/article/details/21403991</a></p>    <div class="clear"></div>
+  </div>
+  
+  <!-- 统计访客停留时间 -->
+  <div id="tingliu">
+    <span class="tingliu2 hint--top hint--bounce" data-hint="发表评论">
+      <a href="javascript:void(0);"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/tishi.gif" class="tingliu5"></a>
+    </span> &nbsp;
+    <span class="tingliu2">您阅读这篇文章共花了：</span>
+    &nbsp;<span class="tingliu3" id="stime"></span>
+  </div>
+
+<script>
+var ss=0,mm=0,hh=0;function TimeGo(){ss++;if(ss>=60){mm+=1;ss=0}if(mm>=60){hh+=1;mm=0}ss_str=(ss<10?"0"+ss:ss);mm_str=(mm<10?"0"+mm:mm);tMsg=""+hh+"小时"+mm_str+"分"+ss_str+"秒";document.getElementById("stime").innerHTML=tMsg;setTimeout("TimeGo()",1000)}TimeGo();
+</script>
+  
+<!-- 分享 -->
+
+<div class="jiathis_style_24x24 fenxiang"><a class="jiathis_button_weixin"></a><a class="jiathis_button_cqq"></a><a class="jiathis_button_qzone"></a><a class="jiathis_button_tsina"></a><a class="jiathis_button_tqq"></a><a class="jiathis_button_renren"></a><a class="jiathis_button_hi"></a><a class="jiathis_button_tieba"></a><a class="jiathis_button_tsohu"></a><a class="jiathis_button_t163"></a><a class="jiathis_button_douban"></a><a class="jiathis_button_tianya"></a><a class="jiathis_button_xiaoyou"></a><a class="jiathis_button_qq"></a><a class="jiathis_button_i139"></a><a class="jiathis_button_copy"></a><a class="jiathis_button_email"></a><a class="jiathis_button_ishare"></a><a href="http://www.jiathis.com/share?uid=1792395"class="jiathis jiathis_txt jtico jtico_jiathis"target="_blank"></a><a class="jiathis_counter_style"></a></div>
+<script>var jiathis_config = {data_track_clickback:'true'};</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1367996005907460" charset="utf-8"></script>
+
+
+  <!-- 结束分割线 -->
+  <div class="jieshu"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/jieshu.png"></div>
+  <div class="jieshu2"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/jieshu3.gif"></div>
+  
+  <!-- 上一篇及下一篇 -->
+  <div id="shangxiapian_2">    <div id="shangxiapian3">
+  <a href="http://localhost/www.xiaoyulive.top/post/75.html">
+  <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shang2.png" onmouseover="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shang1.png'" onmouseout="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shang2.png'"></a></div>
+      <div id="shangxiapian4"><a href="http://localhost/www.xiaoyulive.top/post/73.html"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xia2.png" onmouseover="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xia1.png'" onmouseout="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xia2.png'"></a></div>
+  <div id="gaodu1"></div></div>
+  <div id="shangxiapian">    <div id="sxpbk1"><div id="anniu1">
+  <a href="http://localhost/www.xiaoyulive.top/post/75.html" class="hint--right hint--bounce" data-hint="linux下安装vsftpd">
+  <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shangpian1.png" onmouseover="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shangpian2.png'" onmouseout="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/shangpian1.png'"></a></div>
+<div id="wzlj1"><a href="http://localhost/www.xiaoyulive.top/post/75.html">linux下安装vsftpd</a></div></div>
+        <div id="sxpbk2"><div id="wzlj2"><a href="http://localhost/www.xiaoyulive.top/post/73.html">利用 nginx 进行反向代理和负载均衡</a></div>
+    <div id="anniu2"><a href="http://localhost/www.xiaoyulive.top/post/73.html" class="hint--left hint--bounce" data-hint="利用 nginx 进行反向代理和负载均衡">
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xiapian1.png" onmouseover="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xiapian2.png'" onmouseout="this.src='http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xiapian1.png'"></a></div></div>
+  <div id="gaodu1"></div></div> 
+  
+
+  <!-- 日志标签 -->
+  <div id="tag"><li id="tag-1"><a href="http://localhost/www.xiaoyulive.top/tag/linux/index.html" rel="tag">linux</a></li></div>
+
+  <!-- 感兴趣文章 -->
+     <div class="gxq"><div class="bti"><img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/xiangguan.png">&nbsp;<span class="chaffle" data-lang="zh">相关文章</span></div>
+            <ul>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/75.html" title="查看文章:linux下安装vsftpd" class="shake shake-little">linux下安装vsftpd</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/76.html" title="查看文章:linux防火墙设置" class="shake shake-little">linux防火墙设置</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/73.html" title="查看文章:利用 nginx 进行反向代理和负载均衡" class="shake shake-little">利用 nginx 进行反向代理和负载均衡</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/72.html" title="查看文章:linux下安装配置nodejs" class="shake shake-little">linux下安装配置nodejs</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/74.html" title="查看文章:linux下环境变量的设置方法" class="shake shake-little">linux下环境变量的设置方法</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/71.html" title="查看文章:linux下安装配置nginx" class="shake shake-little">linux下安装配置nginx</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/70.html" title="查看文章:linux下安装配置mongoDB" class="shake shake-little">linux下安装配置mongoDB</a>
+            </li>
+                    <li>
+            <a href="http://localhost/www.xiaoyulive.top/post/69.html" title="查看文章:linux系统安装rz和sz实现本地和服务器文件上传下载" class="shake shake-little">linux系统安装rz和sz实现本地和服务器文件上传下载</a>
+            </li>
+                </ul>
+    <div id="gaodu1"></div></div>
+          <!-- 感兴趣文章代码结束 -->
+
+
+
+
+
+
+  <div id="banquan">
+  <!-- 二维码地址生成 -->
+  <div class="tupian hint--right hint--rounded" data-hint="这篇文章太棒了，我要分享给我的小伙伴们！
+  1、用手机扫二维码。2、点右上角分享到朋友圈。">
+  <img src="http://qr.liantu.com/api.php?&bg=ffffff&w=100&m=6&fg=000000&text=http://localhost/www.xiaoyulive.top/index.php?post=74" alt="二维码加载中..."></div>
+
+<div class="xinxi">
+<span class="zuozhe">本文作者：</span><a href="http://localhost/www.xiaoyulive.top/author/1/index.html" title="小昱小昱难相遇，<br />
+至今孤身还一人。<br />
+不知前世何造化，<br />
+今生没落在凡尘。 731734107@qq.com">小昱</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<span class="biaoti2">文章标题：</span> <a href="http://localhost/www.xiaoyulive.top/post/74.html">linux下环境变量的设置方法</a><br>
+<span class="blog_url">本文地址：</span><a href="http://localhost/www.xiaoyulive.top/post/74.html">http://localhost/www.xiaoyulive.top/post/74.html</a><br>
+<b>版权声明：</b>若无注明，本文皆为“<span class="blog_name">小昱个人博客</span>”原创，转载请保留文章出处。
+  </div>
+    <div class="clear"></div>
+  </div>
+
+  <div id="social">
+<div class="social-main">
+<span class="like">
+<a class="liang_zsshare" data-liang_zsshare="74" title="我赞"><i class="fa fa-thumbs-o-up"></i>&nbsp;赞 (<span>0</span>)</a>
+</a>
+<span class="shang-p">
+<a data-dialog="#popup-shang" data-effect="effect-slide-top" title="赞助本站">赏</a>
+</span>
+<span class="share-s">
+<a data-dialog="#popup-share" data-effect="effect-newspaper" title="分享"><i class="fa fa-share-alt"></i>&nbsp;分享</a>
+</span>
+<div class="clear"></div>
+</div>
+</div>
+<div class="popup effect-fade-scale" id="popup-shang">
+<div class="popup-content">
+<p class="zanzhu">您可以选择一种方式赞助本站
+<form target="_blank" method="POST" action="https://shenghuo.alipay.com/send/payment/fill.htm" accept-charset="GBK">
+<input type="hidden" value="731734107@qq.com" name="optEmail">
+<input type="hidden" value="10" name="payAmount">
+<input id="title" type="hidden" value="赞助本站" name="title">
+<input type="hidden" value="请填写您的联系方式，以便答谢！" name="memo">
+<!--<input type="image" value="赞助本站" src="http://i1.tietuku.com/39d52d451dc7221ds.png" width="280" height="100%" name="pay" title="赞助本站">-->
+</form>
+<style type="text/css" media="screen">
+  .pay_card{
+    float: left;
+    margin: 0 10px;
+  }
+</style>
+<div class="pay_card">
+  支付宝转账赞助
+  <p><img width="280" height="280" src="http://www.xiaoyulive.top/content/plugins/Liang_zsshare/card.png" title="支付宝转账赞助" /></p>
+</div>
+<div class="pay_card">
+  微信转账赞助
+  <p><img width="280" height="280" src="http://www.xiaoyulive.top/content/plugins/Liang_zsshare/weixinpay.png" title="微信转账赞助" /></p>
+  </p>
+</div>
+</div>
+</div>
+<div class="popup effect-fade-scale" id="popup-share">
+<div class="popup-content">
+<h3><i class="fa fa-share-alt"></i>分享到各大网站</h3>
+<div class="bdsharebuttonbox"><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a><a title="分享到开心网" href="#" class="bds_kaixin001" data-cmd="kaixin001"></a><a title="分享到腾讯朋友" href="#" class="bds_tqf" data-cmd="tqf"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
+</div>
+</div>
+		<script>
+		(function() {
+		     var s = document.createElement('script');
+		     s.type = 'text/javascript';
+		     s.async = true;
+		     s.src = 'http://localhost/www.xiaoyulive.top/content/plugins/em_static/em_static_trace.php?logid=74&t='+ new Date().getTime();
+		     var x = document.getElementsByTagName('script')[0];
+		     x.parentNode.insertBefore(s, x);
+		 })();
+		 </script>		
+	 <!-- 相关日志的挂载点 -->
+
+    <div id="comment-place">
+  <div class="comment-post" id="comment-post">
+    <div class="cancel-reply" id="cancel-reply" style="display:none"><a href="javascript:void(0);" onclick="cancelReply()">取消回复</a></div>
+    <div id="bw_rz_pl" class="comment-header">
+
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/bi.png"> 
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/fbpl1.png">
+            <a name="respond"></a></div>
+    <form method="post" name="commentform" action="http://localhost/www.xiaoyulive.top/index.php?action=addcom" id="commentform">
+      <input type="hidden" name="gid" value="74">
+
+
+  <p><textarea name="comment" id="comment" rows="12" tabindex="1" placeholder="评论一下……"></textarea></p>
+
+      
+      <div id="rz_plkxx"> 
+      <p>
+        <input type="text" name="comname" maxlength="49" value="" size="22" tabindex="2" placeholder="昵称">
+      </p>
+      <p>
+        <input type="text" name="commail"  maxlength="128"  value="" size="22" tabindex="3" placeholder="邮箱(选填)">
+      </p>
+      <p>
+        <input type="text" name="comurl" maxlength="128"  value="" size="22" tabindex="4" placeholder="主页(选填)">
+      </p>
+      </div>
+
+      
+  <div class="fbpl">
+     <input type="submit" id="comment_submit" value="发表评论" tabindex="6">
+  </div>
+
+  <input type="hidden" name="pid" id="comment-pid" value="0" size="22" tabindex="1">
+
+    </form>
+  </div>
+  </div>
+    <!-- 输出发表评论框 -->
+        <div id="pagenavi">
+          </div>
+<!-- 输出该日志评论列表 -->
+  <div class="clear"></div>
+</div><!--end #contentleft-->
+
+<!-- 代码高亮 -->
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shCore.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushPlain.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushScala.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushSql.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/scripts/shBrushPerl.js"></script>
+<link rel="stylesheet" href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/styles/shCore.css" />
+<link rel="stylesheet" href="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/syntaxhighlighter/styles/shThemeEclipse.css" />
+
+<script>
+  $(function(){
+    if (document.getElementById("zhengwen").innerHTML != null) { 
+      var str = document.getElementById("zhengwen").innerHTML; 
+      var txt = str.replace(/lang-/g,"brush: ");
+      document.getElementById("zhengwen").innerHTML = txt;
+    }
+  })
+
+  SyntaxHighlighter.defaults['toolbar'] = false;  //去掉右上角问号图标
+  SyntaxHighlighter.config.tagName = 'code';       //可以更改解析的默认Tag。
+  SyntaxHighlighter.config.bloggerMode = true; 
+  SyntaxHighlighter.config.stripBrs = true;  
+  SyntaxHighlighter.all();
+</script>
+
+<div id="sidebar">
+
+<!-- 随机音乐 -->
+ 
+
+<!-- 头像 -->
+<div class="avatar">
+  <a href="http://localhost/www.xiaoyulive.top/welcome" target="_blank" >
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/avatar1.jpg" alt="关于我" title='关于我'>
+  </a>
+  <div class="cover">
+    关于我
+  </div>
+</div>
+
+<!-- 加载插件 -->
+  <div id="zhanzhang" data-kui-anim="fadeInUp">
+  <div id="zhanzhang_biaoti"><span>个人资料</span></div>
+  <div id="zhanzhang_biankuang">
+  <div id="zhanzhang_img">
+    <img src="http://localhost/www.xiaoyulive.top/content/uploadfile/201706/thum-81fe1497074878.jpg" width="140" height="172" alt="blogger" />
+    </div>
+  <div id="zhanzhang_wenzi"><b>站长：</b><a href="mailto:731734107@qq.com">小昱</a><br>
+    <b style="float: left;">签名：</b>
+      <div style="float: left;">小昱小昱难相遇，<br />
+至今孤身还一人。<br />
+不知前世何造化，<br />
+今生没落在凡尘。</div>
+    </div>
+  <div id="gaodu1"></div></div></div>
+  <div id="sousuo" data-kui-anim="fadeInUp">
+  <ul id="logsearch">
+  <form name="keyform" method="get" action="http://localhost/www.xiaoyulive.top/index.php">
+  <input name="keyword" class="search" type="text"  placeholder="请输入搜索关键字">
+    <input type="submit" name="submit" value="搜索" class="submit button">
+  </form>
+  </ul>
+  </div>
+  <div id="biaoqian" data-kui-anim="fadeInUp">
+  <div id="biaoqian_biaoti"><span>标签</span></div>
+  <div id="biaoqian_biankuang">
+  <div class="tagcloud">
+      <span class="hint--top shake shake-little" data-hint="“ftp” 有2篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/ftp/index.html"  class="tag-link-39">ftp 2篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“mongoDB” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/mongodb/index.html"  class="tag-link-42">mongoDB 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“LESS” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/less/index.html"  class="tag-link-33">LESS 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“运维” 有11篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/yunwei/index.html"  class="tag-link-27">运维 11篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“CSS” 有4篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/css/index.html"  class="tag-link-34">CSS 4篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“HTML” 有3篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/html/index.html"  class="tag-link-30">HTML 3篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“linux” 有12篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/linux/index.html"  class="tag-link-46">linux 12篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“服务器” 有3篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/fuwuqi/index.html"  class="tag-link-34">服务器 3篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“nodejs” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/nodejs/index.html"  class="tag-link-32">nodejs 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“兼容性” 有2篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/jianrongxing/index.html"  class="tag-link-24">兼容性 2篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“前端” 有4篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/qianduan/index.html"  class="tag-link-14">前端 4篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“SEO” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/seo/index.html"  class="tag-link-49">SEO 1篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“nginx” 有2篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/nginx/index.html"  class="tag-link-28">nginx 2篇</a></span>
+      <span class="hint--top shake shake-little" data-hint="“数据库” 有1篇文章">
+        <a href="http://localhost/www.xiaoyulive.top/tag/shujuku/index.html"  class="tag-link-23">数据库 1篇</a></span>
+    </div></div></div>
+  <div id="fenlei" data-kui-anim="fadeInUp">
+  <div id="fenlei_biaoti"><span>分类</span></div>
+  <div id="fenlei_biankuang">
+  <ul id="blogsort">
+    <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category1/index.html">前端 (2)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-1/index.html">HTML+CSS (2)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-2/index.html">HTML5 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-3/index.html">CSS3 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-12/index.html">JavaScript (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-4/index.html">jQuery (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-5/index.html">Bootstrap (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-6/index.html">移动端 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-7/index.html">自动构建 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-8/index.html">Vue (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-9/index.html">Angular (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category1-10/index.html">React (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category2/index.html">PHP (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category2-1/index.html">smarty (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category2-2/index.html">ThinkPHP (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category3/index.html">JAVA (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category3-1/index.html">JavaSE (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category3-2/index.html">JavaEE (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category3-3/index.html">SSH (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category4/index.html">Node.js (0)</a>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category5/index.html">运维 (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5-1/index.html">阿里云 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5-2/index.html">Linux (8)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category5-3/index.html">Windows (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category6/index.html">数据库 (0)</a>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category7/index.html">开发工具 (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-1/index.html">sublime (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-2/index.html">WebStrom (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-3/index.html">HBuilder (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category7-4/index.html">Eclipse (0)</a>
+    </li>
+        </ul>
+    </li>
+      <li>
+  <a href="http://localhost/www.xiaoyulive.top/sort/category9/index.html">博文 (0)</a>
+      <ul>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-1/index.html">心语 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-2/index.html">美文 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-3/index.html">禅语 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-4/index.html">摘录 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-5/index.html">日志 (0)</a>
+    </li>
+        <li>
+      <a href="http://localhost/www.xiaoyulive.top/sort/category9-6/index.html">动态 (0)</a>
+    </li>
+        </ul>
+    </li>
+      </ul></div></div>
+  <div id="cundang" data-kui-anim="fadeInUp">
+  <div id="cundang_biaoti"><span>存档</span></div>
+  <div id="cundang_biankuang">
+  <ul id="record">
+    <li><a href="http://localhost/www.xiaoyulive.top/record/201706/index.html">2017年6月(2)</a></li>
+    <li><a href="http://localhost/www.xiaoyulive.top/record/201705/index.html">2017年5月(6)</a></li>
+    <li><a href="http://localhost/www.xiaoyulive.top/record/201606/index.html">2016年6月(4)</a></li>
+    </ul><div id="gaodu1"></div></div></div>
+
+
+
+
+
+</div>
+<!--end #siderbar--></div><!--end #content-->
+<div class="clear"></div>
+
+<div id="footerbar" data-kui-anim="fadeInUp">
+<div id="dibu">
+  <a id="gotop" href="javascript:void(0);">返回顶部</a>|
+  <a href="http://localhost/www.xiaoyulive.top/">首页</a>|
+  <a href="http://localhost/www.xiaoyulive.top/post/68.html">碰碰手气</a>|
+<a href="#" title="喜欢本站，捐赠支持！">捐赠支持</a>|
+<!--
+<a href="http://#" title="自定义链接">自定义链接</a>|
+<a href="http://#" title="自定义链接！">自定义链接</a>|
+<a href="http://#" title="站长到底是何方人物！？">自定义链接</a>|
+-->
+<a href="m/" title="手机版本">手机版本</a>|<a href="http://localhost/www.xiaoyulive.top/admin/" class="hint--left hint--error" data-hint="站长的后花园，闲人止步！ ^_^" target='_blank'>后花园</a>
+
+
+<p id="db_bqwz">
+<!-- <span>
+Copyright © 2016-2017 <a href="http://localhost/www.xiaoyulive.top/" class="db_emlog">小昱个人博客</a>
+</span>
+<a href="http://www.miibeian.gov.cn" target="_blank">&nbsp;&nbsp;滇ICP备16006294号-1</a>
+Copyright © 2016-2017 小昱个人博客 -->
+<p>Copyright © 2016-2017 小昱个人博客 <a href="http://www.miibeian.gov.cn" target="_blank">滇ICP备16006294号-1</a></p>
+</p>
+
+
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",
+"https://widget.daovoice.io/widget/APP_ID.js","daovoice");</script>
+<script>
+  daovoice('init', {
+    app_id: "5a267572",
+  });
+  daovoice('update');
+</script>
+<script type="text/javascript" src="http://localhost/www.xiaoyulive.top/content/plugins/Liang_zsshare/Liang_zsshare.js"></script>
+  <script type="text/javascript" src="http://localhost/www.xiaoyulive.top/content/plugins/Liang_zsshare/Liang.popup.min.js"></script>
+<!-- 底部友情链接 -->
+  <div id="link2">    <a href="http://blog.xiaoyulive.top" title="小昱GitHub博客" target="_blank">小昱GitHub博客</a>
+    <a href="http://www.xiaoyulive.top/welcome" title="小昱个人简历" target="_blank">小昱个人简历</a>
+    <a href="http://github.com/quanzaiyu" title="小昱的GitHub" target="_blank">小昱的GitHub</a>
+    <a href="http://www.jianshu.com/u/2e74d0659da1" title="小昱的简书" target="_blank">小昱的简书</a>
+  </div>
+
+
+</div><!--end #dibu-->
+</div><!--end #footerbar-->
+</div><!--end #wrap-->
+
+
+<!-- 返回顶部代码开始 -->
+<div id="shangxia" class="animated bounceInUp">
+  <div id="shang"></div>
+
+  
+    <div id="comt"></div>
+  
+  <div id="xia"></div>
+</div>
+<!-- 返回顶部代码 结束 -->
+
+<!-- 底部横幅代码开始 -->
+  <div id="bottom_banner">
+    <img src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/dibuhengfu.png">
+  </div>
+ 
+<!-- 底部横幅代码结束 -->
+
+
+<!-- js 请不要删除以下js，或者模板很多功能将失效。 -->
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/bowen_qpjk.cc.min.js"></script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/sidebar_qpjk.cc.js"></script>
+<script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/TweenMax.min.js">\x3C/script>')</script>
+<script src="http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/jcss/ScrollToPlugin.min.js"></script>
+
+</body>
+</html>
