@@ -2411,16 +2411,20 @@ textarea#comment:focus {
 #zhanzhang_img {
     margin: 10px 0 10px 6px;
     padding: 0;
-    width: 70px;
+    width: 100px;
     height: auto;
     float: left;
 }
 
+#zhanzhang_img img{
+    width: 100%;
+}
+
 #zhanzhang_wenzi {
     float: left;
-    margin: 10px 6px 10px 0px;
+    margin: 10px 6px 10px 16px;
     padding: 0px 0px 0px 0px;
-    width: 64%;
+    width: 50%;
     height: auto;
     line-height: 20px;
     font-size: 14px;

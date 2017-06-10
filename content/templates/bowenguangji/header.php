@@ -66,6 +66,7 @@ a{cursor: url(<?php echo TEMPLATE_URL; ?>images/Click.ani), url(<?php echo TEMPL
 <script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushBash.js"></script>
 <script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCss.js"></script>
 <script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCpp.js"></script>
 <script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushJScript.js"></script>
 <script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPhp.js"></script>
 <script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPlain.js"></script>
@@ -96,7 +97,6 @@ a{cursor: url(<?php echo TEMPLATE_URL; ?>images/Click.ani), url(<?php echo TEMPL
 </head>
 
 <body>
-
 <!-- 横幅 -->
 <div id="top_banner" class="animated fadeIn">
 <!-- logo -->
