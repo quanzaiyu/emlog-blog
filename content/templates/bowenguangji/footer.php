@@ -25,7 +25,7 @@ Copyright © <?php echo _g('dibu_tj');?> <a href="<?php echo BLOG_URL; ?>" class
 ?>
 <a href="http://www.miibeian.gov.cn" target="_blank">&nbsp;&nbsp;<?php echo $icp; ?></a>
 <?php echo $footer_info; ?> -->
-Copyright © 2015-2017 小昱个人博客 Powered by emlog Theme by 小昱
+<p><?php echo $footer_info; ?> <a href="http://www.miibeian.gov.cn" target="_blank"><?php echo $icp; ?></a></p>
 </p>
 
 
@@ -75,6 +75,6 @@ Copyright © 2015-2017 小昱个人博客 Powered by emlog Theme by 小昱
 <script src="http://cdn.bootcss.com/gsap/1.19.0/TweenMax.min.js"></script>
 <script>window.jQuery || document.write('<script src="<?php echo TEMPLATE_URL; ?>jcss/TweenMax.min.js">\x3C/script>')</script>
 <script src="<?php echo TEMPLATE_URL; ?>jcss/ScrollToPlugin.min.js"></script>
-<script>prettyPrint();</script>
+
 </body>
 </html>
