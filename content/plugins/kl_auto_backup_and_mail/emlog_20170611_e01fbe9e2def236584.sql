@@ -1,5 +1,5 @@
 #version:emlog 5.3.1
-#date:2017-06-11 21:49
+#date:2017-06-11 23:58
 #tableprefix:xiaoyublog_
 DROP TABLE IF EXISTS xiaoyublog_attachment;
 CREATE TABLE `xiaoyublog_attachment` (
@@ -182,10 +182,10 @@ INSERT INTO xiaoyublog_options VALUES('50','istreply','y');
 INSERT INTO xiaoyublog_options VALUES('51','topimg','');
 INSERT INTO xiaoyublog_options VALUES('52','custom_topimgs','a:0:{}');
 INSERT INTO xiaoyublog_options VALUES('53','timezone','8');
-INSERT INTO xiaoyublog_options VALUES('54','active_plugins','a:18:{i:0;s:27:\"tpl_options/tpl_options.php\";i:5;s:31:\"qiukong_qiniu/qiukong_qiniu.php\";i:6;s:19:\"sitemap/sitemap.php\";i:11;s:21:\"kl_album/kl_album.php\";i:13;s:29:\"kmi_DaoVoice/kmi_DaoVoice.php\";i:17;s:23:\"bd_submit/bd_submit.php\";i:19;s:17:\"zgboke/zgboke.php\";i:21;s:21:\"links_go/links_go.php\";i:24;s:17:\"cpdown/cpdown.php\";i:26;s:13:\"digg/digg.php\";i:27;s:31:\"Liang_zsshare/Liang_zsshare.php\";i:30;s:35:\"advancemarkdown/advancemarkdown.php\";i:35;s:33:\"emlog_markdown/emlog_markdown.php\";i:36;s:15:\"gbook/gbook.php\";i:37;s:23:\"em_static/em_static.php\";i:38;s:29:\"ailab_spider/ailab_spider.php\";i:39;s:19:\"autopub/autopub.php\";i:41;s:51:\"kl_auto_backup_and_mail/kl_auto_backup_and_mail.php\";}');
+INSERT INTO xiaoyublog_options VALUES('54','active_plugins','a:21:{i:0;s:27:\"tpl_options/tpl_options.php\";i:5;s:31:\"qiukong_qiniu/qiukong_qiniu.php\";i:6;s:19:\"sitemap/sitemap.php\";i:11;s:21:\"kl_album/kl_album.php\";i:13;s:29:\"kmi_DaoVoice/kmi_DaoVoice.php\";i:17;s:23:\"bd_submit/bd_submit.php\";i:19;s:17:\"zgboke/zgboke.php\";i:21;s:21:\"links_go/links_go.php\";i:24;s:17:\"cpdown/cpdown.php\";i:26;s:13:\"digg/digg.php\";i:27;s:31:\"Liang_zsshare/Liang_zsshare.php\";i:30;s:35:\"advancemarkdown/advancemarkdown.php\";i:35;s:33:\"emlog_markdown/emlog_markdown.php\";i:36;s:15:\"gbook/gbook.php\";i:37;s:23:\"em_static/em_static.php\";i:38;s:29:\"ailab_spider/ailab_spider.php\";i:39;s:19:\"autopub/autopub.php\";i:41;s:51:\"kl_auto_backup_and_mail/kl_auto_backup_and_mail.php\";i:42;s:35:\"kl_auto_excerpt/kl_auto_excerpt.php\";i:43;s:21:\"archiver/archiver.php\";i:44;s:27:\"reader_wall/reader_wall.php\";}');
 INSERT INTO xiaoyublog_options VALUES('55','widget_title','a:13:{s:7:\"blogger\";s:12:\"个人资料\";s:8:\"calendar\";s:6:\"日历\";s:7:\"twitter\";s:12:\"最新微�\�\";s:3:\"tag\";s:6:\"标签\";s:4:\"sort\";s:6:\"分类\";s:7:\"archive\";s:6:\"存档\";s:7:\"newcomm\";s:12:\"最新评�\�\";s:6:\"newlog\";s:12:\"最新文�\�\";s:10:\"random_log\";s:12:\"随机文章\";s:6:\"hotlog\";s:12:\"热门文章\";s:4:\"link\";s:6:\"链接\";s:6:\"search\";s:6:\"搜索\";s:11:\"custom_text\";s:15:\"自定义组�\�\";}');
 INSERT INTO xiaoyublog_options VALUES('56','custom_widget','a:1:{s:21:\"custom_wg_reader_wall\";a:2:{s:5:\"title\";s:9:\"读者墙\";s:7:\"content\";s:112:\"<script type=\"text/javascript\" src=\"http://localhost/www.xiaoyulive.top/index.php?reader_wall_widgets\"></script>\";}}');
-INSERT INTO xiaoyublog_options VALUES('57','widgets1','a:7:{i:0;s:7:\"blogger\";i:1;s:6:\"search\";i:2;s:8:\"calendar\";i:3;s:3:\"tag\";i:4;s:4:\"sort\";i:5;s:7:\"archive\";i:6;s:21:\"custom_wg_reader_wall\";}');
+INSERT INTO xiaoyublog_options VALUES('57','widgets1','a:6:{i:0;s:7:\"blogger\";i:1;s:6:\"search\";i:2;s:8:\"calendar\";i:3;s:3:\"tag\";i:4;s:4:\"sort\";i:5;s:21:\"custom_wg_reader_wall\";}');
 INSERT INTO xiaoyublog_options VALUES('58','widgets2','');
 INSERT INTO xiaoyublog_options VALUES('59','widgets3','');
 INSERT INTO xiaoyublog_options VALUES('60','widgets4','');
@@ -208,7 +208,7 @@ CREATE TABLE `xiaoyublog_navi` (
   `type` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `type_id` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 INSERT INTO xiaoyublog_navi VALUES('1','首页','','n','n','1','0','y','1','0');
 INSERT INTO xiaoyublog_navi VALUES('2','微语','t','n','n','2','0','y','2','0');
@@ -224,6 +224,7 @@ INSERT INTO xiaoyublog_navi VALUES('18','数据�\�','','n','y','70','0','n','4'
 INSERT INTO xiaoyublog_navi VALUES('16','开发工�\�','','n','y','80','0','n','4','31');
 INSERT INTO xiaoyublog_navi VALUES('17','博文','','n','n','90','0','n','4','11');
 INSERT INTO xiaoyublog_navi VALUES('19','留言','?plugin=gbook','y','n','100','0','n','0','0');
+INSERT INTO xiaoyublog_navi VALUES('20','归档','http://localhost/www.xiaoyulive.top/?plugin=archiver','n','n','1','0','n','0','0');
 
 DROP TABLE IF EXISTS xiaoyublog_reply;
 CREATE TABLE `xiaoyublog_reply` (

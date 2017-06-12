@@ -1,0 +1,20 @@
+/**
+ * @Description: 回复或分享微博可见
+ * @Author: Liuzp
+ * @Author URL: http://www.liuzp.com
+ */
+ 
+.hideConBox{
+	border:1px dashed #ff9a9a;
+	background:#ffffe0 url("images/locked.gif") no-repeat 9px 12px;
+	padding: 5px 0 5px 25px;
+	margin:5px auto;
+	color:#666;
+	line-height:26px;
+}
+
+.hideConBox img{
+	vertical-align: middle;
+	margin:0 5px;
+	border:none;
+}

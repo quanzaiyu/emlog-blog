@@ -1,0 +1,2 @@
+<?php exit; ?>
+a:1:{i:0;a:6:{s:2:"id";s:1:"1";s:6:"status";s:1:"0";s:8:"position";s:1:"1";s:5:"title";s:4:"test";s:6:"weight";s:2:"10";s:7:"content";s:67:"a:2:{s:7:"content";s:4:"test";s:5:"image";s:16:"5wHcUBTbA2T0.png";}";}}
