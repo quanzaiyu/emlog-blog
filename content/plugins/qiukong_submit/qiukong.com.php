@@ -1,0 +1,1 @@
+<?php die; ?>a:11:{s:7:"csubmit";i:0;s:8:"ctietuku";i:0;s:8:"ccomment";i:1;s:8:"ccontent";i:1;s:5:"ctags";i:1;s:5:"csort";i:-2;s:7:"cauthor";i:0;s:6:"ccheck";i:1;s:7:"cperiod";i:60;s:6:"climit";i:5;s:6:"ctotal";i:100;}
