@@ -1,10 +1,11 @@
 <?php
 /**
  * 管理中心
- * @copyright (c) Xiaoyulive All Rights Reserved
+ * @copyright (c) Emlog All Rights Reserved
  */
 
 require_once 'globals.php';
+$Comment_Model = new Comment_Model();
 
 if ($action == '') {
 	$avatar = empty($user_cache[UID]['avatar']) ? './views/images/avatar.jpg' : '../' . $user_cache[UID]['avatar'];
@@ -27,7 +28,19 @@ if ($action == '') {
 	} else{
 		$gd_ver = '不支持';
 	}
+	
+	$blogId = isset($_GET['gid']) ? intval($_GET['gid']) : null;
+	$hide = isset($_GET['hide']) ? addslashes($_GET['hide']) : '';
+	$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
+	$addUrl_1 = $blogId ? "gid={$blogId}&" : '';
+	$addUrl_2 = $hide ? "hide=$hide&" : '';
+	$addUrl = $addUrl_1.$addUrl_2;
+
+	$comment = $Comment_Model->getComments(1, $blogId, $hide, $page);
+	$cmnum = $Comment_Model->getCommentNum($blogId, $hide);
+	$hideCommNum = $Comment_Model->getCommentNum($blogId, 'y');
+	
 	include View::getView('header');
 	require_once(View::getView('index'));
 	include View::getView('footer');

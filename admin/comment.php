@@ -1,7 +1,7 @@
 <?php
 /**
  * 评论管理
- * @copyright (c) Xiaoyulive All Rights Reserved
+ * @copyright (c) Emlog All Rights Reserved
  */
 
 require_once 'globals.php';
@@ -20,7 +20,7 @@ if ($action == '') {
 	$comment = $Comment_Model->getComments(1, $blogId, $hide, $page);
 	$cmnum = $Comment_Model->getCommentNum($blogId, $hide);
 	$hideCommNum = $Comment_Model->getCommentNum($blogId, 'y');
-	$pageurl =  pagination($cmnum, Option::get('admin_perpage_num'), $page, "comment.php?{$addUrl}page=");
+	$pageurl =  paginations($cmnum, Option::get('admin_perpage_num'), $page, "comment.php?{$addUrl}page=");
 
 	include View::getView('header');
 	require_once(View::getView('comment'));

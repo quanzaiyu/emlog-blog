@@ -1,7 +1,7 @@
 <?php
 /**
  * 页面管理
- * @copyright (c) Xiaoyulive All Rights Reserved
+ * @copyright (c) Emlog All Rights Reserved
  */
 
 require_once 'globals.php';
@@ -15,7 +15,7 @@ if ($action == '') {
 	$pages = $emPage->getLogsForAdmin('', '', $page, 'page');
 	$pageNum = $emPage->getLogNum('','','page', 1);
 
-	$pageurl =  pagination($pageNum, Option::get('admin_perpage_num'), $page, "./page.php?page=");
+	$pageurl =  paginations($pageNum, Option::get('admin_perpage_num'), $page, "./page.php?page=");
 
 	include View::getView('header');
 	require_once(View::getView('admin_page'));

@@ -1,7 +1,7 @@
 <?php
 /**
  * 管理文章
- * @copyright (c) Xiaoyulive All Rights Reserved
+ * @copyright (c) Emlog All Rights Reserved
  */
 
 require_once 'globals.php';
@@ -70,7 +70,7 @@ if ($action == '') {
 	foreach ($_GET as $key=>$val) {
 		$subPage .= $key != 'page' ? "&$key=$val" : '';
 	}
-	$pageurl =  pagination($logNum, Option::get('admin_perpage_num'), $page, "admin_log.php?{$subPage}&page=");
+	$pageurl =  paginations($logNum, Option::get('admin_perpage_num'), $page, "admin_log.php?{$subPage}&page=");
 
 	include View::getView('header');
 	require_once View::getView('admin_log');

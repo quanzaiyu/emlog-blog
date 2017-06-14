@@ -1,7 +1,7 @@
 <?php
 /**
  * 模板管理
- * @copyright (c) Xiaoyulive All Rights Reserved
+ * @copyright (c) Emlog All Rights Reserved
  */
 
 require_once 'globals.php';
@@ -32,9 +32,16 @@ if ($action == '') {
 		if (@file_exists(TPLS_PATH.$file.'/header.php')) {
 			$tplData = implode('', @file(TPLS_PATH.$file.'/header.php'));
 			preg_match("/Template Name:([^\r\n]+)/i", $tplData, $name);
+			preg_match("/Version:(.*)/i", $tplData, $Version);
+			preg_match("/Author:(.*)/i", $tplData, $Author);
+			preg_match("/Description:(.*)/i", $tplData, $Des);
+			preg_match("/Author Url:(.*)/i", $tplData, $Url);
 			preg_match("/Sidebar Amount:([^\r\n]+)/i", $tplData, $sidebar);
 			$tplInfo['tplname'] = !empty($name[1]) ? trim($name[1]) : $file;
 			$tplInfo['sidebar'] = !empty($sidebar[1]) ? intval($sidebar[1]) : 1;
+			$tplInfo['Des'] = !empty($Des[1]) ? $Des[1] : '';
+			$tplInfo['Version'] = !empty($Version[1]) ? $Version[1] : '';
+			$tplInfo['Author'] = !empty($Url[1]) ? "作者：<a href=\"{$Url[1]}\">{$Author[1]}</a>" : "作者：{$Author[1]}";
 			$tplInfo['tplfile'] = $file;
 
 			$tpls[] = $tplInfo;

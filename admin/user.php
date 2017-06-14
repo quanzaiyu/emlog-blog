@@ -1,7 +1,7 @@
 <?php
 /**
  * 用户管理
- * @copyright (c) Xiaoyulive All Rights Reserved
+ * @copyright (c) Emlog All Rights Reserved
  */
 
 require_once 'globals.php';
@@ -13,7 +13,7 @@ if ($action == '') {
     $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 	$users = $User_Model->getUsers($page);
     $usernum = $User_Model->getUserNum();
-    $pageurl =  pagination($usernum, Option::get('admin_perpage_num'), $page, "./user.php?page=");
+    $pageurl =  paginations($usernum, Option::get('admin_perpage_num'), $page, "./user.php?page=");
 
 	include View::getView('header');
 	require_once View::getView('user');

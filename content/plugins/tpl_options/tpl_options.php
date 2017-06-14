@@ -173,7 +173,8 @@ class TplOptions {
 	 * @return void
 	 */
 	public function hookAdminMainTopIcon() {
-		// echo sprintf('<script>$("a[href=\\"template.php\\"]").css("background", "url(%s/setting.png) no-repeat 20px 1px");</script>', $this->_assets);
+		//echo sprintf('<script>$("a[href=\\"template.php\\"]").css("background", "url(%s/setting.png) no-repeat 20px 1px");</script>', $this->_assets);
+		echo '';
 	}
 
 	/**
@@ -785,7 +786,7 @@ class TplOptions {
 	 */
 	private function renderByTpl($option, $tpl, $loopValues = true, $placeholder = true) {
 		echo '<div class="option">';
-		echo '<div class="option-name">', $this->encode($option['name']), '</div>';
+		echo '<div class="option-name text-right padder">', $this->encode($option['name']), '</div>';
 		$depend = isset($option['depend']) ? $option['depend'] : 'none';
 		echo sprintf('<div class="option-body depend-%s">', $depend);
 		if (!empty($option['description'])) {
@@ -905,7 +906,7 @@ class TplOptions {
 	 * @return void
 	 */
 	private function renderRadio($option) {
-		$tpl = '<label><input type="radio" name="{name}" value="{value}"{checked}> {label}</label>';
+		$tpl = '<label class="checkbox-inline radio i-checks"><input type="radio" name="{name}" value="{value}"{checked}><i></i> {label}</label>';
 		$this->renderByTpl($option, $tpl);
 	}
 
@@ -914,7 +915,7 @@ class TplOptions {
 	 * @return void
 	 */
 	private function renderCheckbox($option) {
-		$tpl = '<label><input type="checkbox" name="{name}[]" value="{value}"{checked}> {label}</label>';
+		$tpl = '<label class="checkbox-inline checkbox i-checks"><input type="checkbox" name="{name}[]" value="{value}"{checked}><i></i> {label}</label>';
 		$this->renderByTpl($option, $tpl);
 	}
 
@@ -924,9 +925,9 @@ class TplOptions {
 	 */
 	private function renderText($option) {
 		if ($this->isMulti($option)) {
-			$tpl = '<textarea name="{name}" rows="8" class="option-textarea{rich}">{value}</textarea>';
+			$tpl = '<textarea name="{name}" rows="8" class="form-control">{value}</textarea>';
 		} else {
-			$tpl = '<input type="text" name="{name}" value="{value}"><br>';
+			$tpl = '<input type="text" class="form-control" name="{name}" value="{value}"><br>';
 		}
 		$this->renderByTpl($option, $tpl, false);
 	}

@@ -3,10 +3,10 @@ $(function() {
   var tplOptions = window.tplOptions;
   var body = $('body');
   var iframe = $('<iframe name="upload-image" src="about:blank" style="display:none"/>').appendTo(body);
-  var optionArea = $('<div/>').appendTo($('#container')).addClass(attr('area')).slideUp();
-  var templateContent = $('#container .containertitle2:last, #container table');
+  var optionArea = $('<div/>').appendTo($('#container .container2')).addClass(attr('area')).slideUp();
+  var templateContent = $('#container .containertitle2:last, #container .tpl_list');
   var loadingDom = $('<div />').appendTo(body);
-  var message = $('<span />').appendTo($('.containertitle2:first')).css('position', 'fixed');
+  var message = $('<div/>').appendTo($('#container .container3:first')).addClass("");
   var timer, input, targetInput, target, templateInput, template;
   var trueInput = $('<input type="file" name="image">').css({
     position: 'absolute',
@@ -35,15 +35,15 @@ $(function() {
   //插入设置按钮
   for (var tpl in tplOptions.templates) {
     (function(tpl) {
-      var td = $('.adm_tpl_list td a[href*="&tpl=' + tpl + '&"]').parent();
-      $('<span>设置</span>').insertBefore(td.find('span')).addClass(attr('setting')).data('template', tpl);
+      var td = $('.adm_tpl_list .tpls .panel-heading a[href*="&tpl=' + tpl + '&"]').parent();
+      $('<span>设置</span>').insertBefore(td.find('span')).addClass(attr('setting')+" btn btn-primary m-r-sm").data('template', tpl);
     })(tpl);
   }
   //当前模板
   (function() {
-    var currentTemplate = $('table:first img').attr('src').match(/\/templates\/(.*?)\/preview.jpg/)[1];
+    var currentTemplate = $('.theme_ntpls .theme-preview img').attr('src').match(/\/templates\/(.*?)\/preview.jpg/)[1];
     if (tplOptions.templates[currentTemplate]) {
-      $('<br>').insertBefore($('<span>设置</span>').appendTo($('table:first td:last')).addClass(attr('setting')).data('template', currentTemplate));
+      $('<br>').insertBefore($('<span>设置</span>').appendTo($('.theme_ntpls .theme-info .theme-description')).addClass(attr('setting')+" btn btn-rounded  btn-block btn-primary").data('template', currentTemplate));
     }
   })();
   //绑定事件
@@ -168,7 +168,7 @@ $(function() {
   function showMsg(code, msg) {
     message.text(msg).css('display', '');
     if (code == 0) {
-      message.attr('class', 'actived');
+      message.attr('class', 'alert alert-info');
       if (timer) {
         window.clearTimeout(timer);
       }
@@ -176,7 +176,7 @@ $(function() {
         message.hide();
       }, 2600);
     } else {
-      message.attr('class', 'error');
+      message.attr('class', 'alert alert-danger');
     }
   }
 
