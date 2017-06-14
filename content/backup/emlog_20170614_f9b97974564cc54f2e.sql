@@ -1,5 +1,5 @@
 #version:emlog 5.3.1
-#date:2017-06-12 22:07
+#date:2017-06-14 21:23
 #tableprefix:xiaoyublog_
 DROP TABLE IF EXISTS xiaoyublog_attachment;
 CREATE TABLE `xiaoyublog_attachment` (
@@ -183,8 +183,8 @@ INSERT INTO xiaoyublog_options VALUES('51','topimg','');
 INSERT INTO xiaoyublog_options VALUES('52','custom_topimgs','a:0:{}');
 INSERT INTO xiaoyublog_options VALUES('53','timezone','8');
 INSERT INTO xiaoyublog_options VALUES('54','active_plugins','a:32:{i:0;s:27:\"tpl_options/tpl_options.php\";i:5;s:31:\"qiukong_qiniu/qiukong_qiniu.php\";i:6;s:19:\"sitemap/sitemap.php\";i:11;s:21:\"kl_album/kl_album.php\";i:13;s:29:\"kmi_DaoVoice/kmi_DaoVoice.php\";i:17;s:23:\"bd_submit/bd_submit.php\";i:19;s:17:\"zgboke/zgboke.php\";i:21;s:21:\"links_go/links_go.php\";i:24;s:17:\"cpdown/cpdown.php\";i:26;s:13:\"digg/digg.php\";i:27;s:31:\"Liang_zsshare/Liang_zsshare.php\";i:30;s:35:\"advancemarkdown/advancemarkdown.php\";i:36;s:15:\"gbook/gbook.php\";i:37;s:23:\"em_static/em_static.php\";i:38;s:29:\"ailab_spider/ailab_spider.php\";i:39;s:19:\"autopub/autopub.php\";i:41;s:51:\"kl_auto_backup_and_mail/kl_auto_backup_and_mail.php\";i:42;s:35:\"kl_auto_excerpt/kl_auto_excerpt.php\";i:44;s:27:\"reader_wall/reader_wall.php\";i:45;s:23:\"ttjtg_jin/ttjtg_jin.php\";i:46;s:23:\"ref_check/ref_check.php\";i:47;s:25:\"share_view/share_view.php\";i:48;s:39:\"archiver_and_sort/archiver_and_sort.php\";i:49;s:21:\"archiver/archiver.php\";i:50;s:15:\"em_ad/em_ad.php\";i:51;s:27:\"lanye_zclip/lanye_zclip.php\";i:53;s:23:\"tag_cloud/tag_cloud.php\";i:54;s:33:\"qiukong_submit/qiukong_submit.php\";i:55;s:17:\"player/player.php\";i:56;s:33:\"emlog_markdown/emlog_markdown.php\";i:57;s:31:\"ailab_replace/ailab_replace.php\";i:58;s:19:\"runtime/runtime.php\";}');
-INSERT INTO xiaoyublog_options VALUES('55','widget_title','a:13:{s:7:\"blogger\";s:12:\"个人资料\";s:8:\"calendar\";s:6:\"日历\";s:7:\"twitter\";s:12:\"最新微�\�\";s:3:\"tag\";s:6:\"标签\";s:4:\"sort\";s:6:\"分类\";s:7:\"archive\";s:6:\"存档\";s:7:\"newcomm\";s:12:\"最新评�\�\";s:6:\"newlog\";s:12:\"最新文�\�\";s:10:\"random_log\";s:12:\"随机文章\";s:6:\"hotlog\";s:12:\"热门文章\";s:4:\"link\";s:6:\"链接\";s:6:\"search\";s:6:\"搜索\";s:11:\"custom_text\";s:15:\"自定义组�\�\";}');
-INSERT INTO xiaoyublog_options VALUES('56','custom_widget','a:2:{s:21:\"custom_wg_reader_wall\";a:2:{s:5:\"title\";s:9:\"读者墙\";s:7:\"content\";s:112:\"<script type=\"text/javascript\" src=\"http://localhost/www.xiaoyulive.top/index.php?reader_wall_widgets\"></script>\";}s:19:\"custom_wg_tag_cloud\";a:2:{s:5:\"title\";s:9:\"标签�\�\";s:7:\"content\";s:110:\"<script type=\"text/javascript\" src=\"http://localhost/www.xiaoyulive.top/index.php?tag_cloud_widgets\"></script>\";}}');
+INSERT INTO xiaoyublog_options VALUES('55','widget_title','a:13:{s:7:\"blogger\";s:12:\"个人资料\";s:8:\"calendar\";s:6:\"日历\";s:7:\"twitter\";s:12:\"最新微�\�\";s:3:\"tag\";s:6:\"标签\";s:4:\"sort\";s:6:\"分类\";s:7:\"archive\";s:6:\"存档\";s:7:\"newcomm\";s:12:\"最新评�\�\";s:6:\"newlog\";s:12:\"最新文�\�\";s:10:\"random_log\";s:12:\"随机文章\";s:6:\"hotlog\";s:12:\"热门文章\";s:4:\"link\";s:6:\"链接\";s:6:\"search\";s:6:\"搜索\";s:11:\"custom_text\";s:24:\"自定义组�\� (音乐)\";}');
+INSERT INTO xiaoyublog_options VALUES('56','custom_widget','a:3:{s:21:\"custom_wg_reader_wall\";a:2:{s:5:\"title\";s:9:\"读者墙\";s:7:\"content\";s:112:\"<script type=\"text/javascript\" src=\"http://localhost/www.xiaoyulive.top/index.php?reader_wall_widgets\"></script>\";}s:19:\"custom_wg_tag_cloud\";a:2:{s:5:\"title\";s:9:\"标签�\�\";s:7:\"content\";s:110:\"<script type=\"text/javascript\" src=\"http://localhost/www.xiaoyulive.top/index.php?tag_cloud_widgets\"></script>\";}s:11:\"custom_wg_1\";a:2:{s:5:\"title\";s:6:\"音乐\";s:7:\"content\";s:175:\"<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=276 height=450 src=\"//music.163.com/outchain/player?type=0&id=699652909&auto=1&height=430\"></iframe>\";}}');
 INSERT INTO xiaoyublog_options VALUES('57','widgets1','a:5:{i:0;s:7:\"blogger\";i:1;s:6:\"search\";i:2;s:8:\"calendar\";i:3;s:3:\"tag\";i:4;s:4:\"sort\";}');
 INSERT INTO xiaoyublog_options VALUES('58','widgets2','');
 INSERT INTO xiaoyublog_options VALUES('59','widgets3','');
@@ -397,7 +397,7 @@ CREATE TABLE `xiaoyublog_tpl_options_data` (
   `data` longtext NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `template` (`template`,`name`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=1024 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1199 DEFAULT CHARSET=utf8;
 
 INSERT INTO xiaoyublog_tpl_options_data VALUES('235','heiseyouhuo','index_logo','','s:46:\"content/uploadfile/tpl_options//index_logo.jpg\";');
 INSERT INTO xiaoyublog_tpl_options_data VALUES('236','heiseyouhuo','side_logo','','s:47:\"content/templates/heiseyouhuo/images/photos.jpg\";');
@@ -411,31 +411,31 @@ INSERT INTO xiaoyublog_tpl_options_data VALUES('345','xiaoyu','index_baner','','
 INSERT INTO xiaoyublog_tpl_options_data VALUES('346','xiaoyu','side_zl','','s:209:\"<p>\r\n	网名：世纪的�\�\r\n</p>\r\n<p>\r\n	职业：Web前端工程师、全栈工程师\r\n</p>\r\n<p>\r\n	籍贯：云南昭通巧�\�\r\n</p>\r\n<p>\r\n	电话�\�183****9782\r\n</p>\r\n<p>\r\n	邮箱：quanzaiyu@gmail.com\r\n</p>\";');
 INSERT INTO xiaoyublog_tpl_options_data VALUES('347','xiaoyu','index_so','','s:3:\"yes\";');
 INSERT INTO xiaoyublog_tpl_options_data VALUES('348','xiaoyu','echo_so','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('999','bowenguangji','logo','','s:46:\"content/templates/bowenguangji/images/logo.png\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1000','bowenguangji','bwgj_cur','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1001','bowenguangji','bwgj_logo2','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1002','bowenguangji','nav_shouqi','','s:2:\"no\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1003','bowenguangji','sygg','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1004','bowenguangji','ad_1','','s:2:\"no\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1005','bowenguangji','ad1_dm','','s:95:\"<img src=\"http://www.xiaoyulive.top/content/templates/bowenguangji/images/ad.png\" alt=\"广告\">\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1006','bowenguangji','ad_2','','s:2:\"no\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1007','bowenguangji','ad2_dm','','s:96:\"<img src=\"http://www.xiaoyulive.top/content/templates/bowenguangji/images/ad2.png\" alt=\"广告\">\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1008','bowenguangji','sy_pinglun','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1009','bowenguangji','rz_pinglun','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1010','bowenguangji','dibuhf','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1011','bowenguangji','bowen_book','','s:14:\"/?plugin=gbook\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1012','bowenguangji','xgrz-kh','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1013','bowenguangji','banquan-kh','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1014','bowenguangji','music-kh','','s:2:\"no\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1015','bowenguangji','music','','s:178:\"<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=296 height=450 src=\"http://music.163.com/outchain/player?type=1&id=3164858&auto=0&height=430\"></iframe>\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1016','bowenguangji','music-bt','','s:12:\"推荐音乐\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1017','bowenguangji','tongji-kh','','s:3:\"yes\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1018','bowenguangji','tjrq','','s:10:\"2016-04-24\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1019','bowenguangji','dibu_tj','','s:9:\"2016-2017\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1020','bowenguangji','ad-kh','','s:2:\"no\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1021','bowenguangji','cbl_adgg','','s:732:\"<a href=\"JavaScript:;\" title=\"图片广告招租�\�50�\�1月�\�\" target=\"_blank\"><img src=\"http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/guanggao.gif\"></a><br>\r\n<li class=\"wzgg1\"><a href=\"JavaScript:;\" class=\"shake shake-little\" title=\"文字招租�\�1�\�10元起\" target=\"_blank\">\r\n文字招租1�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg2\"><a href=\"JavaScript:;\" title=\"文字招租�\�1�\�10元起\" target=\"_blank\">\r\n文字招租2�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg3\"><a href=\"JavaScript:;\" title=\"本广告文字招�\�\" target=\"_blank\">\r\n文字招租3�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg4\"><a href=\"JavaScript:;\" title=\"文字招租�\�1�\�10元起\">文字招租4�\�1�\�10元起</a></li>\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1022','bowenguangji','dibu-zdy','','s:348:\"<a href=\"#\" title=\"喜欢本站，捐赠支持！\">捐赠支持</a>|\r\n<!--\r\n<a href=\"http://#\" title=\"自定义链�\�\">自定义链�\�</a>|\r\n<a href=\"http://#\" title=\"自定义链接！\">自定义链�\�</a>|\r\n<a href=\"http://#\" title=\"站长到底是何方人物！�\�\">自定义链�\�</a>|\r\n-->\r\n<a href=\"m/\" title=\"手机版本\">手机版本</a>|\";');
-INSERT INTO xiaoyublog_tpl_options_data VALUES('1023','bowenguangji','cbl_link','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1174','bowenguangji','logo','','s:46:\"content/templates/bowenguangji/images/logo.png\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1175','bowenguangji','bwgj_cur','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1176','bowenguangji','bwgj_logo2','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1177','bowenguangji','nav_shouqi','','s:2:\"no\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1178','bowenguangji','sygg','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1179','bowenguangji','ad_1','','s:2:\"no\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1180','bowenguangji','ad1_dm','','s:95:\"<img src=\"http://www.xiaoyulive.top/content/templates/bowenguangji/images/ad.png\" alt=\"广告\">\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1181','bowenguangji','ad_2','','s:2:\"no\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1182','bowenguangji','ad2_dm','','s:96:\"<img src=\"http://www.xiaoyulive.top/content/templates/bowenguangji/images/ad2.png\" alt=\"广告\">\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1183','bowenguangji','sy_pinglun','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1184','bowenguangji','rz_pinglun','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1185','bowenguangji','dibuhf','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1186','bowenguangji','bowen_book','','s:14:\"/?plugin=gbook\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1187','bowenguangji','xgrz-kh','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1188','bowenguangji','banquan-kh','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1189','bowenguangji','music-kh','','s:2:\"no\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1190','bowenguangji','music','','s:175:\"<iframe frameborder=\"no\" border=\"0\" marginwidth=\"0\" marginheight=\"0\" width=296 height=450 src=\"//music.163.com/outchain/player?type=0&id=699652909&auto=1&height=430\"></iframe>\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1191','bowenguangji','music-bt','','s:12:\"推荐音乐\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1192','bowenguangji','tongji-kh','','s:3:\"yes\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1193','bowenguangji','tjrq','','s:10:\"2016-04-24\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1194','bowenguangji','dibu_tj','','s:9:\"2016-2017\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1195','bowenguangji','ad-kh','','s:2:\"no\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1196','bowenguangji','cbl_adgg','','s:732:\"<a href=\"JavaScript:;\" title=\"图片广告招租�\�50�\�1月�\�\" target=\"_blank\"><img src=\"http://localhost/www.xiaoyulive.top/content/templates/bowenguangji/images/guanggao.gif\"></a><br>\r\n<li class=\"wzgg1\"><a href=\"JavaScript:;\" class=\"shake shake-little\" title=\"文字招租�\�1�\�10元起\" target=\"_blank\">\r\n文字招租1�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg2\"><a href=\"JavaScript:;\" title=\"文字招租�\�1�\�10元起\" target=\"_blank\">\r\n文字招租2�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg3\"><a href=\"JavaScript:;\" title=\"本广告文字招�\�\" target=\"_blank\">\r\n文字招租3�\�1�\�10元起\r\n</a></li>\r\n<li class=\"wzgg4\"><a href=\"JavaScript:;\" title=\"文字招租�\�1�\�10元起\">文字招租4�\�1�\�10元起</a></li>\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1197','bowenguangji','dibu-zdy','','s:348:\"<a href=\"#\" title=\"喜欢本站，捐赠支持！\">捐赠支持</a>|\r\n<!--\r\n<a href=\"http://#\" title=\"自定义链�\�\">自定义链�\�</a>|\r\n<a href=\"http://#\" title=\"自定义链接！\">自定义链�\�</a>|\r\n<a href=\"http://#\" title=\"站长到底是何方人物！�\�\">自定义链�\�</a>|\r\n-->\r\n<a href=\"m/\" title=\"手机版本\">手机版本</a>|\";');
+INSERT INTO xiaoyublog_tpl_options_data VALUES('1198','bowenguangji','cbl_link','','s:3:\"yes\";');
 
 DROP TABLE IF EXISTS xiaoyublog_kl_album;
 CREATE TABLE `xiaoyublog_kl_album` (
@@ -538,8 +538,6 @@ CREATE TABLE `xiaoyublog_emstatic_cronjob` (
   KEY `piror` (`id`,`piror`,`locked`,`type`,`data`,`page`)
 ) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
-INSERT INTO xiaoyublog_emstatic_cronjob VALUES('41','0','0','author','1','2');
-INSERT INTO xiaoyublog_emstatic_cronjob VALUES('42','0','0','record','201706','1');
 
 DROP TABLE IF EXISTS xiaoyublog_ad;
 CREATE TABLE `xiaoyublog_ad` (
