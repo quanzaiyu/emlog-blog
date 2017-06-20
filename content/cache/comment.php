@@ -1,1 +1,1 @@
-<?php exit;//a:0:{}
+<?php exit;//a:1:{i:0;a:7:{s:3:"cid";s:1:"9";s:3:"gid";s:2:"88";s:4:"name";s:6:"小昱";s:4:"date";s:10:"1497602737";s:4:"page";i:1;s:4:"mail";s:16:"731734107@qq.com";s:7:"content";s:1:"1";}}

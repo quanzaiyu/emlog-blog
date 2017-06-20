@@ -34,13 +34,14 @@ $isdraft = $hide == 'y' ? true : false;
               </div>
             </div>
             <div class="form-group">
-              <textarea id="content" name="content" class="form-control" style="overflow:scroll;width:100%;height:250px;max-height:350px"><?php echo $content; ?></textarea>
+              <textarea id="content" name="content" class="form-control" style="overflow:scroll;width:100%;"><?php echo $content; ?></textarea>
             </div>
             <div class="form-group">
               <span onclick="displayToggle('advset', 1);">高级选项<i class="i i-minus"></i></span>
             </div>
             <div class="form-group" id="advset">
-              <textarea id="excerpt" name="excerpt" class="form-control" style="overflow:scroll;width:100%;height:250px;max-height:350px"><?php echo $excerpt; ?></textarea>
+              <p>文章摘要</p>
+              <textarea id="excerpt" name="excerpt" class="form-control" style="overflow:scroll;width:100%;"><?php echo $excerpt; ?></textarea>
             </div>
           </div>
         </section>
@@ -135,11 +136,20 @@ $isdraft = $hide == 'y' ? true : false;
     <div class="footer text-center" style="clear: both;">欢迎使用 &copy; <a href="http://www.emlog.net" target="_blank">emlog</a><?php doAction('adm_footer');?></div>
   </section>
 </section>
+<!-- 
 <script charset="utf-8" src="./editor/kindeditor.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
-<script charset="utf-8" src="./editor/lang/zh_CN.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
+<script charset="utf-8" src="./editor/lang/zh_CN.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script> 
+-->
+
+<script type="text/javascript" src="./ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="./ueditor/ueditor.all.js"></script>
+<script type="text/javascript" src="./ueditor/lang/zh-cn/zh-cn.js"></script>
+
 <script>
-loadEditor('content');
-loadEditor('excerpt');
+// loadEditor('content');
+// loadEditor('excerpt');
+UE.getEditor('content');
+UE.getEditor('excerpt');
 checkalias();
 $("#alias").keyup(function(){checkalias();});
 $("#advset").css('display', $.cookie('em_advset') ? $.cookie('em_advset') : '');

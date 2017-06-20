@@ -96,7 +96,7 @@ function liang_zsshare_insert($log) {
 }
 
 function Liang_zsshare(){ //子菜单钩子
-	echo '<div class="sidebarsubmenu"><a href="./plugin.php?plugin=Liang_zsshare">赞赏分享管理</a></div>';
+  echo '<div class="sidebarsubmenu"><a href="./plugin.php?plugin=Liang_zsshare">赞赏分享管理</a></div>';
 }
 
 /*function callback_init(){

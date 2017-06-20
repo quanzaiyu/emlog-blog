@@ -173,36 +173,10 @@ var jiathis_config = {data_track_clickback:'true'};
 </div><!--end #contentleft-->
 
 <!-- 代码高亮 -->
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shCore.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushBash.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCss.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCSharp.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushCpp.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushJScript.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPhp.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPlain.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPython.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushJava.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushScala.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushSql.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushXml.js"></script>
-<script src="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/scripts/shBrushPerl.js"></script>
-<link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/styles/shCore.css" />
-<link rel="stylesheet" href="<?php echo TEMPLATE_URL; ?>syntaxhighlighter/styles/shThemeEclipse.css" />
+<script src="<?php echo BLOG_URL; ?>admin/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<link rel="stylesheet" href="<?php echo BLOG_URL; ?>admin/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" />
 
 <script>
-  $(function(){
-    if (document.getElementById("zhengwen").innerHTML != null) { 
-      var str = document.getElementById("zhengwen").innerHTML; 
-      var txt = str.replace(/lang-/g,"brush: ");
-      document.getElementById("zhengwen").innerHTML = txt;
-    }
-  })
-
-  SyntaxHighlighter.defaults['toolbar'] = false;  //去掉右上角问号图标
-  SyntaxHighlighter.config.tagName = 'code';       //可以更改解析的默认Tag。
-  SyntaxHighlighter.config.bloggerMode = true; 
-  SyntaxHighlighter.config.stripBrs = true;  
   SyntaxHighlighter.all();
 </script>
 

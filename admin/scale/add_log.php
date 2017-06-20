@@ -31,13 +31,14 @@
               </div>
             </div>
             <div class="form-group">
-              <textarea id="content" name="content" class="form-control" style="overflow:scroll;width:100%;height:250px;max-height:350px"></textarea>
+              <textarea id="content" name="content" class="form-control" style="overflow:scroll;width:100%;"></textarea>
             </div>
             <div class="form-group">
               <span onclick="displayToggle('advset', 1);">高级选项<i class="i i-minus"></i></span>
             </div>
             <div class="form-group" id="advset">
-              <textarea id="excerpt" name="excerpt" class="form-control" style="overflow:scroll;width:100%;height:250px;max-height:350px"></textarea>
+              <p>文章摘要</p>
+              <textarea id="excerpt" name="excerpt" class="form-control" style="overflow:scroll;width:100%;"></textarea>
             </div>
           </div>
         </section>
@@ -126,11 +127,32 @@
     <div class="footer text-center" style="clear: both;">欢迎使用 &copy; <a href="http://www.emlog.net" target="_blank">emlog</a><?php doAction('adm_footer');?></div>
   </section>
 </section>
+
+<!-- 加载编辑器 -->
+<!-- 源编辑器 -->
+<!--
 <script charset="utf-8" src="./editor/kindeditor.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
 <script charset="utf-8" src="./editor/lang/zh_CN.js?v=<?php echo Option::EMLOG_VERSION; ?>"></script>
 <script>
-loadEditor('content');
-loadEditor('excerpt');
+// loadEditor('content');
+// loadEditor('excerpt');
+</script>
+-->
+
+
+
+<!-- UEditor -->
+<script type="text/javascript" src="./ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="./ueditor/ueditor.all.js"></script>
+<!-- 语言包文件 -->
+<script type="text/javascript" src="./ueditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+  UE.getEditor('content');
+  UE.getEditor('excerpt');
+</script>
+
+<script>
 $("#menu_wt").addClass('active');
 $("#advset").css('display', $.cookie('em_advset') ? $.cookie('em_advset') : '');
 $("#alias").keyup(function(){checkalias();});
