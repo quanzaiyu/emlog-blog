@@ -39,10 +39,6 @@ a{cursor: url(<?php echo TEMPLATE_URL; ?>images/Click.ani), url(<?php echo TEMPL
 </style>
 <?php endif; ?>
 
-<!-- markdown -->
-<script src="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/scripts/editormd.min.js"></script>
-<link rel="stylesheet" href="<?php echo BLOG_URL; ?>content/plugins/emlog_markdown/styles/editormd.css" />
-
 <!-- css3动画库，它能让网页所有元素舞动起来，你将愛上它。 -->
 <link href="<?php echo TEMPLATE_URL; ?>jcss/csshake.min.css" rel="stylesheet">
 <link href="<?php echo TEMPLATE_URL; ?>jcss/animate.min.css" rel="stylesheet">
